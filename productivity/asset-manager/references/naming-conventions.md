@@ -1,19 +1,38 @@
 # Asset Naming Conventions
 
+## Organizational Hierarchy
+
+```
+Entity (Business)
+└── Treehouse LLC
+    │
+    ├── Properties
+    │   ├── Dallas Property (DAL)
+    │   └── Austin Property
+    │       ├── Main Unit A (ATX-A)
+    │       ├── ADU Unit B (ATX-B)
+    │       └── ADU Unit C (ATX-C) - coming soon
+    │
+    └── Assets
+        └── Individual items at each property
+```
+
+This hierarchy allows tracking assets across multiple properties while maintaining clear ownership under a single business entity.
+
 ## Asset ID Format
 
 ```
-{ENTITY}-{CATEGORY}-{SEQUENCE}
+{PROPERTY}-{CATEGORY}-{SEQUENCE}
 ```
 
-### Entity Codes (2 characters)
+### Property Codes
 
-| Code | Entity | Description |
-|------|--------|-------------|
-| `TH` | Treehouse LLC | Rental property assets |
-| `CO` | Consulting | Consulting business assets |
-| `TP` | Tap | Startup assets |
-| `PR` | Personal | Personal assets (not business) |
+| Code | Property | Description |
+|------|----------|-------------|
+| `DAL` | Dallas | Dallas property assets |
+| `ATX-A` | Austin Main Unit A | Austin main house assets |
+| `ATX-B` | Austin ADU Unit B | Austin ADU B assets |
+| `ATX-C` | Austin ADU Unit C | Austin ADU C assets (coming soon) |
 
 ### Category Codes (Variable length)
 
@@ -32,7 +51,7 @@
 
 ### Sequence (2 digits)
 
-- Start at `01` for each entity-category combination
+- Start at `01` for each property-category combination
 - Increment sequentially: `01`, `02`, `03`...
 - If you reach `99`, consider if category is too broad
 
@@ -40,17 +59,17 @@
 
 | Asset ID | Meaning |
 |----------|---------|
-| `TH-HVAC-01` | Treehouse, first HVAC unit |
-| `TH-HVAC-02` | Treehouse, second HVAC unit (if multi-unit) |
-| `TH-APPL-01` | Treehouse, first appliance (e.g., refrigerator) |
-| `TH-APPL-02` | Treehouse, second appliance (e.g., dishwasher) |
-| `TH-APPL-03` | Treehouse, third appliance (e.g., washer) |
-| `TH-PLMB-01` | Treehouse, first plumbing item (e.g., water heater) |
-| `TH-SAFE-01` | Treehouse, first safety item (e.g., smoke detector) |
-| `CO-TECH-01` | Consulting, first tech item (e.g., laptop) |
-| `CO-TECH-02` | Consulting, second tech item (e.g., monitor) |
-| `TP-TECH-01` | Tap startup, first tech item |
-| `PR-TOOL-01` | Personal, first tool |
+| `DAL-HVAC-01` | Dallas property, first HVAC unit |
+| `DAL-HVAC-02` | Dallas property, second HVAC unit |
+| `DAL-APPL-01` | Dallas property, first appliance (e.g., refrigerator) |
+| `DAL-APPL-02` | Dallas property, second appliance (e.g., dishwasher) |
+| `DAL-PLMB-01` | Dallas property, first plumbing item (e.g., water heater) |
+| `ATX-A-HVAC-01` | Austin Main Unit A, first HVAC unit |
+| `ATX-A-APPL-01` | Austin Main Unit A, first appliance |
+| `ATX-A-APPL-02` | Austin Main Unit A, second appliance |
+| `ATX-B-HVAC-01` | Austin ADU Unit B, first HVAC unit |
+| `ATX-B-APPL-01` | Austin ADU Unit B, first appliance |
+| `ATX-C-HVAC-01` | Austin ADU Unit C, first HVAC unit (future) |
 
 ## Document Naming
 
@@ -74,12 +93,13 @@ For documents related to an asset:
 ### Examples
 
 ```
-TH-HVAC-01_manual_2024-01-15.pdf
-TH-HVAC-01_warranty_2024-01-15.pdf
-TH-HVAC-01_receipt_2024-01-15.pdf
-TH-HVAC-01_invoice_2024-06-15.pdf   (service invoice)
-TH-HVAC-01_photo_2024-01-15.jpg
-TH-APPL-01_manual_2023-08-20.pdf
+DAL-HVAC-01_manual_2024-01-15.pdf
+DAL-HVAC-01_warranty_2024-01-15.pdf
+DAL-HVAC-01_receipt_2024-01-15.pdf
+DAL-HVAC-01_invoice_2024-06-15.pdf   (service invoice)
+DAL-HVAC-01_photo_2024-01-15.jpg
+ATX-A-APPL-01_manual_2023-08-20.pdf
+ATX-B-HVAC-01_receipt_2024-03-10.pdf
 ```
 
 ## Maintenance Log IDs
@@ -128,6 +148,7 @@ Examples:
 2. **Don't overthink** - The goal is findability, not perfection
 3. **Use leading zeros** - `01` not `1` for proper sorting
 4. **Date format** - Always `YYYY-MM-DD` for sorting
-5. **No spaces in IDs** - Use hyphens: `TH-HVAC-01` not `TH HVAC 01`
-6. **Lowercase for files** - `th-hvac-01_manual_2024-01-15.pdf`
-7. **Uppercase for IDs** - `TH-HVAC-01` in database records
+5. **No spaces in IDs** - Use hyphens: `DAL-HVAC-01` not `DAL HVAC 01`
+6. **Lowercase for files** - `dal-hvac-01_manual_2024-01-15.pdf`
+7. **Uppercase for IDs** - `DAL-HVAC-01` in database records
+8. **Property consistency** - Each asset belongs to exactly one property

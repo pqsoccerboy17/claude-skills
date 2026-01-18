@@ -13,10 +13,10 @@ Manage physical assets with QR code tracking, maintenance scheduling, and tax de
 ```bash
 # Create a new asset
 python3 ~/claude-skills/productivity/asset-manager/scripts/asset_crud.py create \
-  --id "TH-HVAC-01" \
+  --id "DAL-HVAC-01" \
   --name "Primary AC Unit" \
   --category "HVAC" \
-  --location "123 Main St" \
+  --location "Dallas Property" \
   --cost 3500 \
   --purchase-date "2024-01-15" \
   --warranty-years 5 \
@@ -24,12 +24,12 @@ python3 ~/claude-skills/productivity/asset-manager/scripts/asset_crud.py create 
 
 # Generate QR code for an asset
 python3 ~/claude-skills/productivity/asset-manager/scripts/qr_generator.py \
-  --asset-id "TH-HVAC-01" \
+  --asset-id "DAL-HVAC-01" \
   --notion-url "https://notion.so/page-id"
 
 # Log maintenance
 python3 ~/claude-skills/productivity/asset-manager/scripts/maintenance.py log \
-  --asset-id "TH-HVAC-01" \
+  --asset-id "DAL-HVAC-01" \
   --type "Preventive" \
   --description "Replaced air filter" \
   --cost 25
@@ -39,20 +39,34 @@ python3 ~/claude-skills/productivity/asset-manager/scripts/maintenance.py due
 
 # Calculate depreciation
 python3 ~/claude-skills/productivity/asset-manager/scripts/depreciation.py \
-  --asset-id "TH-HVAC-01" \
+  --asset-id "DAL-HVAC-01" \
   --tax-year 2024
+```
+
+## Organizational Hierarchy
+
+```
+Entity: Treehouse LLC (the business)
+    │
+    └── Properties
+        ├── DAL     = Dallas property
+        ├── ATX-A   = Austin Main Unit A
+        ├── ATX-B   = Austin ADU Unit B
+        └── ATX-C   = Austin ADU Unit C (coming soon)
+            │
+            └── Assets: Individual items at each property
 ```
 
 ## Naming Convention
 
 ```
-{ENTITY}-{CATEGORY}-{SEQUENCE}
+{PROPERTY}-{CATEGORY}-{SEQUENCE}
 
-ENTITY (2 chars):
-  TH = Treehouse LLC (rental property)
-  CO = Consulting
-  TP = Tap (startup)
-  PR = Personal
+PROPERTY:
+  DAL   = Dallas property
+  ATX-A = Austin Main Unit A
+  ATX-B = Austin ADU Unit B
+  ATX-C = Austin ADU Unit C (coming soon)
 
 CATEGORY:
   HVAC   = Heating/cooling systems
@@ -69,9 +83,12 @@ CATEGORY:
 SEQUENCE: 01, 02, 03...
 
 Examples:
-  TH-HVAC-01  = Rental property, first HVAC unit
-  TH-APPL-01  = Rental property, first appliance
-  CO-TECH-01  = Consulting, first tech item
+  DAL-HVAC-01    = Dallas, first HVAC unit
+  DAL-APPL-01    = Dallas, first appliance
+  ATX-A-HVAC-01  = Austin Main Unit A, first HVAC unit
+  ATX-A-APPL-01  = Austin Main Unit A, first appliance
+  ATX-B-APPL-01  = Austin ADU Unit B, first appliance
+  ATX-C-HVAC-01  = Austin ADU Unit C, first HVAC unit (future)
 ```
 
 ## Asset Categories & Depreciation
@@ -145,7 +162,7 @@ Create with these properties:
 
 | Property | Type | Notes |
 |----------|------|-------|
-| Asset ID | Title | Unique identifier (TH-HVAC-01) |
+| Asset ID | Title | Unique identifier (DAL-HVAC-01, ATX-A-APPL-01) |
 | Name | Text | Human-readable name |
 | Category | Select | HVAC, APPL, PLMB, ELEC, TOOL, TECH, FURN, LAND, SAFE, MISC |
 | Location | Select | Property address or room |
@@ -188,7 +205,7 @@ from notify import send_notification
 
 send_notification(
     title="Maintenance Due",
-    message="TH-HVAC-01: Filter change due in 3 days",
+    message="DAL-HVAC-01: Filter change due in 3 days",
     priority=0
 )
 ```
@@ -210,10 +227,10 @@ def check_maintenance_due():
 {ASSET-ID}_{DOCTYPE}_{DATE}.{ext}
 
 Examples:
-  TH-HVAC-01_manual_2024-01-15.pdf
-  TH-HVAC-01_warranty_2024-01-15.pdf
-  TH-HVAC-01_receipt_2024-01-15.pdf
-  TH-HVAC-01_photo_2024-01-15.jpg
+  DAL-HVAC-01_manual_2024-01-15.pdf
+  DAL-HVAC-01_warranty_2024-01-15.pdf
+  ATX-A-APPL-01_receipt_2024-01-15.pdf
+  ATX-B-HVAC-01_photo_2024-01-15.jpg
 ```
 
 Upload to NotebookLM for querying, link URL in Notion asset record.
