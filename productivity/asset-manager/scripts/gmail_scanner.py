@@ -442,7 +442,19 @@ class GmailScanner:
                     flow = InstalledAppFlow.from_client_secrets_file(
                         str(self.credentials_path), SCOPES
                     )
-                    creds = flow.run_local_server(port=0)
+                    # Try browser-based auth first, fall back to manual URL
+                    try:
+                        creds = flow.run_local_server(port=0)
+                    except Exception as browser_err:
+                        self.logger.warning(f"Browser auth failed: {browser_err}")
+                        self.logger.info("Falling back to manual authorization...")
+                        # Manual OAuth flow
+                        flow.redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
+                        auth_url, _ = flow.authorization_url(prompt="consent")
+                        print(f"\nPlease visit this URL to authorize:\n{auth_url}\n")
+                        code = input("Enter the authorization code: ").strip()
+                        flow.fetch_token(code=code)
+                        creds = flow.credentials
                     self.logger.info("Completed OAuth flow")
                 except Exception as e:
                     self.logger.error(f"OAuth flow failed: {e}")
