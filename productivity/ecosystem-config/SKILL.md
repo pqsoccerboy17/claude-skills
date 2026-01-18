@@ -35,9 +35,12 @@ Consolidates all environment variable configuration into a single file that can 
 ### Notion API
 | Variable | Required For | Description |
 |----------|-------------|-------------|
-| `NOTION_TOKEN` | treehouse-context-sync, drive-index-sync | Notion integration token |
+| `NOTION_TOKEN` | treehouse-context-sync, drive-index-sync, asset-manager | Notion integration token |
 | `NOTION_DOCUMENT_INDEX_DB_ID` | drive-index-sync | Document Index database ID |
 | `NOTION_PROPERTIES_DB_ID` | drive-index-sync | Properties database ID |
+| `NOTION_ASSETS_DB_ID` | asset-manager | Asset Inventory database ID |
+| `NOTION_MAINTENANCE_DB_ID` | asset-manager | Maintenance Log database ID |
+| `NOTION_DEPRECIATION_DB_ID` | asset-manager | Depreciation Schedule database ID |
 
 ### Google Drive API
 | Variable | Required For | Description |
