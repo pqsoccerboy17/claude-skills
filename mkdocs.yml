@@ -1,0 +1,62 @@
+site_name: Treehouse Systems
+site_description: Central documentation for all Treehouse automation systems
+site_author: Michael
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Skills:
+    - Overview: skills/index.md
+    - Asset Manager: skills/asset-manager.md
+    - Notifications: skills/notifications.md
+    - Ecosystem Status: skills/ecosystem-status.md
+  - Guides:
+    - Getting Started: guides/getting-started.md
+    - Daily Workflows: guides/daily-workflows.md
+  - Architecture:
+    - System Overview: architecture/overview.md
+    - Data Flow: architecture/data-flow.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pqsoccerboy17/claude-skills
