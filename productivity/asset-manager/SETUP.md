@@ -1,5 +1,32 @@
 # Asset Manager Setup Guide
 
+## TL;DR - What This Does
+
+**Purpose:** Automatically track home/property assets by scanning your Gmail for purchases, finding product manuals, and organizing everything in Google Drive.
+
+**The Pipeline:**
+```
+Gmail Purchases → Review Queue → Find Manuals → Upload to Drive
+```
+
+**Daily Use (after setup):**
+```bash
+cd ~/claude-skills/productivity/asset-manager/scripts
+
+# Scan last 30 days of purchases
+python3 gmail_scanner.py --days 30 --output purchases.json
+
+# See what needs review
+python3 review_queue.py --list
+
+# Approve good items
+python3 review_queue.py --approve <id>
+```
+
+**Your OAuth is already set up** - token saved at `~/.config/treehouse/token.json`
+
+---
+
 ## Quick Start (No Installation Required)
 
 The **review_queue.py** module works immediately with zero dependencies:
