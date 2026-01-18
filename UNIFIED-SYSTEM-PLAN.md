@@ -1,6 +1,8 @@
 # Unified System Plan: NotebookLM + Asset Management Integration
 
-> **Philosophy:** "Ralph Wiggum Plugin Ethos" - Small, focused pieces that each do one thing well. Chip away incrementally. Progress over perfection.
+> **Philosophy:** "Ralph Wiggum Plugin Ethos" - Incremental development for non-developers. Small focused changes, clear success criteria, test before commit, chip away progressively.
+>
+> *Reference: [github.com/pqsoccerboy17/Ralph-Wiggum](https://github.com/pqsoccerboy17/Ralph-Wiggum)*
 
 ---
 
@@ -35,15 +37,38 @@ This plan unifies two parallel initiatives into a cohesive "Retire Now" efficien
 
 ### The Ralph Wiggum Plugin Ethos
 
-> "Me fail English? That's unpossible!" - Ralph Wiggum
+> *Source: [Ralph-Wiggum Repository](https://github.com/pqsoccerboy17/Ralph-Wiggum)*
 
-The philosophy isn't about incompetence—it's about **naive optimism and incremental progress**:
+The Ralph Wiggum approach is designed for **non-developer users** who leverage AI (Claude Code) for technical implementation. The core principles:
 
-1. **Small Bites** - Each plugin/skill does exactly one thing
-2. **Chip Away** - Build incrementally, not all at once
-3. **Good Enough** - Working beats perfect
-4. **Celebrate Small Wins** - Every completed piece is progress
-5. **Don't Overthink** - Sometimes the simple solution is the right one
+#### Development Principles
+
+1. **Small & Focused** - Each function, script, or skill does exactly one thing well
+2. **Incremental Changes** - Build piece by piece, not all at once
+3. **Clear Success Criteria** - Define what "done" looks like before starting
+4. **Test Before Commit** - Always validate changes work before saving
+5. **Plain Communication** - Explain errors and decisions in simple terms
+
+#### Task Classification
+
+| Safe for Autonomous Work | Requires Human Review |
+|-------------------------|----------------------|
+| Testing & validation | Security implementations |
+| Documentation updates | Payment/financial logic |
+| Code formatting/linting | Architectural decisions |
+| Simple bug fixes | Database migrations |
+| Adding comments | Credential handling |
+
+#### Workflow Cycle
+
+```
+1. UNDERSTAND → What needs to be done?
+2. PLAN       → How will we approach it?
+3. IMPLEMENT  → Make small, focused changes
+4. TEST       → Validate it works
+5. COMMIT     → Save with clear message
+6. REPEAT     → Next small piece
+```
 
 ### Applied to This System
 
@@ -59,6 +84,8 @@ Phase 5: NotebookLM notebooks (one thing)
 Phase 6: Material processor skill (one thing)
 
 Each piece works alone. Together they're powerful.
+Each piece has clear success criteria.
+Each piece is tested before moving on.
 ```
 
 ---
