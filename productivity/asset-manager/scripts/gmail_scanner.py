@@ -448,11 +448,23 @@ class GmailScanner:
                     except Exception as browser_err:
                         self.logger.warning(f"Browser auth failed: {browser_err}")
                         self.logger.info("Falling back to manual authorization...")
-                        # Manual OAuth flow
-                        flow.redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
+                        # Manual OAuth flow using localhost redirect
+                        import urllib.parse
+                        flow.redirect_uri = "http://localhost"
                         auth_url, _ = flow.authorization_url(prompt="consent")
                         print(f"\nPlease visit this URL to authorize:\n{auth_url}\n")
-                        code = input("Enter the authorization code: ").strip()
+                        print("After authorizing, you'll be redirected to localhost.")
+                        print("Copy the FULL URL from your browser and paste it here.\n")
+                        redirect_response = input("Paste redirect URL (or just the code): ").strip()
+                        # Handle both full URL and just the code
+                        if redirect_response.startswith("http"):
+                            parsed = urllib.parse.urlparse(redirect_response)
+                            params = urllib.parse.parse_qs(parsed.query)
+                            code = params.get("code", [None])[0]
+                            if not code:
+                                raise ValueError("No authorization code found in URL")
+                        else:
+                            code = redirect_response
                         flow.fetch_token(code=code)
                         creds = flow.credentials
                     self.logger.info("Completed OAuth flow")
