@@ -22,6 +22,10 @@ cd ~/claude-skills
 | Data Analysis | [csv-data-summarizer](data-analysis/csv-data-summarizer/) | Quick analysis of exported financial data |
 | Productivity | [file-organizer](productivity/file-organizer/) | Financial document organization, photo pipelines |
 | Productivity | [internal-comms](productivity/internal-comms/) | Client/tenant/investor communication templates |
+| Productivity | [notion-api](productivity/notion-api/) | Direct Notion API access for Code mode sessions |
+| Productivity | [ecosystem-status](productivity/ecosystem-status/) | Monitor all automation systems at a glance |
+| Productivity | [notifications](productivity/notifications/) | Unified push notifications (Pushover/macOS) |
+| Productivity | [ecosystem-config](productivity/ecosystem-config/) | Central configuration for all ecosystem tools |
 | Dev Tools | [mcp-builder](dev-tools/mcp-builder/) | Build custom MCP servers for Claude integrations |
 
 ## Directory Structure
@@ -45,9 +49,20 @@ claude-skills/
 │   ├── file-organizer/         # Document organization
 │   │   ├── SKILL.md
 │   │   └── scripts/
-│   └── internal-comms/         # Communication templates
-│       ├── SKILL.md
-│       └── references/
+│   ├── internal-comms/         # Communication templates
+│   │   ├── SKILL.md
+│   │   └── references/
+│   ├── notion-api/             # Direct Notion API for Code mode
+│   │   ├── SKILL.md
+│   │   └── scripts/
+│   ├── ecosystem-status/       # Automation system monitoring
+│   │   ├── SKILL.md
+│   │   └── scripts/
+│   ├── notifications/          # Unified notifications
+│   │   ├── SKILL.md
+│   │   └── scripts/
+│   └── ecosystem-config/       # Central configuration
+│       └── SKILL.md
 ├── dev-tools/
 │   └── mcp-builder/            # MCP server development
 │       ├── SKILL.md
@@ -138,6 +153,47 @@ Professional communication templates:
 - `references/real-estate-templates.md` - Treehouse LLC
 - `references/consulting-templates.md` - [YourCo] Consulting
 - `references/startup-templates.md` - Tap investor relations
+
+#### Notion API (`productivity/notion-api/`)
+**Source:** Custom skill for Code mode Notion access
+
+Direct Notion API access for Claude Code mode sessions, where MCP servers aren't available. Mirrors functionality from ecosystem-mcp-server.
+
+**Capabilities:**
+- Query and search databases
+- Create, read, update pages
+- Automation request control plane
+- Works in Code mode (cloud sandbox)
+
+**Usage:**
+```python
+from notion_api import NotionClient
+
+notion = NotionClient()
+results = notion.search("Meeting Notes")
+pending = notion.get_pending_requests()
+```
+
+**Environment:**
+- `NOTION_TOKEN` - Integration token (required)
+- `NOTION_AUTOMATION_DB_ID` - Default automation database
+
+#### Ecosystem Status (`productivity/ecosystem-status/`)
+**Source:** Custom monitoring skill
+
+Monitor all automation systems at a glance:
+- Tax PDF Organizer status
+- Media Organizer status
+- Monarch Money connection
+- Treehouse Context Sync
+- Notion Rules (Tax OCR)
+
+#### Notifications (`productivity/notifications/`)
+**Source:** Custom notification skill
+
+Unified notification system supporting:
+- Pushover (mobile/desktop push)
+- macOS Notification Center (fallback)
 
 ### Dev Tools
 
@@ -240,7 +296,8 @@ Use the skill-creator pattern:
 |-------------|---------|-------|
 | Zillow | Real estate market data | Free RapidAPI key |
 | Readwise | Knowledge management | Existing account |
-| Notion | Note-taking integration | API key |
+
+> **Note:** Notion integration is now available via the `notion-api` skill for Code mode sessions, and via `ecosystem-mcp-server` for Chat mode.
 
 ## Contributing
 
