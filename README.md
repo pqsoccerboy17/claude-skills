@@ -26,6 +26,7 @@ cd ~/claude-skills
 | Productivity | [ecosystem-status](productivity/ecosystem-status/) | Monitor all automation systems at a glance |
 | Productivity | [notifications](productivity/notifications/) | Unified push notifications (Pushover/macOS) |
 | Productivity | [ecosystem-config](productivity/ecosystem-config/) | Central configuration for all ecosystem tools |
+| AI APIs | [gemini](ai-apis/gemini/) | Gemini API for categorization, summarization, research |
 | Dev Tools | [mcp-builder](dev-tools/mcp-builder/) | Build custom MCP servers for Claude integrations |
 
 ## Directory Structure
@@ -63,6 +64,11 @@ claude-skills/
 │   │   └── scripts/
 │   └── ecosystem-config/       # Central configuration
 │       └── SKILL.md
+├── ai-apis/
+│   └── gemini/                 # Google Gemini API integration
+│       ├── SKILL.md
+│       └── scripts/
+│           └── gemini_api.py
 ├── dev-tools/
 │   └── mcp-builder/            # MCP server development
 │       ├── SKILL.md
@@ -194,6 +200,35 @@ Monitor all automation systems at a glance:
 Unified notification system supporting:
 - Pushover (mobile/desktop push)
 - macOS Notification Center (fallback)
+
+### AI APIs
+
+#### Gemini API (`ai-apis/gemini/`)
+**Source:** Custom skill for Google Gemini integration
+
+Google Gemini API helper for AI-powered automation:
+- Transaction categorization (financial data)
+- Text summarization
+- Company research (lead enrichment)
+- Receipt OCR with multimodal support
+
+**Usage:**
+```bash
+# Categorize a transaction
+python scripts/gemini_api.py categorize "COSTCO WHOLESALE" -89.47
+
+# Summarize text
+python scripts/gemini_api.py summarize "Long text to summarize..."
+
+# Research a company
+python scripts/gemini_api.py research "Acme Corp"
+
+# Extract data from receipt image
+python scripts/gemini_api.py receipt /path/to/receipt.jpg
+```
+
+**Environment:**
+- `GEMINI_API_KEY` - API key from aistudio.google.com (free tier available)
 
 ### Dev Tools
 
