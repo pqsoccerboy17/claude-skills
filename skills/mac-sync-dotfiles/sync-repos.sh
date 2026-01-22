@@ -15,8 +15,11 @@ set -e
 
 # Configuration - customize these
 GITHUB_USERNAME="${GITHUB_USERNAME:-$(gh api user --jq .login 2>/dev/null || echo '')}"
-REPOS_DIR="${REPOS_DIR:-$HOME/repos}"
 REPOS_MANIFEST="$HOME/dotfiles/repos.txt"
+
+# Multiple repo directories - new repos clone to first directory
+REPOS_DIRS=("$HOME/dev" "$HOME/Projects")
+DEFAULT_CLONE_DIR="${REPOS_DIRS[0]}"
 
 # Colors
 RED='\033[0;31m'
@@ -49,12 +52,36 @@ if [ -z "$GITHUB_USERNAME" ]; then
 fi
 
 echo "GitHub User: $GITHUB_USERNAME"
-echo "Repos Directory: $REPOS_DIR"
+echo "Repos Directories: ${REPOS_DIRS[*]}"
 echo ""
 
 # ============================================
 # Functions
 # ============================================
+
+# Find a repo by name across all directories, returns path or empty
+find_repo_local() {
+    local name="$1"
+    for dir in "${REPOS_DIRS[@]}"; do
+        if [ -d "$dir/$name/.git" ]; then
+            echo "$dir/$name"
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Iterate over all local repos (outputs: path|name)
+for_each_local_repo() {
+    for dir in "${REPOS_DIRS[@]}"; do
+        [ -d "$dir" ] || continue
+        for repo_dir in "$dir"/*/; do
+            [ -d "$repo_dir/.git" ] || continue
+            repo_name=$(basename "$repo_dir")
+            echo "$repo_dir|$repo_name"
+        done
+    done
+}
 
 get_all_repos() {
     gh repo list "$GITHUB_USERNAME" --limit 100 --json name,sshUrl,isPrivate,updatedAt \
@@ -79,10 +106,10 @@ export_repos() {
 
 clone_all() {
     echo -e "${BLUE}📥 Cloning all repositories...${NC}"
+    echo -e "New repos will be cloned to: $DEFAULT_CLONE_DIR"
     echo ""
 
-    mkdir -p "$REPOS_DIR"
-    cd "$REPOS_DIR"
+    mkdir -p "$DEFAULT_CLONE_DIR"
 
     local cloned=0
     local skipped=0
@@ -93,12 +120,15 @@ clone_all() {
         [[ "$name" =~ ^#.*$ ]] && continue
         [[ -z "$name" ]] && continue
 
-        if [ -d "$REPOS_DIR/$name" ]; then
-            echo -e "  ${YELLOW}⏭️  $name${NC} (already exists)"
+        # Check if repo exists in any directory
+        existing_path=$(find_repo_local "$name" || echo "")
+
+        if [ -n "$existing_path" ]; then
+            echo -e "  ${YELLOW}⏭️  $name${NC} (exists at $existing_path)"
             ((skipped++))
         else
             echo -e "  ${BLUE}📦 Cloning $name...${NC}"
-            if git clone "$ssh_url" "$REPOS_DIR/$name" 2>/dev/null; then
+            if git clone "$ssh_url" "$DEFAULT_CLONE_DIR/$name" 2>/dev/null; then
                 echo -e "  ${GREEN}✓ $name${NC}"
                 ((cloned++))
             else
@@ -117,49 +147,38 @@ pull_all() {
     echo -e "${BLUE}📥 Pulling latest on all repositories...${NC}"
     echo ""
 
-    if [ ! -d "$REPOS_DIR" ]; then
-        echo -e "${RED}Error: Repos directory not found: $REPOS_DIR${NC}"
-        exit 1
-    fi
-
     local updated=0
     local unchanged=0
     local failed=0
 
-    for repo_dir in "$REPOS_DIR"/*/; do
+    while IFS='|' read -r repo_dir repo_name; do
         [ -d "$repo_dir" ] || continue
 
-        repo_name=$(basename "$repo_dir")
+        cd "$repo_dir"
 
-        if [ -d "$repo_dir/.git" ]; then
-            cd "$repo_dir"
+        # Get current branch
+        branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main")
 
-            # Get current branch
-            branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main")
+        # Fetch and check if updates available
+        git fetch origin "$branch" 2>/dev/null || true
 
-            # Fetch and check if updates available
-            git fetch origin "$branch" 2>/dev/null
+        local_commit=$(git rev-parse HEAD 2>/dev/null)
+        remote_commit=$(git rev-parse "origin/$branch" 2>/dev/null || echo "")
 
-            local_commit=$(git rev-parse HEAD 2>/dev/null)
-            remote_commit=$(git rev-parse "origin/$branch" 2>/dev/null || echo "")
-
-            if [ "$local_commit" != "$remote_commit" ] && [ -n "$remote_commit" ]; then
-                echo -e "  ${BLUE}⬇️  $repo_name${NC} (pulling...)"
-                if git pull origin "$branch" 2>/dev/null; then
-                    echo -e "  ${GREEN}✓ $repo_name${NC}"
-                    ((updated++))
-                else
-                    echo -e "  ${RED}✗ $repo_name (merge conflict or error)${NC}"
-                    ((failed++))
-                fi
+        if [ "$local_commit" != "$remote_commit" ] && [ -n "$remote_commit" ]; then
+            echo -e "  ${BLUE}⬇️  $repo_name${NC} (pulling...)"
+            if git pull origin "$branch" 2>/dev/null; then
+                echo -e "  ${GREEN}✓ $repo_name${NC}"
+                ((updated++))
             else
-                echo -e "  ${GREEN}✓ $repo_name${NC} (up to date)"
-                ((unchanged++))
+                echo -e "  ${RED}✗ $repo_name (merge conflict or error)${NC}"
+                ((failed++))
             fi
-
-            cd "$REPOS_DIR"
+        else
+            echo -e "  ${GREEN}✓ $repo_name${NC} (up to date)"
+            ((unchanged++))
         fi
-    done
+    done < <(for_each_local_repo)
 
     echo ""
     echo "================================"
@@ -168,9 +187,10 @@ pull_all() {
 
 sync_all() {
     echo -e "${BLUE}🔄 Syncing all repositories...${NC}"
+    echo -e "New repos will be cloned to: $DEFAULT_CLONE_DIR"
     echo ""
 
-    mkdir -p "$REPOS_DIR"
+    mkdir -p "$DEFAULT_CLONE_DIR"
 
     local cloned=0
     local updated=0
@@ -181,12 +201,13 @@ sync_all() {
         [[ "$name" =~ ^#.*$ ]] && continue
         [[ -z "$name" ]] && continue
 
-        repo_dir="$REPOS_DIR/$name"
+        # Check if repo exists in any directory
+        repo_dir=$(find_repo_local "$name" || echo "")
 
-        if [ ! -d "$repo_dir" ]; then
-            # Clone if doesn't exist
+        if [ -z "$repo_dir" ]; then
+            # Clone if doesn't exist anywhere
             echo -e "  ${BLUE}📦 Cloning $name...${NC}"
-            if git clone "$ssh_url" "$repo_dir" 2>/dev/null; then
+            if git clone "$ssh_url" "$DEFAULT_CLONE_DIR/$name" 2>/dev/null; then
                 echo -e "  ${GREEN}✓ $name (cloned)${NC}"
                 ((cloned++))
             else
@@ -221,7 +242,6 @@ sync_all() {
                     ((unchanged++))
                 fi
             fi
-            cd "$REPOS_DIR"
         fi
     done < <(get_all_repos)
 
@@ -234,24 +254,15 @@ show_status() {
     echo -e "${BLUE}📊 Repository Status${NC}"
     echo ""
 
-    if [ ! -d "$REPOS_DIR" ]; then
-        echo -e "${YELLOW}Repos directory not found: $REPOS_DIR${NC}"
-        echo "Run: ./sync-repos.sh --clone-all"
-        exit 0
-    fi
-
     local clean=0
     local dirty=0
     local ahead=0
     local behind=0
 
-    printf "%-30s %-10s %-15s %s\n" "REPOSITORY" "BRANCH" "STATUS" "CHANGES"
-    printf "%-30s %-10s %-15s %s\n" "----------" "------" "------" "-------"
+    printf "%-30s %-10s %-15s %s\n" "REPOSITORY" "BRANCH" "STATUS" "LOCATION"
+    printf "%-30s %-10s %-15s %s\n" "----------" "------" "------" "--------"
 
-    for repo_dir in "$REPOS_DIR"/*/; do
-        [ -d "$repo_dir/.git" ] || continue
-
-        repo_name=$(basename "$repo_dir")
+    while IFS='|' read -r repo_dir repo_name; do
         cd "$repo_dir"
 
         branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "???")
@@ -263,6 +274,9 @@ show_status() {
         git fetch origin "$branch" 2>/dev/null || true
         ahead_count=$(git rev-list --count "origin/$branch..HEAD" 2>/dev/null || echo "0")
         behind_count=$(git rev-list --count "HEAD..origin/$branch" 2>/dev/null || echo "0")
+
+        # Get parent directory name for location
+        location=$(dirname "$repo_dir" | xargs basename)
 
         if [ "$changes" -gt 0 ]; then
             status="${YELLOW}uncommitted${NC}"
@@ -279,10 +293,8 @@ show_status() {
         fi
 
         printf "%-30s %-10s " "$repo_name" "$branch"
-        echo -e "$status"
-
-        cd "$REPOS_DIR"
-    done
+        echo -e "$status  ~/$location"
+    done < <(for_each_local_repo)
 
     echo ""
     echo "================================"
@@ -301,10 +313,7 @@ push_all_uncommitted() {
         exit 0
     fi
 
-    for repo_dir in "$REPOS_DIR"/*/; do
-        [ -d "$repo_dir/.git" ] || continue
-
-        repo_name=$(basename "$repo_dir")
+    while IFS='|' read -r repo_dir repo_name; do
         cd "$repo_dir"
 
         if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
@@ -315,9 +324,7 @@ push_all_uncommitted() {
             git push origin "$branch"
             echo -e "  ${GREEN}✓ $repo_name pushed${NC}"
         fi
-
-        cd "$REPOS_DIR"
-    done
+    done < <(for_each_local_repo)
 }
 
 # ============================================
@@ -351,9 +358,12 @@ case "${1:-}" in
         echo "  --push-all     Commit and push all uncommitted changes"
         echo "  --export       Export repo list to ~/dotfiles/repos.txt"
         echo ""
+        echo "Configuration:"
+        echo "  Scans repos in: ${REPOS_DIRS[*]}"
+        echo "  New repos clone to: $DEFAULT_CLONE_DIR"
+        echo ""
         echo "Environment variables:"
         echo "  GITHUB_USERNAME  Your GitHub username (auto-detected if gh authenticated)"
-        echo "  REPOS_DIR        Directory for repos (default: ~/repos)"
         ;;
     *)
         sync_all

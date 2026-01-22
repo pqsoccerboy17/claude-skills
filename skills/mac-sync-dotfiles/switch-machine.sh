@@ -11,7 +11,8 @@
 
 set -e
 
-REPOS_DIR="${REPOS_DIR:-$HOME/repos}"
+# Multiple repo directories
+REPOS_DIRS=("$HOME/dev" "$HOME/Projects")
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 
 # Colors
@@ -30,25 +31,42 @@ echo "Date: $(date)"
 echo ""
 
 # ============================================
+# Helper function
+# ============================================
+
+# Iterate over all local repos (outputs: path|name)
+for_each_local_repo() {
+    for dir in "${REPOS_DIRS[@]}"; do
+        [ -d "$dir" ] || continue
+        for repo_dir in "$dir"/*/; do
+            [ -d "$repo_dir/.git" ] || continue
+            repo_name=$(basename "$repo_dir")
+            echo "$repo_dir|$repo_name"
+        done
+    done
+}
+
+# ============================================
 # Check for uncommitted changes
 # ============================================
 echo -e "${BOLD}📊 Checking repositories for uncommitted changes...${NC}"
 echo ""
 
+# Store repo paths for later (name|path format)
+declare -A repo_paths
 uncommitted_repos=()
 unpushed_repos=()
 
-for repo_dir in "$REPOS_DIR"/*/; do
-    [ -d "$repo_dir/.git" ] || continue
-
-    repo_name=$(basename "$repo_dir")
+while IFS='|' read -r repo_dir repo_name; do
+    repo_paths["$repo_name"]="$repo_dir"
     cd "$repo_dir"
 
     # Check for uncommitted changes
     if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
         uncommitted_repos+=("$repo_name")
         changes=$(git status --porcelain | wc -l | tr -d ' ')
-        echo -e "  ${YELLOW}⚠️  $repo_name${NC} - $changes uncommitted changes"
+        location=$(dirname "$repo_dir" | xargs basename)
+        echo -e "  ${YELLOW}⚠️  $repo_name${NC} (~/$location) - $changes uncommitted changes"
     fi
 
     # Check for unpushed commits
@@ -56,11 +74,10 @@ for repo_dir in "$REPOS_DIR"/*/; do
     ahead=$(git rev-list --count "origin/$branch..HEAD" 2>/dev/null || echo "0")
     if [ "$ahead" -gt 0 ]; then
         unpushed_repos+=("$repo_name")
-        echo -e "  ${BLUE}📤 $repo_name${NC} - $ahead unpushed commits"
+        location=$(dirname "$repo_dir" | xargs basename)
+        echo -e "  ${BLUE}📤 $repo_name${NC} (~/$location) - $ahead unpushed commits"
     fi
-
-    cd "$REPOS_DIR"
-done
+done < <(for_each_local_repo)
 
 # Also check dotfiles
 if [ -d "$DOTFILES_DIR/.git" ]; then
@@ -86,7 +103,7 @@ if [ ${#uncommitted_repos[@]} -eq 0 ] && [ ${#unpushed_repos[@]} -eq 0 ]; then
     echo -e "${GREEN}✅ All repositories are clean and pushed!${NC}"
     echo ""
     echo "You're ready to switch machines. On your other Mac, run:"
-    echo -e "  ${BOLD}cd ~/repos && ./sync-repos.sh${NC}"
+    echo -e "  ${BOLD}cd ~/dev/claude-skills/skills/mac-sync-dotfiles && ./sync-repos.sh${NC}"
     exit 0
 fi
 
@@ -115,7 +132,7 @@ case $choice in
             if [ "$repo_name" = "dotfiles" ]; then
                 repo_dir="$DOTFILES_DIR"
             else
-                repo_dir="$REPOS_DIR/$repo_name"
+                repo_dir="${repo_paths[$repo_name]}"
             fi
 
             cd "$repo_dir"
@@ -137,7 +154,7 @@ case $choice in
             if [ "$repo_name" = "dotfiles" ]; then
                 repo_dir="$DOTFILES_DIR"
             else
-                repo_dir="$REPOS_DIR/$repo_name"
+                repo_dir="${repo_paths[$repo_name]}"
             fi
 
             cd "$repo_dir"
@@ -153,7 +170,7 @@ case $choice in
         echo -e "${GREEN}✅ All done! Ready to switch machines.${NC}"
         echo ""
         echo "On your other Mac, run:"
-        echo -e "  ${BOLD}cd ~/repos && ./sync-repos.sh${NC}"
+        echo -e "  ${BOLD}cd ~/dev/claude-skills/skills/mac-sync-dotfiles && ./sync-repos.sh${NC}"
         ;;
 
     2)
@@ -163,13 +180,14 @@ case $choice in
             if [ "$repo_name" = "dotfiles" ]; then
                 repo_dir="$DOTFILES_DIR"
             else
-                repo_dir="$REPOS_DIR/$repo_name"
+                repo_dir="${repo_paths[$repo_name]}"
             fi
 
             [ -d "$repo_dir" ] || continue
             cd "$repo_dir"
 
-            echo -e "${BOLD}━━━ $repo_name ━━━${NC}"
+            location=$(dirname "$repo_dir" | xargs basename)
+            echo -e "${BOLD}━━━ $repo_name (~/$location) ━━━${NC}"
             git status -s
             echo ""
         done

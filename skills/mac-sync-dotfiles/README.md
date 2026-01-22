@@ -28,12 +28,23 @@ This skill provides scripts for complete machine synchronization:
 
 ## Quick Start
 
+### Repository Structure
+
+Repos are organized in two locations:
+
+| Location | Purpose | Contents |
+|----------|---------|----------|
+| `~/dev/` | Development tools & automations | claude-skills, MCP servers, automation tools |
+| `~/Projects/` | Client & business work | client-timelines, design-os, etc. |
+
+New repos from `--clone-all` are cloned to `~/dev/` by default.
+
 ### On Your Primary Mac (Mac Mini)
 
 ```bash
 # 1. Clone this skills repo
-git clone https://github.com/pqsoccerboy17/claude-skills.git ~/claude-skills
-cd ~/claude-skills/skills/mac-sync-dotfiles
+git clone https://github.com/pqsoccerboy17/claude-skills.git ~/dev/claude-skills
+cd ~/dev/claude-skills/skills/mac-sync-dotfiles
 
 # 2. Export your configuration (creates ~/dotfiles)
 ./export-config.sh
@@ -43,8 +54,8 @@ cd ~/dotfiles
 git remote add origin git@github.com:YOUR_USERNAME/dotfiles.git
 git push -u origin main
 
-# 4. Sync ALL your GitHub repos to ~/repos
-cd ~/claude-skills/skills/mac-sync-dotfiles
+# 4. Sync ALL your GitHub repos (scans ~/dev + ~/Projects, clones missing to ~/dev)
+cd ~/dev/claude-skills/skills/mac-sync-dotfiles
 ./sync-repos.sh --clone-all
 ```
 
@@ -52,8 +63,8 @@ cd ~/claude-skills/skills/mac-sync-dotfiles
 
 ```bash
 # 1. Clone the skills repo
-git clone https://github.com/pqsoccerboy17/claude-skills.git ~/claude-skills
-cd ~/claude-skills/skills/mac-sync-dotfiles
+git clone https://github.com/pqsoccerboy17/claude-skills.git ~/dev/claude-skills
+cd ~/dev/claude-skills/skills/mac-sync-dotfiles
 
 # 2. Clone your dotfiles and install
 git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
@@ -86,12 +97,13 @@ The `sync-repos.sh` script manages ALL your GitHub repos (all 17+):
 
 ### Configuration
 
-```bash
-# Set where repos are stored (default: ~/repos)
-export REPOS_DIR=~/projects
+The script scans repos in `~/dev` and `~/Projects` by default. New repos are cloned to `~/dev`.
 
-# Set your GitHub username (auto-detected from gh cli)
-export GITHUB_USERNAME=pqsoccerboy17
+To customize, edit the `REPOS_DIRS` array in `sync-repos.sh`:
+
+```bash
+REPOS_DIRS=("$HOME/dev" "$HOME/Projects")
+DEFAULT_CLONE_DIR="${REPOS_DIRS[0]}"
 ```
 
 ## Daily Workflow
@@ -101,7 +113,7 @@ export GITHUB_USERNAME=pqsoccerboy17
 Use the switch helper to check everything is pushed:
 
 ```bash
-cd ~/claude-skills/skills/mac-sync-dotfiles
+cd ~/dev/claude-skills/skills/mac-sync-dotfiles
 ./switch-machine.sh
 ```
 
@@ -120,9 +132,9 @@ Or do it manually:
 ### When Starting on the Other Machine (MacBook)
 
 ```bash
-cd ~/claude-skills/skills/mac-sync-dotfiles
+cd ~/dev/claude-skills/skills/mac-sync-dotfiles
 
-# Pull everything (dotfiles + all repos)
+# Pull everything (scans ~/dev + ~/Projects)
 ./sync-repos.sh
 ```
 
