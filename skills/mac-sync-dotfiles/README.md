@@ -4,9 +4,14 @@ Synchronize your development environment between multiple Mac computers (e.g., M
 
 ## Overview
 
-This skill provides two scripts:
-- **`export-config.sh`** - Run on your primary Mac to capture your current setup
-- **`install-config.sh`** - Run on a new Mac to set up your synced environment
+This skill provides scripts for complete machine synchronization:
+
+| Script | Purpose |
+|--------|---------|
+| **`export-config.sh`** | Capture your current Mac's configuration |
+| **`install-config.sh`** | Set up a new Mac with your synced environment |
+| **`sync-repos.sh`** | Clone/pull ALL your GitHub repositories |
+| **`switch-machine.sh`** | Pre-flight check before switching Macs |
 
 ## What Gets Synced
 
@@ -26,55 +31,108 @@ This skill provides two scripts:
 ### On Your Primary Mac (Mac Mini)
 
 ```bash
-# 1. Download and run the export script
-curl -O https://raw.githubusercontent.com/YOUR_USERNAME/claude-skills/main/skills/mac-sync-dotfiles/export-config.sh
-chmod +x export-config.sh
+# 1. Clone this skills repo
+git clone https://github.com/pqsoccerboy17/claude-skills.git ~/claude-skills
+cd ~/claude-skills/skills/mac-sync-dotfiles
+
+# 2. Export your configuration (creates ~/dotfiles)
 ./export-config.sh
 
-# 2. Create a private GitHub repo and push
+# 3. Create a private GitHub repo for dotfiles and push
 cd ~/dotfiles
 git remote add origin git@github.com:YOUR_USERNAME/dotfiles.git
 git push -u origin main
+
+# 4. Sync ALL your GitHub repos to ~/repos
+cd ~/claude-skills/skills/mac-sync-dotfiles
+./sync-repos.sh --clone-all
 ```
 
 ### On Your Other Mac (MacBook)
 
 ```bash
-# 1. Clone your dotfiles
-git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+# 1. Clone the skills repo
+git clone https://github.com/pqsoccerboy17/claude-skills.git ~/claude-skills
+cd ~/claude-skills/skills/mac-sync-dotfiles
 
-# 2. Download and run the install script
-curl -O https://raw.githubusercontent.com/YOUR_USERNAME/claude-skills/main/skills/mac-sync-dotfiles/install-config.sh
-chmod +x install-config.sh
+# 2. Clone your dotfiles and install
+git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
 ./install-config.sh
+
+# 3. Clone ALL your GitHub repos
+./sync-repos.sh --clone-all
+```
+
+## Syncing All GitHub Repositories
+
+The `sync-repos.sh` script manages ALL your GitHub repos (all 17+):
+
+```bash
+# Clone all repos you don't have locally
+./sync-repos.sh --clone-all
+
+# Pull latest on all repos
+./sync-repos.sh --pull-all
+
+# Smart sync: clone missing + pull existing
+./sync-repos.sh
+
+# Check status of all repos
+./sync-repos.sh --status
+
+# Push all uncommitted changes (with WIP message)
+./sync-repos.sh --push-all
+```
+
+### Configuration
+
+```bash
+# Set where repos are stored (default: ~/repos)
+export REPOS_DIR=~/projects
+
+# Set your GitHub username (auto-detected from gh cli)
+export GITHUB_USERNAME=pqsoccerboy17
 ```
 
 ## Daily Workflow
 
-### Before Switching Machines
+### Before Switching Machines (Leaving Mac Mini)
+
+Use the switch helper to check everything is pushed:
 
 ```bash
-# On the machine you're leaving
-cd ~/your-project
-git add . && git commit -m "WIP" && git push
-
-# For dotfiles changes
-cd ~/dotfiles
-git add . && git commit -m "Update config" && git push
+cd ~/claude-skills/skills/mac-sync-dotfiles
+./switch-machine.sh
 ```
 
-### When Starting on the Other Machine
+This will:
+1. Scan all 17 repos for uncommitted changes
+2. Show any unpushed commits
+3. Offer to auto-commit and push everything
+
+Or do it manually:
 
 ```bash
-# Pull latest dotfiles
-cd ~/dotfiles
-git pull
-
-# Pull your project
-cd ~/your-project
-git pull
+# Push all repos with uncommitted changes
+./sync-repos.sh --push-all
 ```
+
+### When Starting on the Other Machine (MacBook)
+
+```bash
+cd ~/claude-skills/skills/mac-sync-dotfiles
+
+# Pull everything (dotfiles + all repos)
+./sync-repos.sh
+```
+
+### Quick Reference
+
+| When | Command |
+|------|---------|
+| Leaving a machine | `./switch-machine.sh` |
+| Arriving on new machine | `./sync-repos.sh` |
+| Check status of all repos | `./sync-repos.sh --status` |
 
 ## What's NOT Synced (Intentionally)
 
