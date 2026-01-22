@@ -1,0 +1,19 @@
+{
+  "name": "Mac Sync Dotfiles",
+  "description": "Synchronize development environment between multiple Mac computers using a dotfiles repository",
+  "version": "1.0.0",
+  "category": "system-management",
+  "tags": ["macos", "dotfiles", "sync", "configuration", "homebrew"],
+  "scripts": {
+    "export": "./export-config.sh",
+    "install": "./install-config.sh"
+  },
+  "requirements": {
+    "os": ["macos"],
+    "tools": ["git", "homebrew"]
+  },
+  "usage": {
+    "first_machine": "Run export-config.sh to capture current configuration",
+    "new_machine": "Clone your dotfiles repo, then run install-config.sh"
+  }
+}
