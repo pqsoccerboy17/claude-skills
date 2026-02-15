@@ -28,6 +28,7 @@ cd ~/claude-skills
 | Productivity | [ecosystem-config](productivity/ecosystem-config/) | Central configuration for all ecosystem tools |
 | AI APIs | [gemini](ai-apis/gemini/) | Gemini API for categorization, summarization, research |
 | Dev Tools | [mcp-builder](dev-tools/mcp-builder/) | Build custom MCP servers for Claude integrations |
+| Dev Tools | [factory-pm](dev-tools/factory-pm/) | Spec-before-code PM agent with approval gate |
 
 ## Directory Structure
 
@@ -70,9 +71,11 @@ claude-skills/
 │       └── scripts/
 │           └── gemini_api.py
 ├── dev-tools/
-│   └── mcp-builder/            # MCP server development
-│       ├── SKILL.md
-│       └── references/
+│   ├── mcp-builder/            # MCP server development
+│   │   ├── SKILL.md
+│   │   └── references/
+│   └── factory-pm/             # Spec-before-code PM agent
+│       └── SKILL.md
 ├── setup.sh                    # Installation script
 └── README.md
 ```
@@ -245,6 +248,22 @@ Build custom MCP servers for:
 - TypeScript and Python templates
 - Authentication patterns
 - Testing guidance
+
+#### Factory PM (`dev-tools/factory-pm/`)
+**Source:** Custom skill for spec-before-code discipline
+
+Product manager agent that plans before coding:
+- Reads project context (CLAUDE.md, deps, structure)
+- Asks 3-5 clarifying questions before planning
+- Writes spec to `specs/<feature>.md` in the project directory
+- Hard gate: waits for explicit "Approved" before any implementation
+- Pairs with `/spec` slash command for quick invocation
+
+**Usage:**
+```
+/spec add user authentication
+/spec build payment integration
+```
 
 ## Configuration
 
