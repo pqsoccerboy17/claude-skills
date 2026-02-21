@@ -64,7 +64,8 @@ claude-skills/
 │   │   ├── SKILL.md
 │   │   └── scripts/
 │   └── ecosystem-config/       # Central configuration
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── ecosystem.env.example
 ├── ai-apis/
 │   └── gemini/                 # Google Gemini API integration
 │       ├── SKILL.md
@@ -75,7 +76,12 @@ claude-skills/
 │   │   ├── SKILL.md
 │   │   └── references/
 │   └── factory-pm/             # Spec-before-code PM agent
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── commands/
+│           └── spec.md
+├── tests/                      # Smoke tests
+├── CLAUDE.md                   # Project instructions for Claude
+├── GITHUB_SETUP.md             # GitHub repository setup guide
 ├── setup.sh                    # Installation script
 └── README.md
 ```

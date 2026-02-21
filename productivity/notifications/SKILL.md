@@ -101,5 +101,5 @@ The module is installed at `~/scripts/notify.py`. A copy is maintained here for 
 
 To update:
 ```bash
-cp ~/Documents/claude-skills/productivity/notifications/scripts/notify.py ~/scripts/
+cp ~/claude-skills/productivity/notifications/scripts/notify.py ~/scripts/
 ```

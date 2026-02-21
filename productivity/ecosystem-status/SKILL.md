@@ -72,5 +72,5 @@ The script is installed at `~/scripts/ecosystem_status.py`. A copy is also maint
 
 To update the installed version:
 ```bash
-cp ~/Documents/claude-skills/productivity/ecosystem-status/scripts/ecosystem_status.py ~/scripts/
+cp ~/claude-skills/productivity/ecosystem-status/scripts/ecosystem_status.py ~/scripts/
 ```

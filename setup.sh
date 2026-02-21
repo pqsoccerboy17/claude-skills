@@ -31,7 +31,7 @@ fi
 # Check for pip packages
 echo ""
 echo "Installing Python dependencies..."
-pip3 install --quiet pypdf pdfplumber reportlab Pillow openpyxl pandas 2>/dev/null || {
+pip3 install --quiet pypdf pdfplumber reportlab Pillow openpyxl pandas pytest 2>/dev/null || {
     echo "Note: Some packages may need manual installation"
 }
 echo "✓ Python packages checked"
@@ -90,6 +90,28 @@ find "$SCRIPT_DIR" -name "*.py" -exec chmod +x {} \;
 find "$SCRIPT_DIR" -name "*.sh" -exec chmod +x {} \;
 echo "✓ Scripts are executable"
 
+# Create symlinks to ~/scripts/ for dual-install scripts
+echo ""
+echo "Setting up script symlinks..."
+SCRIPTS_DIR="$HOME/scripts"
+mkdir -p "$SCRIPTS_DIR"
+
+SYMLINKS=(
+    "$SCRIPT_DIR/productivity/ecosystem-status/scripts/ecosystem_status.py:$SCRIPTS_DIR/ecosystem_status.py"
+    "$SCRIPT_DIR/productivity/notifications/scripts/notify.py:$SCRIPTS_DIR/notify.py"
+)
+
+for pair in "${SYMLINKS[@]}"; do
+    src="${pair%%:*}"
+    dest="${pair##*:}"
+    if [ -f "$src" ]; then
+        ln -sf "$src" "$dest"
+        echo "✓ Linked $(basename "$dest") → ~/scripts/"
+    else
+        echo "⚠ Source not found: $src"
+    fi
+done
+
 # Summary
 echo ""
 echo "========================================"
@@ -97,12 +119,18 @@ echo "Setup Complete!"
 echo "========================================"
 echo ""
 echo "Skills installed:"
-echo "  • pdf            - PDF processing and form filling"
-echo "  • xlsx           - Excel spreadsheet manipulation"
-echo "  • file-organizer - Document organization"
+echo "  • pdf                 - PDF processing and form filling"
+echo "  • xlsx                - Excel spreadsheet manipulation"
 echo "  • csv-data-summarizer - Data analysis"
-echo "  • internal-comms - Communication templates"
-echo "  • mcp-builder    - MCP server development"
+echo "  • file-organizer      - Document organization"
+echo "  • internal-comms      - Communication templates"
+echo "  • notion-api          - Direct Notion API for Code mode"
+echo "  • ecosystem-status    - Automation system monitoring"
+echo "  • notifications       - Unified push notifications"
+echo "  • ecosystem-config    - Central configuration"
+echo "  • gemini              - Google Gemini API integration"
+echo "  • mcp-builder         - MCP server development"
+echo "  • factory-pm          - Spec-before-code PM agent"
 echo ""
 echo "Next steps:"
 echo "  1. Restart Claude Code to load skills"
