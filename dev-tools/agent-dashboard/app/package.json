@@ -1,0 +1,15 @@
+{
+  "name": "agent-dashboard",
+  "version": "1.0.0",
+  "description": "Real-time Agent Teams surveillance dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0",
+    "chokidar": "^3.6.0",
+    "better-sqlite3": "^11.6.0"
+  }
+}
