@@ -6,7 +6,7 @@
 
 ## Audit Status (Updated February 21, 2026)
 
-**16 of 18 items resolved.** 2 items remain low priority (Superpowers plugin, Composio SaaS router).
+**18 of 18 items decided.** Ecosystem audit complete.
 
 ### New Findings (Not in Original Playbook)
 1. **MS365 MCP is live via Cowork** -- `outlook_email_search`, `outlook_calendar_search`, `find_meeting_availability`, `chat_message_search`, `sharepoint_search`. Original playbook said "no Outlook MCP exists" -- now it does.
@@ -32,15 +32,15 @@
 | MCP Token Optimization | RESOLVED -- deferred loading active natively |
 | Parallel Sessions | RESOLVED -- workflow adopted |
 | Background Tasks | RESOLVED -- `claude --background` available |
-| Superpowers Plugin | LOW PRIORITY -- evaluate when curious |
-| Composio SaaS Router | LOW PRIORITY -- evaluate if using 3+ supported tools |
+| Superpowers Plugin | RESOLVED -- installed from obra/superpowers-marketplace |
+| Composio SaaS Router | SKIPPED -- current MCP servers + Cowork tools cover needs |
 | Playbook Update | RESOLVED -- this update |
 
 ---
 
 ## 1. Executive Summary -- Top 5 Actions Right Now
 
-Your setup is already in the top ~5% of Claude Code users. You have agent teams, a custom skills library, 10+ MCP servers, 8 plugins, and 5 custom agents. Most community members are running stock Claude Code with maybe 1-2 MCP servers.
+Your setup is already in the top ~5% of Claude Code users. You have agent teams, a custom skills library, 10+ MCP servers, 9 plugins, and 5 custom agents. Most community members are running stock Claude Code with maybe 1-2 MCP servers.
 
 That said, here are the five highest-value gaps between your setup and what the best operators are doing:
 
@@ -58,19 +58,19 @@ That said, here are the five highest-value gaps between your setup and what the 
 
 ## 2. Your Setup vs. Community -- Gap Analysis
 
-### Plugins (8/9,000+)
+### Plugins (9/9,000+)
 
 | Category | Your Setup | Community Best | Gap? |
 |----------|-----------|---------------|------|
 | Browser automation | playwright | playwright | No gap |
 | UI generation | frontend-design | frontend-design | No gap |
-| Code quality | code-review | code-review, Superpowers (obra) | **Partial** -- Superpowers adds structured lifecycle planning, TDD workflow, brainstorming, and a community skills marketplace |
+| Code quality | code-review, Superpowers (obra) | code-review, Superpowers (obra) | No gap -- Superpowers installed, adds TDD, brainstorming, structured plans |
 | PR analysis | pr-review-toolkit | pr-review-toolkit, Local-Review | No gap |
 | Feature development | feature-dev | feature-dev | No gap |
 | Autonomous loop | ralph-loop | ralph-loop | No gap |
 | Plugin creation | plugin-dev | plugin-dev | No gap |
 | Sales workflows | sales@cowork-plugins | sales@cowork-plugins | No gap |
-| SaaS integration | None | Composio (500+ SaaS tool router) | **Missing** -- routes to HubSpot, Salesforce, Calendly, Stripe, etc. |
+| SaaS integration | None | Composio (500+ SaaS tool router) | SKIPPED -- not needed with current MCP + Cowork coverage |
 | Multi-agent orchestration | None | claude-orchestration plugin | **Missing** -- but you have Agent Teams, which is the native equivalent |
 
 ### MCP Servers (10+/1,200+)
@@ -401,7 +401,7 @@ Note: This may require restructuring your `~/.claude.json` MCP configuration. Wo
 ```
 Or look for it at the Claude Plugins marketplace.
 
-**Gap status:** LOW PRIORITY — most functionality covered by existing plugins. Evaluate brainstorming mode when curious.
+**Gap status:** RESOLVED — installed from obra/superpowers-marketplace. Adds brainstorm → plan → TDD → verify workflow, complementing Feature Dev's explore → architect → build pipeline.
 
 ---
 
@@ -439,7 +439,7 @@ Or look for it at the Claude Plugins marketplace.
 
 **Try this now:** Visit https://composio.dev and check which of your actual SaaS tools it supports. Only worth it if you use 3+ of its supported tools.
 
-**Gap status:** LOW PRIORITY — evaluate at composio.dev only if using 3+ of its supported tools.
+**Gap status:** SKIPPED — current MCP servers (MS365, Gmail, GitHub, Notion, Brave Search) + Cowork tools cover all active integrations. Revisit if CRM/payments automation becomes needed.
 
 ---
 
