@@ -32,6 +32,142 @@ function getAgentColor(name) {
   return AGENT_COLORS[Math.abs(hash) % AGENT_COLORS.length];
 }
 
+/**
+ * Normalize raw state from either REST or WebSocket into the shape
+ * the UI expects: teams and tasks as keyed objects, messages as array.
+ *
+ * Fixes three bugs:
+ *  A) Server sends type:'state_update', client only handled 'state'
+ *  B) Server wraps in { type, data: { teams, tasks, messages } }
+ *  C) Server returns teams/tasks as arrays, UI expects keyed objects
+ */
+function normalizeState(raw) {
+  // Unwrap server envelope { type, data: { ... } } if present
+  const payload = (raw.type && raw.data !== undefined) ? raw.data : raw;
+
+  // Normalize teams: array -> keyed object by name
+  let teams = payload.teams || {};
+  if (Array.isArray(teams)) {
+    const obj = {};
+    teams.forEach(t => { obj[t.name || t.id] = t; });
+    teams = obj;
+  }
+
+  // Normalize tasks: array -> keyed object by id
+  let tasks = payload.tasks || {};
+  if (Array.isArray(tasks)) {
+    const obj = {};
+    tasks.forEach(t => { obj[t.id] = t; });
+    tasks = obj;
+  }
+
+  const messages = Array.isArray(payload.messages) ? payload.messages : [];
+
+  return { teams, tasks, messages };
+}
+
+// ── Mycelium SVG Components ───────────────────────
+
+function MyceliumLogo({ size = 24 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="mycel-logo">
+      <path d="M50 50C42 35 30 25 22 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M50 50C62 38 72 28 80 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M50 50C38 62 28 72 20 80" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M50 50C62 62 72 72 80 82" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M22 18C40 15 60 12 80 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+      <path d="M20 80C35 78 55 88 80 82" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+      <circle cx="50" cy="50" r="7" fill="currentColor"/>
+      <circle cx="22" cy="18" r="4.5" fill="currentColor"/>
+      <circle cx="80" cy="22" r="4" fill="currentColor"/>
+      <circle cx="20" cy="80" r="4" fill="currentColor"/>
+      <circle cx="80" cy="82" r="4.5" fill="currentColor"/>
+    </svg>
+  );
+}
+
+function MyceliumIllustration({ size = 140 }) {
+  return (
+    <svg width={size} height={size * 0.75} viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="empty-illustration">
+      <circle cx="100" cy="75" r="8" fill="currentColor" opacity="0.12"/>
+      <circle cx="100" cy="75" r="4" fill="currentColor" opacity="0.25"/>
+      <path d="M100 75C85 58 65 48 40 38" stroke="currentColor" strokeWidth="1.5" opacity="0.12" strokeLinecap="round"/>
+      <path d="M100 75C115 58 135 48 160 38" stroke="currentColor" strokeWidth="1.5" opacity="0.12" strokeLinecap="round"/>
+      <path d="M100 75C80 88 60 102 35 118" stroke="currentColor" strokeWidth="1.5" opacity="0.12" strokeLinecap="round"/>
+      <path d="M100 75C120 88 140 102 165 118" stroke="currentColor" strokeWidth="1.5" opacity="0.12" strokeLinecap="round"/>
+      <path d="M100 75C100 55 100 38 100 18" stroke="currentColor" strokeWidth="1" opacity="0.08" strokeLinecap="round"/>
+      <path d="M100 75C100 95 100 115 100 140" stroke="currentColor" strokeWidth="1" opacity="0.08" strokeLinecap="round"/>
+      <circle cx="40" cy="38" r="3" fill="currentColor" opacity="0.15"/>
+      <circle cx="160" cy="38" r="3" fill="currentColor" opacity="0.15"/>
+      <circle cx="35" cy="118" r="3" fill="currentColor" opacity="0.15"/>
+      <circle cx="165" cy="118" r="3" fill="currentColor" opacity="0.15"/>
+      <circle cx="100" cy="18" r="2.5" fill="currentColor" opacity="0.1"/>
+      <circle cx="100" cy="140" r="2.5" fill="currentColor" opacity="0.1"/>
+      <path d="M40 38C70 28 130 28 160 38" stroke="currentColor" strokeWidth="1" opacity="0.06" strokeLinecap="round"/>
+      <path d="M35 118C70 128 130 128 165 118" stroke="currentColor" strokeWidth="1" opacity="0.06" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+// ── Theme Toggle ──────────────────────────────────
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('mycel-theme') || 'dark';
+  });
+
+  const applyTheme = (t) => {
+    setTheme(t);
+    localStorage.setItem('mycel-theme', t);
+    document.documentElement.setAttribute('data-theme', t);
+  };
+
+  return (
+    <div className="theme-toggle">
+      <button
+        className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
+        onClick={() => applyTheme('light')}
+        title="Light"
+        aria-label="Light theme"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button
+        className={`theme-btn ${theme === 'system' ? 'active' : ''}`}
+        onClick={() => applyTheme('system')}
+        title="System"
+        aria-label="System theme"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </button>
+      <button
+        className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
+        onClick={() => applyTheme('dark')}
+        title="Dark"
+        aria-label="Dark theme"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 // ── Header ─────────────────────────────────────────
 
 function Header({ connected, lastUpdate, view, setView }) {
@@ -45,12 +181,8 @@ function Header({ connected, lastUpdate, view, setView }) {
   return (
     <header className="header">
       <div className="header-left">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="40" stroke="#5cb88a" strokeWidth="6"/>
-          <circle cx="50" cy="50" r="8" fill="#5cb88a"/>
-          <line x1="50" y1="50" x2="80" y2="30" stroke="#5cb88a" strokeWidth="4"/>
-        </svg>
-        <span className="header-title">Agent Dashboard</span>
+        <MyceliumLogo size={24} />
+        <span className="header-title">Mycel</span>
       </div>
       <div className="header-center">
         <button
@@ -67,6 +199,7 @@ function Header({ connected, lastUpdate, view, setView }) {
         </button>
       </div>
       <div className="header-right">
+        <ThemeToggle />
         <div className="connection-status">
           <span className={`connection-dot ${connected ? 'connected' : 'disconnected'}`} />
           <span className={`connection-text ${connected ? 'connected' : 'disconnected'}`}>
@@ -98,7 +231,7 @@ function AgentRoster({ teams }) {
       <div className="agent-list">
         {teamEntries.length === 0 && (
           <div className="empty-state">
-            <span className="empty-state-text">No active agents</span>
+            <span className="empty-state-text">No active networks</span>
           </div>
         )}
         {teamEntries.map(([teamId, team]) => (
@@ -107,7 +240,7 @@ function AgentRoster({ teams }) {
               <div className="team-group-header">{team.name || teamId}</div>
             )}
             {(team.members || []).map((agent, i) => (
-              <AgentCard key={agent.name || i} agent={agent} />
+              <AgentCard key={agent.name || i} agent={agent} index={i} />
             ))}
           </div>
         ))}
@@ -116,12 +249,12 @@ function AgentRoster({ teams }) {
   );
 }
 
-function AgentCard({ agent }) {
+function AgentCard({ agent, index = 0 }) {
   const color = getAgentColor(agent.name);
   const isActive = agent.status === 'active' || agent.status === 'in_progress';
 
   return (
-    <div className="agent-card">
+    <div className="agent-card" style={{ animationDelay: `${index * 0.05}s` }}>
       <div className="agent-avatar" style={{ background: color }}>
         {getInitials(agent.name)}
       </div>
@@ -242,21 +375,21 @@ function TaskColumn({ name, status, tasks }) {
       </div>
       <div className="column-cards">
         {tasks.length === 0 && (
-          <div className="empty-state">
+          <div className="empty-state empty-state-sm">
             <span className="empty-state-text">None</span>
           </div>
         )}
-        {tasks.map(task => (
-          <TaskCard key={task.id} task={task} />
+        {tasks.map((task, index) => (
+          <TaskCard key={task.id} task={task} index={index} />
         ))}
       </div>
     </div>
   );
 }
 
-function TaskCard({ task }) {
+function TaskCard({ task, index = 0 }) {
   return (
-    <div className="task-card">
+    <div className="task-card" style={{ animationDelay: `${index * 0.05}s` }}>
       <div className="task-subject">{task.subject}</div>
       <div className="task-meta">
         {task.owner && <span className="owner-badge">{task.owner}</span>}
@@ -284,8 +417,10 @@ function LiveView({ teams, messages, tasks }) {
             <span className="sidebar-title">Agent Roster</span>
             <span className="count-badge">0</span>
           </div>
-          <div className="empty-state">
-            <span className="empty-state-text">No active teams — start an agent team to see live activity</span>
+          <div className="empty-state empty-state-large">
+            <MyceliumIllustration size={120} />
+            <span className="empty-state-text">No active networks</span>
+            <span className="empty-state-hint">Start an agent team to see live activity</span>
           </div>
         </aside>
         <div className="main">
@@ -341,17 +476,20 @@ function HistoryView({ history, setHistory, selectedSession, setSelectedSession 
         </div>
       )}
       {!loading && history.length === 0 && (
-        <div className="empty-state">
-          <span className="empty-state-text">No session history yet</span>
+        <div className="empty-state empty-state-large">
+          <MyceliumIllustration size={160} />
+          <span className="empty-state-text">No session history</span>
+          <span className="empty-state-hint">Completed agent sessions will appear here</span>
         </div>
       )}
       {!loading && history.length > 0 && (
         <div className="history-grid">
-          {history.map(session => (
+          {history.map((session, index) => (
             <div
               className="session-card"
               key={session.id}
               onClick={() => openSession(session.id)}
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               <div className="session-team-name">{session.teamName || session.team_name || 'Unnamed Team'}</div>
               <div className="session-stats">
@@ -402,7 +540,7 @@ function SessionDetail({ session, onClose }) {
         <div className="modal-section">
           <div className="modal-section-title">Agents</div>
           {agents.length === 0 ? (
-            <div className="empty-state"><span className="empty-state-text">No agent data</span></div>
+            <div className="empty-state empty-state-sm"><span className="empty-state-text">No agent data</span></div>
           ) : (
             <table className="detail-table">
               <thead>
@@ -429,7 +567,7 @@ function SessionDetail({ session, onClose }) {
           <div className="modal-section-title">Messages ({messages.length})</div>
           <div className="message-list" style={{ maxHeight: 240, overflowY: 'auto' }}>
             {messages.length === 0 ? (
-              <div className="empty-state"><span className="empty-state-text">No messages</span></div>
+              <div className="empty-state empty-state-sm"><span className="empty-state-text">No messages</span></div>
             ) : (
               messages.map((msg, i) => (
                 <MessageItem key={msg.id || i} msg={msg} />
@@ -441,7 +579,7 @@ function SessionDetail({ session, onClose }) {
         <div className="modal-section">
           <div className="modal-section-title">Tasks ({tasks.length})</div>
           {tasks.length === 0 ? (
-            <div className="empty-state"><span className="empty-state-text">No tasks</span></div>
+            <div className="empty-state empty-state-sm"><span className="empty-state-text">No tasks</span></div>
           ) : (
             <table className="detail-table">
               <thead>
@@ -493,10 +631,13 @@ function App() {
 
       switch (data.type) {
         case 'state':
-          if (data.teams) setTeams(data.teams);
-          if (data.tasks) setTasks(data.tasks);
-          if (data.messages) setMessages(data.messages);
+        case 'state_update': {
+          const normalized = normalizeState(data);
+          setTeams(normalized.teams);
+          setTasks(normalized.tasks);
+          setMessages(normalized.messages);
           break;
+        }
 
         case 'team_update':
           setTeams(prev => ({
@@ -571,13 +712,14 @@ function App() {
   }, [handleWsMessage]);
 
   useEffect(() => {
-    // Hydrate initial state
+    // Hydrate initial state via REST (uses same normalizeState)
     fetch('/api/state')
       .then(r => r.json())
       .then(data => {
-        if (data.teams) setTeams(data.teams);
-        if (data.tasks) setTasks(data.tasks);
-        if (data.messages) setMessages(data.messages);
+        const normalized = normalizeState(data);
+        setTeams(normalized.teams);
+        setTasks(normalized.tasks);
+        setMessages(normalized.messages);
         setLastUpdate(new Date().toISOString());
       })
       .catch(() => {});
