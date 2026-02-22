@@ -42,3 +42,11 @@ build/
 **/credentials/
 *.pem
 *.key
+
+# Claude Code local state
+.claude/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal

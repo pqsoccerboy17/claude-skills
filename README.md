@@ -29,6 +29,7 @@ cd ~/claude-skills
 | AI APIs | [gemini](ai-apis/gemini/) | Gemini API for categorization, summarization, research |
 | Dev Tools | [mcp-builder](dev-tools/mcp-builder/) | Build custom MCP servers for Claude integrations |
 | Dev Tools | [factory-pm](dev-tools/factory-pm/) | Spec-before-code PM agent with approval gate |
+| Research | [last30days](research/last30days/) | Real-time social listening across Reddit and X/Twitter |
 
 ## Directory Structure
 
@@ -79,6 +80,9 @@ claude-skills/
 │       ├── SKILL.md
 │       └── commands/
 │           └── spec.md
+├── research/
+│   └── last30days/             # Social listening (Reddit & X/Twitter)
+│       └── SKILL.md
 ├── tests/                      # Smoke tests
 ├── CLAUDE.md                   # Project instructions for Claude
 ├── GITHUB_SETUP.md             # GitHub repository setup guide
@@ -270,6 +274,24 @@ Product manager agent that plans before coding:
 /spec add user authentication
 /spec build payment integration
 ```
+
+### Research
+
+#### Last 30 Days (`research/last30days/`)
+**Source:** Custom social listening skill
+
+Real-time social listening across Reddit, X/Twitter, and the web:
+- Search any topic from the last 30 days
+- Structured output with sentiment, key voices, and trending themes
+- Confidence ratings on all findings
+- Conflicting viewpoint detection
+
+**Usage:**
+```
+/last30days "AI consulting trends"
+```
+
+**Requires:** brave-search MCP server (configured globally)
 
 ## Configuration
 
