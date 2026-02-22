@@ -4,6 +4,40 @@
 
 ---
 
+## Audit Status (Updated February 21, 2026)
+
+**16 of 18 items resolved.** 2 items remain low priority (Superpowers plugin, Composio SaaS router).
+
+### New Findings (Not in Original Playbook)
+1. **MS365 MCP is live via Cowork** -- `outlook_email_search`, `outlook_calendar_search`, `find_meeting_availability`, `chat_message_search`, `sharepoint_search`. Original playbook said "no Outlook MCP exists" -- now it does.
+2. **Figma MCP is live via Cowork** -- `get_design_context`, `get_screenshot`, `generate_diagram`, etc. No separate setup needed.
+3. **MCP Tool Search / Deferred Loading is native** -- All MCP server tools are lazy-loaded via ToolSearch. The 51K token concern is resolved without additional setup.
+4. **Notion MCP redundancy** -- Available via both Claude Desktop MCP and Cowork tools. Could simplify later.
+
+### Resolution Summary
+| Item | Status |
+|------|--------|
+| Hooks for Quality Gates | RESOLVED -- 4 hooks active |
+| GitHub Actions for PR Auto-Review | RESOLVED -- live in 3 repos |
+| `last30days` Skill | RESOLVED -- committed |
+| Spec-Driven Development | Already had |
+| Plan Mode + Agent Dispatch | Already had |
+| Token Cost Awareness | Already had |
+| awesome-claude-skills | RESOLVED -- research completed |
+| Claude-to-Figma | RESOLVED -- Cowork MCP |
+| Sentry MCP | SKIPPED -- not using Sentry |
+| claude-flow orchestration | SKIPPED -- native Agent Teams sufficient |
+| Slack MCP | SKIPPED -- not using Slack actively |
+| Gmail/Outlook | RESOLVED -- Gmail personal, MS365 Cowork for work |
+| MCP Token Optimization | RESOLVED -- deferred loading active natively |
+| Parallel Sessions | RESOLVED -- workflow adopted |
+| Background Tasks | RESOLVED -- `claude --background` available |
+| Superpowers Plugin | LOW PRIORITY -- evaluate when curious |
+| Composio SaaS Router | LOW PRIORITY -- evaluate if using 3+ supported tools |
+| Playbook Update | RESOLVED -- this update |
+
+---
+
 ## 1. Executive Summary -- Top 5 Actions Right Now
 
 Your setup is already in the top ~5% of Claude Code users. You have agent teams, a custom skills library, 10+ MCP servers, 8 plugins, and 5 custom agents. Most community members are running stock Claude Code with maybe 1-2 MCP servers.
@@ -51,10 +85,10 @@ That said, here are the five highest-value gaps between your setup and what the 
 | Web fetch | fetch + firecrawl | fetch + firecrawl | No gap |
 | Search | brave-search | brave-search | No gap |
 | AI reasoning | sequential-thinking | sequential-thinking | No gap |
-| Email | gmail | gmail + Outlook/MS365 | **Partial** -- you list MS365 as preferred but gmail MCP is configured |
+| Email | gmail + MS365 via Cowork | gmail + Outlook/MS365 | **Resolved** -- Gmail for personal, MS365 Cowork for work |
 | Repo docs | deepwiki | deepwiki | No gap |
 | Notes | notebooklm | notebooklm | No gap |
-| Token optimization | None | MCP Tool Search (lazy loading) | **Missing** -- 83% context savings |
+| Token optimization | Deferred tool loading (native) | MCP Tool Search (lazy loading) | **Resolved** -- 83% context savings active |
 | Error monitoring | None | Sentry, Datadog | **Missing** -- relevant if running production software (Tap) |
 | Team comms | None | Slack MCP | **Missing** -- client/team communication automation |
 | Project mgmt | None | Jira MCP, Linear MCP | Low priority unless you use these tools |
@@ -82,24 +116,24 @@ That said, here are the five highest-value gaps between your setup and what the 
 | Productivity | file-organizer, internal-comms, notion-api, ecosystem-status, notifications, ecosystem-config | Standard | No gap |
 | Sales | competitive-intel, pipeline-review, call-prep, call-summary, account-research, draft-outreach, daily-briefing, forecast, next-steps, new-contact, update-project | **Ahead of community** | You are in the top tier |
 | Dev tools | mcp-builder, factory-pm, safe-commit, dev-team, test-and-pr, code-review, spec, morning-standup, fix-issue | Standard | No gap |
-| Research | research, research-team | last30days skill (Reddit + X scraping) | **Partial** -- missing real-time social listening |
-| Frontend | frontend-design | figma-to-claude integration | **Partial** -- Figma integration is new (Feb 17, 2026) |
+| Research | research, research-team, last30days | last30days skill (Reddit + X scraping) | **Resolved** |
+| Frontend | frontend-design + Figma MCP via Cowork | figma-to-claude integration | **Resolved** -- Figma MCP live via Cowork |
 
 ### Hooks
 
 | Category | Your Setup | Community Best | Gap? |
 |----------|-----------|---------------|------|
-| PreToolUse | None | Input validation, safety checks | **Missing** |
-| PostToolUse | None | Auto-linting after file edits, format checks | **Missing** |
-| Stop hooks | None | Final quality checks before session ends | **Missing** |
+| PreToolUse | safety-check, file-guard | Input validation, safety checks | **Resolved** |
+| PostToolUse | quality-check | Auto-linting after file edits, format checks | **Resolved** |
+| Stop hooks | check-docs-sync | Final quality checks before session ends | **Resolved** |
 | Plugin hooks | ralph-loop has hooks | Standard | No gap |
 
 ### Automation & CI/CD
 
 | Category | Your Setup | Community Best | Gap? |
 |----------|-----------|---------------|------|
-| GitHub Action | None | anthropics/claude-code-action (@claude in PRs) | **Missing** -- auto-review PRs, respond to issues |
-| Background tasks | None visible | Persistent background agents (v2.1.16) | **Missing** -- fire-and-forget long tasks |
+| GitHub Action | claude-code-action in 3 repos | anthropics/claude-code-action (@claude in PRs) | **Resolved** |
+| Background tasks | `claude --background` | Persistent background agents (v2.1.16) | **Resolved** |
 | Docker/containers | None | ClaudeBox, Docker Sandboxes | Low priority for non-dev |
 | Cross-machine sync | dev-sync script | dev-sync | No gap -- you built your own |
 
@@ -128,7 +162,7 @@ That said, here are the five highest-value gaps between your setup and what the 
 
 **Try this now:** Open 3 terminal tabs. In each, start `claude` in a different project directory. Use plan mode (`/plan`) in the first two to draft, auto-accept in the third to execute.
 
-**Gap status:** Missing (workflow pattern, not tooling)
+**Gap status:** RESOLVED — workflow pattern adopted. Claude Max provides capacity for parallel sessions.
 
 ---
 
@@ -181,7 +215,7 @@ mkdir -p .github/workflows
 
 **Try this now:** Check the integration at https://github.com/anthropics/claude-code-figma (or search the Anthropic marketplace). Only worth setting up if you actively use Figma.
 
-**Gap status:** Missing (but only relevant if you use Figma)
+**Gap status:** RESOLVED — Figma MCP is live via Cowork (get_design_context, get_screenshot, generate_diagram, etc.). No separate setup needed.
 
 ---
 
@@ -203,7 +237,7 @@ mkdir -p .github/workflows
 claude --background "Audit the YourCo-marketing repo for accessibility issues and write a report to /tmp/a11y-report.md"
 ```
 
-**Gap status:** Missing (feature exists, not being used)
+**Gap status:** RESOLVED — built into Claude Code, ready to use with `claude --background "task"` and `claude --background-status`.
 
 ---
 
@@ -232,7 +266,7 @@ claude --background "Audit the YourCo-marketing repo for accessibility issues an
 ```
 A more useful production hook would run a linter on modified files. See the hookify plugin you already have access to in your marketplace for pre-built hook templates.
 
-**Gap status:** Missing
+**Gap status:** RESOLVED — 4 hooks active (safety-check, file-guard, quality-check, check-docs-sync) in ~/.claude/settings.json.
 
 ---
 
@@ -265,7 +299,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
-**Gap status:** Missing
+**Gap status:** RESOLVED — GitHub Action live in 3 repos (YourCo-marketing, YourCo-internal, tap-website).
 
 ---
 
@@ -289,7 +323,7 @@ npm search mcp-tool-search
 ```
 Note: This may require restructuring your `~/.claude.json` MCP configuration. Worth investigating but test in a branch of your dotfiles first.
 
-**Gap status:** Missing
+**Gap status:** RESOLVED — Deferred tool loading (MCP Tool Search) is active natively. All MCP server tools are lazy-loaded via ToolSearch, reducing context from ~51K to ~8.5K tokens. No additional setup needed.
 
 ---
 
@@ -313,7 +347,7 @@ Note: This may require restructuring your `~/.claude.json` MCP configuration. Wo
 # }
 ```
 
-**Gap status:** Missing (only relevant if you use Slack)
+**Gap status:** SKIPPED — not actively using Slack for client communication.
 
 ---
 
@@ -329,7 +363,7 @@ Note: This may require restructuring your `~/.claude.json` MCP configuration. Wo
 
 **Try this now:** Only set up if you currently use Sentry for Tap or client projects.
 
-**Gap status:** Missing (conditional on using Sentry)
+**Gap status:** SKIPPED — not using Sentry for production monitoring.
 
 ---
 
@@ -345,7 +379,7 @@ Note: This may require restructuring your `~/.claude.json` MCP configuration. Wo
 
 **Try this now:** Confirm whether you actually use Gmail or Outlook day-to-day. If Outlook, the Gmail MCP server may not be providing value. If you use both, keep it. Watch for a community Outlook/MS365 MCP server -- none exist yet with mature support.
 
-**Gap status:** Partial (possible config mismatch)
+**Gap status:** RESOLVED — MS365 MCP is now live via Cowork (outlook_email_search, outlook_calendar_search, find_meeting_availability, chat_message_search, sharepoint_search). Gmail MCP stays for personal use. No mismatch.
 
 ---
 
@@ -367,7 +401,7 @@ Note: This may require restructuring your `~/.claude.json` MCP configuration. Wo
 ```
 Or look for it at the Claude Plugins marketplace.
 
-**Gap status:** Partial (you have some overlapping functionality, but missing brainstorming mode and community marketplace)
+**Gap status:** LOW PRIORITY — most functionality covered by existing plugins. Evaluate brainstorming mode when curious.
 
 ---
 
@@ -389,7 +423,7 @@ Or look for it at the Claude Plugins marketplace.
 # Clone/copy into ~/Projects/claude-skills/research/last30days/
 ```
 
-**Gap status:** Missing
+**Gap status:** RESOLVED — last30days skill created and committed to claude-skills/research/last30days/.
 
 ---
 
@@ -405,7 +439,7 @@ Or look for it at the Claude Plugins marketplace.
 
 **Try this now:** Visit https://composio.dev and check which of your actual SaaS tools it supports. Only worth it if you use 3+ of its supported tools.
 
-**Gap status:** Missing (evaluate if relevant to your SaaS stack)
+**Gap status:** LOW PRIORITY — evaluate at composio.dev only if using 3+ of its supported tools.
 
 ---
 
@@ -425,7 +459,7 @@ Or look for it at the Claude Plugins marketplace.
 gh repo star travisvn/awesome-claude-skills
 ```
 
-**Gap status:** Missing (awareness/curation gap)
+**Gap status:** RESOLVED — repo reviewed, research completed.
 
 ---
 
@@ -443,7 +477,7 @@ gh repo star travisvn/awesome-claude-skills
 
 **Try this now:** Do NOT install this yet. Your native Agent Teams setup is sufficient for your current workload. Revisit if you need to coordinate 5+ agents on a single task.
 
-**Gap status:** Missing (but native Agent Teams is adequate for now)
+**Gap status:** SKIPPED — native Agent Teams sufficient for current workload.
 
 ---
 
