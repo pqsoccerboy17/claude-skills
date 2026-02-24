@@ -1,6 +1,6 @@
 # Claude Skills Repository
 
-A curated collection of 12 Claude Code skills for business operations across Treehouse LLC, YourCo Consulting, and Tap.
+A curated collection of Claude Code skills organized in 6 categories.
 
 ## Repo Structure
 
@@ -12,6 +12,7 @@ claude-skills/
 │                          # ecosystem-status, notifications, ecosystem-config
 ├── ai-apis/               # gemini
 ├── dev-tools/             # mcp-builder, factory-pm
+├── research/              # cowork-ecosystem-playbook, intelligence reports
 ├── tests/                 # Smoke tests (pytest)
 └── setup.sh               # Installation and symlink setup
 ```
