@@ -1,0 +1,52 @@
+name: Claude Weekly Maintenance
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"  # Monday 9am EST
+  workflow_dispatch:
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run maintenance check with Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          direct_prompt: |
+            Perform a weekly maintenance check on this repository:
+
+            1. Security: Run pip audit (install pip-audit first) to check for
+               known vulnerabilities in dependencies.
+            2. Tests: Run pytest tests/ and report any failures.
+            3. TODOs: Scan all files for TODO, FIXME, HACK, and XXX comments.
+               List each with file path and line number.
+            4. Outdated patterns: Check for any patterns that contradict
+               conventions in CLAUDE.md (e.g., shell scripts that should be
+               Python, missing SKILL.md files in skill folders).
+            5. Structure: Verify each skill folder has a SKILL.md with required
+               frontmatter (name, description).
+
+            Create a GitHub issue titled "Weekly Maintenance Report - [date]"
+            summarizing all findings. Use sections with headers. If everything
+            looks clean, still create the issue confirming a healthy state.
+          claude_args: >-
+            --max-turns 15
+            --allowedTools "Read,Glob,Grep,LS,Bash(pytest:*),Bash(pip:*),Bash(python:*),Bash(grep:*)"

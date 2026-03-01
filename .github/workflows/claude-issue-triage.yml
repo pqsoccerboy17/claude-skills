@@ -1,0 +1,48 @@
+name: Claude Issue Triage
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  triage:
+    if: |
+      github.event.issue.user.type != 'Bot' &&
+      github.event.issue.labels[0] == null
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Triage issue with Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          direct_prompt: |
+            Triage this newly opened issue:
+
+            1. Classify as one of: bug, feature, question, documentation
+            2. Assess priority: critical, high, medium, or low
+            3. Add the appropriate labels (type and priority)
+            4. If relevant, identify which skill category (ai-apis, data-analysis,
+               dev-tools, document-processing, productivity, research) the issue
+               relates to and add that as a label too.
+
+            Read the issue title and body carefully. Cross-reference with the
+            repo structure and CLAUDE.md to understand context. Add a brief
+            comment explaining your classification reasoning.
+
+            Keep your response concise - this is a lightweight triage, not a
+            full investigation.
+          claude_args: >-
+            --max-turns 5
+            --allowedTools "Read,Glob,Grep,LS"

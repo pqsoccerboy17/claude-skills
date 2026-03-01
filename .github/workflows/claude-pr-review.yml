@@ -1,0 +1,41 @@
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Review PR with Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          direct_prompt: |
+            Review this pull request for:
+            1. Code quality and adherence to conventions in CLAUDE.md
+            2. Potential bugs or logic errors
+            3. Security issues or vulnerabilities
+            4. Python best practices and typing
+            5. Skill structure conventions (SKILL.md frontmatter, folder organization)
+
+            Read CLAUDE.md first to understand repo conventions. Then review the
+            changed files and post a concise review summarizing your findings.
+            Focus on actionable feedback - skip nitpicks and obvious observations.
+            If the PR looks good, say so briefly.
+          claude_args: >-
+            --max-turns 10
+            --allowedTools "Read,Glob,Grep,LS"
