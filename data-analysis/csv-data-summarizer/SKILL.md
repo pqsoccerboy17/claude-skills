@@ -1,6 +1,15 @@
 ---
 name: csv-data-summarizer
-description: "Quick analysis and summarization of CSV/tabular data. Use when: (1) analyzing exported financial data, (2) summarizing transaction reports, (3) generating statistics from spreadsheet exports, (4) comparing datasets, (5) creating data summaries for reporting. Triggers: analyze CSV, summarize data, data statistics, financial analysis, transaction summary, data report."
+description: >
+  Use this skill to analyze, summarize, and report on CSV or tabular data
+  files. Activate when the user provides a CSV and asks for analysis,
+  statistics, comparisons, or summaries - especially financial transaction
+  data, bank exports, consulting hours, rental income reports, or SaaS
+  metrics. Uses pandas for data cleaning, statistical analysis, category
+  breakdowns, monthly summaries, and missing value detection. Can export
+  results to formatted Excel or text reports. Do NOT use for creating Excel
+  spreadsheets with formulas (use xlsx skill) or for extracting tables from
+  PDFs (use pdf skill).
 license: MIT
 ---
 
@@ -306,6 +315,6 @@ analysis = analyze_transactions(combined)
 
 ### Scheduled Reports
 ```bash
-# Add to crontab for monthly reports
-0 0 1 * * python ~/claude-skills/data-analysis/csv-data-summarizer/scripts/monthly_report.py
+# Add to crontab for monthly summaries
+0 0 1 * * python ~/Projects/claude-skills/data-analysis/csv-data-summarizer/scripts/summarize.py transactions.csv --type financial --output ~/Reports/monthly.json
 ```

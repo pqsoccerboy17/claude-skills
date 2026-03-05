@@ -1,6 +1,16 @@
 ---
 name: file-organizer
-description: "Intelligent file organization for business documents. Use when: (1) organizing financial documents (receipts, statements, invoices), (2) setting up photo capture pipelines for property documentation, (3) batch renaming files by date/type/category, (4) creating folder structures for real estate, consulting, or SaaS operations. Triggers: organize files, sort documents, rename files, photo pipeline, document management."
+description: >
+  Use this skill to organize, sort, rename, or structure files and folders
+  for business operations. Activate when the user wants to clean up
+  Downloads, organize receipts or bank statements by date, batch rename
+  files, set up folder structures for a new client or property, create a
+  photo documentation pipeline, or sort financial documents by category.
+  Includes business-specific patterns for real estate (Treehouse LLC),
+  consulting clients, and SaaS operations (Tap). Supports date-based
+  organization, keyword categorization, EXIF photo sorting, and macOS
+  Folder Actions integration. Do NOT use for organizing code repositories
+  or analyzing file contents.
 license: MIT
 ---
 
@@ -268,12 +278,6 @@ python scripts/organize.py ~/Downloads ~/Organized --by-type
 
 # Organize with date-based folders
 python scripts/organize.py ~/Downloads ~/Organized --by-date
-
-# Property photo pipeline
-python scripts/photo_pipeline.py ~/Photos/property --address "123 Main St"
-
-# Bank statement organization
-python scripts/bank_statements.py ~/Downloads/statements ~/Finance/Banking
 ```
 
 ## Integration with macOS
@@ -284,7 +288,7 @@ Create a Folder Action that runs the organize script when files are added:
 ```bash
 #!/bin/bash
 # Save as ~/Library/Scripts/Folder Action Scripts/organize.sh
-python3 ~/claude-skills/productivity/file-organizer/scripts/organize.py "$1" ~/Organized
+python3 ~/Projects/claude-skills/productivity/file-organizer/scripts/organize.py "$1" ~/Organized
 ```
 
 ### Hazel Rules (if using Hazel)

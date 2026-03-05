@@ -1,6 +1,15 @@
 ---
 name: last30days
-description: Search Reddit and X/Twitter for any topic from the last 30 days, return structured findings with links and sentiment
+description: >
+  Use this skill for social listening and recent sentiment research. Activate
+  when the user asks "what are people saying about X", "check Reddit for Y",
+  "Twitter buzz about Z", wants to know recent social media sentiment on a
+  topic, or needs a structured report of online discussion from the past 30
+  days. Searches Reddit, X/Twitter, and general web via brave-search MCP.
+  Returns structured report with sentiment rating, key voices, trending
+  themes, top threads/posts, conflicting viewpoints, confidence ratings, and
+  source links. Do NOT use for historical research (older than 30 days),
+  general web search, or news aggregation without social media focus.
 ---
 
 # Social Listening Skill — Last 30 Days

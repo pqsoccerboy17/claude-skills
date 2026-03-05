@@ -1,6 +1,15 @@
 ---
 name: notifications
-description: Unified notification system for ecosystem tools
+description: >
+  Use this skill to set up, send, or debug push notifications from ecosystem
+  automation tools. Activate when the user wants to configure Pushover
+  alerts, send test notifications, add notification support to a script,
+  debug notification delivery, or set notification priority levels. Supports
+  Pushover (mobile/desktop push) as primary backend and macOS Notification
+  Center as fallback. Includes Python module at ~/scripts/notify.py with
+  send_notification() and notify_organization_complete() functions. Priority
+  levels from -2 (silent) to 2 (emergency). Do NOT use for email
+  notifications, Slack messages, or non-ecosystem alerting.
 ---
 
 # Notifications Skill
@@ -101,5 +110,5 @@ The module is installed at `~/scripts/notify.py`. A copy is maintained here for 
 
 To update:
 ```bash
-cp ~/claude-skills/productivity/notifications/scripts/notify.py ~/scripts/
+cp ~/Projects/claude-skills/productivity/notifications/scripts/notify.py ~/scripts/
 ```

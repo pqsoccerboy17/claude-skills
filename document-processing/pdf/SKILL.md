@@ -1,6 +1,15 @@
 ---
 name: pdf
-description: Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.
+description: >
+  Comprehensive PDF manipulation toolkit for extracting text and tables,
+  creating new PDFs, merging/splitting documents, filling forms, and OCR of
+  scanned documents. Use when the user needs to programmatically process,
+  generate, modify, or analyze PDF files - fill in a PDF form, extract table
+  data from bank statements, merge multiple PDFs, split pages, OCR scanned
+  paperwork, add watermarks, or batch process PDF collections. Uses pypdf,
+  pdfplumber, reportlab, pytesseract, and command-line tools (qpdf,
+  pdftotext). Do NOT use when the user simply wants to read or summarize a
+  PDF (Claude can do that natively).
 license: Proprietary. LICENSE.txt has complete terms
 ---
 

@@ -1,6 +1,15 @@
 ---
 name: gemini-api
-description: Google Gemini API integration for AI-powered automation
+description: >
+  Use this skill when the user wants to leverage Google's Gemini API for
+  AI-powered data processing tasks - especially when a free API tier is
+  preferred over paid alternatives. Activate for transaction categorization,
+  receipt OCR and data extraction, document analysis, text summarization,
+  lead research enrichment, or any task where Gemini's free tier (1M+
+  tokens/min, no credit card) makes it the right choice. Covers setup,
+  Python SDK usage, multimodal image+text processing, and n8n integration.
+  Do NOT use for Claude API, OpenAI, or general ML/training tasks. Do NOT
+  confuse with Gemini cryptocurrency exchange.
 ---
 
 # Gemini API Skill
@@ -16,7 +25,7 @@ Gemini provides a generous free tier (1M tokens/min, no credit card required) ma
 - Data extraction from receipts
 - Research and lead enrichment
 
-## Free Tier Limits (as of Jan 2026)
+## Free Tier Limits (as of Mar 2026)
 
 | Model | Requests/Min | Tokens/Min | Daily Limit |
 |-------|--------------|------------|-------------|
@@ -186,7 +195,7 @@ return { category };
 A helper script is available at:
 
 ```
-~/dev/tools/claude-skills/ai-apis/gemini/scripts/gemini_api.py
+~/Projects/claude-skills/ai-apis/gemini/scripts/gemini_api.py
 ```
 
 ## Best Practices

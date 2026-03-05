@@ -1,6 +1,16 @@
 ---
 name: internal-comms
-description: "Professional communication templates and drafting assistance. Use when: (1) drafting client emails for consulting or real estate, (2) creating tenant communications, (3) writing investor updates for Tap, (4) preparing professional business correspondence, (5) creating meeting agendas/summaries. Triggers: draft email, client communication, tenant letter, investor update, meeting notes, professional letter."
+description: >
+  Use this skill to draft professional business communications - emails,
+  letters, notices, and updates for internal stakeholders. Activate when the
+  user needs to write tenant communications (lease renewals, rent increases,
+  maintenance notices, late payment reminders), consulting client emails
+  (engagement letters, status updates, invoice covers, scope discussions),
+  investor updates (monthly/quarterly Tap updates, board summaries), meeting
+  agendas/summaries, or follow-up emails. Includes templates for difficult
+  conversations (bad news, scope creep, late payments). Do NOT use for
+  marketing copy, cold outreach to prospects, blog posts, or technical
+  documentation.
 license: MIT
 ---
 

@@ -1,6 +1,15 @@
 ---
 name: agent-dashboard
-description: Launch the Agent Surveillance Dashboard — a real-time web UI that monitors Agent Teams activity, showing agent status, inter-agent messages, and task progress on a live Kanban board. Say "surveil agents", "agent dashboard", "monitor agents", or "watch agents" to launch.
+description: >
+  Launch the Agent Surveillance Dashboard - a real-time web UI that monitors
+  Agent Teams activity, showing agent status, inter-agent messages, and task
+  progress on a live Kanban board at localhost:3847. Use when the user says
+  "surveil agents", "agent dashboard", "monitor agents", "watch agents",
+  "show me what my agents are doing", or wants to observe Agent Teams
+  working in real-time. Watches ~/.claude/teams/ and ~/.claude/tasks/
+  directories and streams updates to the browser. Do NOT use for creating
+  agent teams, checking server health (use ecosystem-status), or building
+  dashboards.
 ---
 
 # Agent Surveillance Dashboard

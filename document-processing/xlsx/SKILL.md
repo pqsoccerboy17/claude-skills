@@ -1,6 +1,15 @@
 ---
 name: xlsx
-description: "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization in spreadsheets, or (5) Recalculating formulas"
+description: >
+  Comprehensive spreadsheet creation, editing, and analysis for Excel files
+  (.xlsx, .xlsm). Use when the user needs to create spreadsheets with
+  formulas and formatting, build financial models with industry-standard
+  color coding, edit existing Excel files while preserving formulas,
+  recalculate formula values via LibreOffice, or perform data analysis and
+  visualization in spreadsheet format. Enforces zero formula errors, proper
+  number formatting, and assumption cell separation. Uses openpyxl for
+  formulas/formatting, pandas for data analysis. Do NOT use for CSV-only
+  analysis (use csv-data-summarizer) or Google Sheets operations.
 license: Proprietary. LICENSE.txt has complete terms
 ---
 

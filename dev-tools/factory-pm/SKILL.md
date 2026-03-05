@@ -1,6 +1,14 @@
 ---
 name: factory-pm
-description: "Spec-before-code product manager agent. Use when: (1) the user says 'build me X' or asks for a new feature, (2) planning before implementation, (3) writing a spec or PRD, (4) the user runs /spec. Triggers: build, spec, plan feature, design feature, factory pm, write spec, PRD."
+description: >
+  Spec-before-code product manager agent that enforces planning discipline.
+  Use when the user says "build me X", "add feature Y", asks for a new
+  feature, wants to plan before coding, needs a spec or PRD, or runs /spec.
+  Gathers project context silently, asks 3-5 clarifying questions, writes a
+  prioritized spec to specs/<feature-name>.md, then waits for explicit user
+  approval before any code gets written. The approval gate is mandatory - no
+  implementation without sign-off. Do NOT use for bug fixes, code review,
+  or documentation of existing code.
 license: MIT
 ---
 

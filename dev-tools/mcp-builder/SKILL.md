@@ -1,6 +1,16 @@
 ---
 name: mcp-builder
-description: "Build custom MCP (Model Context Protocol) servers for Claude integrations. Use when: (1) creating new MCP servers, (2) extending Claude's capabilities with external APIs, (3) building tool integrations, (4) debugging MCP server issues, (5) connecting Claude to business systems. Triggers: build MCP, create MCP server, MCP integration, Claude tools, API integration."
+description: >
+  Use this skill to build, scaffold, or debug custom MCP (Model Context
+  Protocol) servers that extend Claude's capabilities. Activate when the
+  user wants to create a new MCP server, add tools/resources/prompts to an
+  existing server, debug MCP connection issues, or connect Claude to an
+  external API or database via MCP. Includes TypeScript and Python server
+  templates, project structure recommendations, configuration for Claude
+  Desktop and Claude Code, and business-specific examples (property
+  management, client management, product metrics). Do NOT use for
+  configuring existing MCP servers or for general API development unrelated
+  to MCP.
 license: MIT
 ---
 

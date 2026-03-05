@@ -1,6 +1,15 @@
 ---
 name: ecosystem-config
-description: Unified configuration for all ecosystem automation tools
+description: >
+  Use this skill to configure, set up, or troubleshoot environment variables
+  and credentials for ecosystem automation tools. Activate when the user
+  wants to add API keys for automations, configure Notion tokens, set up
+  Google Drive credentials, configure Pushover notification keys, edit
+  ecosystem.env, or troubleshoot missing environment variables. Manages the
+  central ~/scripts/ecosystem.env file that all automation tools source.
+  Covers Notion API tokens, Google Drive service accounts, Pushover keys,
+  and Monarch Money auth. Do NOT use for checking system status (use
+  ecosystem-status) or for non-ecosystem environment variables.
 ---
 
 # Ecosystem Configuration
