@@ -1,0 +1,31 @@
+{
+  "skill_name": "file-organizer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a messy Downloads folder at evals/files/test-downloads/ with mixed file types. Organize these files into a clean folder structure by type and suggest a naming convention.",
+      "expected_output": "A proposed folder structure with files organized by type, with clear naming conventions",
+      "files": [],
+      "expectations": [
+        "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+        "Suggests a date-based or descriptive naming convention",
+        "Provides a script or code to perform the organization",
+        "Uses pathlib or shutil for file operations (not raw os.system calls)",
+        "Handles edge cases like duplicate filenames"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up a folder structure for a new consulting client called 'Acme Corp'. I need folders for contracts, deliverables, invoices, and meeting notes.",
+      "expected_output": "A complete client folder structure created with appropriate subdirectories",
+      "files": [],
+      "expectations": [
+        "Creates a top-level Acme-Corp or acme-corp directory",
+        "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+        "Provides a script or code to create the structure",
+        "Follows the consulting client pattern from the skill",
+        "Structure is created in a sensible location or user is asked about location"
+      ]
+    }
+  ]
+}

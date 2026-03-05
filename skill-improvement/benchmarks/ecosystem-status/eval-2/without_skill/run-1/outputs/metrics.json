@@ -1,0 +1,10 @@
+{
+  "tool_calls": {
+    "Bash": 4
+  },
+  "total_tool_calls": 4,
+  "total_steps": 4,
+  "files_created": 0,
+  "errors_encountered": 0,
+  "output_chars": 920
+}

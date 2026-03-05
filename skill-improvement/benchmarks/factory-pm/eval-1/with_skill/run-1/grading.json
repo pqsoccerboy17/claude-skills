@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Asks 3-5 clarifying questions before writing any spec",
+      "passed": true,
+      "evidence": "5 numbered clarifying questions about scope, users, integration, constraints, priority"
+    },
+    {
+      "text": "Questions address scope, users, constraints, or integration points",
+      "passed": true,
+      "evidence": "Questions cover scope (comments), users (how many), integration (invoicing), constraints (tech stack), priority"
+    },
+    {
+      "text": "Writes a spec file to specs/ directory (not inline only)",
+      "passed": true,
+      "evidence": "References writing to specs/client-portal.md"
+    },
+    {
+      "text": "Spec includes prioritized features or MVP scope",
+      "passed": true,
+      "evidence": "Mentions P0/P1/P2 requirements structure"
+    },
+    {
+      "text": "Does NOT write any implementation code before getting user approval",
+      "passed": true,
+      "evidence": "Explicit approval gate: 'No code will be written until explicit approval'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2,
+      "Bash": 1
+    },
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 1303
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

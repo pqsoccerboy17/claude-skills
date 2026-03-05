@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": true,
+      "evidence": "Output shows: 'Executed the status check: python3 ~/scripts/ecosystem_status.py'"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": true,
+      "evidence": "Reports on 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money MCP Server, Treehouse Context Sync, Notion Rules (Tax OCR)"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": true,
+      "evidence": "Each system has status: Watching, Installed, Connected, Synced, Idle with status legend explaining each"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": true,
+      "evidence": "Attention Items section: 'PDF files in Downloads waiting to be organized'"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Organized as 'Results Dashboard' with bullet points per system and a Status Legend table"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Bash": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 845
+  },
+  "claims": [
+    {
+      "claim": "All systems are running or in expected idle states",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Each system shows a healthy status indicator"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

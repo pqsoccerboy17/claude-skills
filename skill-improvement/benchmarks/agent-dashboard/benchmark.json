@@ -1,0 +1,520 @@
+{
+  "metadata": {
+    "skill_name": "agent-dashboard",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 850,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": true,
+          "evidence": "Shows: 'cd ~/Projects/claude-skills/dev-tools/agent-dashboard/app && node server.js'"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": true,
+          "evidence": "Shows: 'open http://localhost:3847'"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": true,
+          "evidence": "States: 'The server watches ~/.claude/teams/ and ~/.claude/tasks/ directories'"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": true,
+          "evidence": "Uses the existing dashboard, no new code created"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": true,
+          "evidence": "Shows the cd + node server.js command"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": true,
+          "evidence": "Shows 'open http://localhost:3847'"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": true,
+          "evidence": "States dashboard watches these directories"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": true,
+          "evidence": "Uses existing dashboard"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 720,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": true,
+          "evidence": "Shows the correct cd + node server.js command"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": true,
+          "evidence": "Shows 'open http://localhost:3847'"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": true,
+          "evidence": "States it monitors these directories"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": true,
+          "evidence": "Uses existing dashboard"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": true,
+          "evidence": "States: 'This is a request for the Agent Surveillance Dashboard'"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": true,
+          "evidence": "Uses: 'cd ~/Projects/claude-skills/dev-tools/agent-dashboard/app && node server.js'"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": true,
+          "evidence": "Shows 'node server.js' command"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": true,
+          "evidence": "Lists: Agent Roster, Live Messages, Task Board, History with descriptions"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 680,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": true,
+          "evidence": "States: 'Recognizing this as a request for the surveillance dashboard'"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": true,
+          "evidence": "Uses the existing dashboard path"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": true,
+          "evidence": "Shows node server.js"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": true,
+          "evidence": "Lists Agent Roster, Live Messages, Task Board, History"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 650,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": true,
+          "evidence": "States: 'Launching the surveillance dashboard'"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": true,
+          "evidence": "Uses existing dashboard path"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": true,
+          "evidence": "Shows node server.js"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": true,
+          "evidence": "Lists Agent Roster, Live Messages, Task Board, History"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 850,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": false,
+          "evidence": "Does not use the existing dashboard. Creates a new Express server from scratch on port 3000"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": false,
+          "evidence": "Uses port 3000, not 3847"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": false,
+          "evidence": "No reference to these directories. Says 'TODO: Read agent status from somewhere'"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": false,
+          "evidence": "Builds an entirely new Express dashboard from scratch with npm init"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": false,
+          "evidence": "Creates new server from scratch, not the existing dashboard"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": false,
+          "evidence": "Uses port 8080, not 3847"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": false,
+          "evidence": "References ~/.claude/ generically but not the specific teams/ and tasks/ subdirectories"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": false,
+          "evidence": "Creates new Express+WebSocket server from scratch with npm init"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 650,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs node server.js from the agent-dashboard/app directory",
+          "passed": false,
+          "evidence": "Creates new server, does not use existing dashboard"
+        },
+        {
+          "text": "Opens or instructs to open localhost:3847 in the browser",
+          "passed": false,
+          "evidence": "Uses port 3000"
+        },
+        {
+          "text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+          "passed": false,
+          "evidence": "No reference to these directories"
+        },
+        {
+          "text": "Does not try to build a new dashboard from scratch",
+          "passed": false,
+          "evidence": "Builds new Express server from scratch"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 650,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": false,
+          "evidence": "Does not recognize an existing dashboard exists. Treats it as a generic monitoring question"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": false,
+          "evidence": "Does not reference the existing dashboard. Suggests building one or using pm2"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": false,
+          "evidence": "No server started. Generic process checking with ps aux instead"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": false,
+          "evidence": "Does not describe any dashboard features. Offers to build a monitoring solution"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 620,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": false,
+          "evidence": "Does not recognize existing dashboard. Generic monitoring approach"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": false,
+          "evidence": "No reference to existing dashboard"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": false,
+          "evidence": "No server started"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": false,
+          "evidence": "No dashboard features described"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 4,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 520,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recognizes this as a request for the agent dashboard",
+          "passed": false,
+          "evidence": "Generic investigation, not dashboard recognition"
+        },
+        {
+          "text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+          "passed": false,
+          "evidence": "No reference to existing dashboard"
+        },
+        {
+          "text": "Starts the server with the correct command (node server.js)",
+          "passed": false,
+          "evidence": "No server started"
+        },
+        {
+          "text": "Explains what the dashboard shows (agent roster, messages, task board)",
+          "passed": false,
+          "evidence": "No features described"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 743.3333,
+        "stddev": 73.9369,
+        "min": 650,
+        "max": 850
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 678.3333,
+        "stddev": 118.223,
+        "min": 520,
+        "max": 850
+      }
+    },
+    "delta": {
+      "pass_rate": "+1.00",
+      "time_seconds": "+0.0",
+      "tokens": "+65"
+    }
+  },
+  "notes": []
+}

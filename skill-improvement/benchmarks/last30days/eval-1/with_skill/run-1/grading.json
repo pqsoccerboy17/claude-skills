@@ -1,0 +1,59 @@
+{
+  "expectations": [
+    {
+      "text": "Searches Reddit using site:reddit.com with a date filter",
+      "passed": true,
+      "evidence": "Shows query: 'site:reddit.com \"Claude Code\" after:2026-02-03' using brave_web_search"
+    },
+    {
+      "text": "Searches X/Twitter for recent mentions",
+      "passed": true,
+      "evidence": "Shows query: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+    },
+    {
+      "text": "Provides a sentiment rating or assessment",
+      "passed": true,
+      "evidence": "States: 'Overall sentiment is Positive with notable enthusiasm around agentic coding workflows'"
+    },
+    {
+      "text": "Includes links to specific threads or posts found",
+      "passed": false,
+      "evidence": "Links are placeholder: '(Reddit threads would be listed here with actual URLs from search results)' - no actual URLs"
+    },
+    {
+      "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+      "passed": true,
+      "evidence": "Report includes all skill-specified sections: Overview & Sentiment, Key Voices table, Trending Themes, Top Reddit Threads, Top X/Twitter Posts, Recent Articles, Conflicting Viewpoints, Source Links"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1},
+    "total_tool_calls": 1,
+    "total_steps": 5,
+    "errors_encountered": 0,
+    "output_chars": 2100
+  },
+  "claims": [
+    {
+      "claim": "Followed the skill's 4-step search process",
+      "type": "process",
+      "verified": true,
+      "evidence": "Output shows all 4 steps: Reddit search, X/Twitter search, General web search, Structured report"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Includes links to specific threads or posts found",
+        "reason": "In a simulated eval where web search isn't actually performed, this assertion will always fail. Consider allowing the search query pattern itself as partial credit"
+      }
+    ],
+    "overall": "The links assertion is problematic for simulated evals but appropriate for real execution"
+  }
+}

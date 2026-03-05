@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses Gemini's multimodal input (image + text prompt)",
+      "passed": false,
+      "evidence": "Uses OpenAI GPT-4 Vision, not Gemini"
+    },
+    {
+      "text": "Loads an image file and sends it to the Gemini API",
+      "passed": false,
+      "evidence": "Sends to OpenAI API, not Gemini"
+    },
+    {
+      "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+      "passed": false,
+      "evidence": "Prompts GPT-4 Vision, not Gemini. Does request the right data though."
+    },
+    {
+      "text": "Parses the response into JSON format",
+      "passed": true,
+      "evidence": "json.loads on response content"
+    },
+    {
+      "text": "Uses the free tier model (Flash) as recommended by the skill",
+      "passed": false,
+      "evidence": "Uses gpt-4-vision-preview, not Flash"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 999
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "References ~/scripts/ecosystem.env as the central config file",
+      "passed": false,
+      "evidence": "Does not reference ~/scripts/ecosystem.env. Suggests ~/.notion.env or ~/.zshrc"
+    },
+    {
+      "text": "Shows the correct environment variable name for Notion token (NOTION_API_TOKEN or similar)",
+      "passed": false,
+      "evidence": "Uses 'NOTION_API_KEY' not NOTION_API_TOKEN or NOTION_TOKEN"
+    },
+    {
+      "text": "Explains how to source the env file from ~/.zshrc",
+      "passed": false,
+      "evidence": "Suggests sourcing ~/.notion.env from ~/.zshrc, not ~/scripts/ecosystem.env"
+    },
+    {
+      "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+      "passed": false,
+      "evidence": "First suggestion is 'echo export NOTION_API_KEY >> ~/.zshrc' -- directly editing zshrc"
+    },
+    {
+      "text": "Mentions the ecosystem.env.example file if applicable",
+      "passed": false,
+      "evidence": "No mention of ecosystem.env.example"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 640
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Complete failure without skill. Variable name is also wrong (NOTION_API_KEY instead of NOTION_TOKEN)"
+  }
+}

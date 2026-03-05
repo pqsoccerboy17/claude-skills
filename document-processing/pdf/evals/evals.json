@@ -1,0 +1,29 @@
+{
+  "skill_name": "pdf",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python script to extract all text from a multi-page PDF file and save it to a text file.",
+      "expected_output": "A Python script using pypdf or pdfplumber for text extraction",
+      "files": [],
+      "expectations": [
+        "Uses pypdf (PdfReader) or pdfplumber for extraction",
+        "Iterates over all pages in the PDF",
+        "Saves extracted text to a .txt file",
+        "Handles the case where a PDF has no extractable text"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Merge three PDF files (report1.pdf, report2.pdf, report3.pdf) into a single combined.pdf file.",
+      "expected_output": "A script using pypdf PdfWriter/PdfMerger to merge PDFs",
+      "files": [],
+      "expectations": [
+        "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+        "Reads all three input files",
+        "Writes a single merged output file",
+        "References the correct library methods from the skill"
+      ]
+    }
+  ]
+}

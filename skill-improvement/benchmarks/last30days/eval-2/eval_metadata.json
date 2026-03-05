@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "Check Reddit for what people are saying about AI consulting trends in the last 30 days.",
+  "expectations": [
+    "Uses brave_web_search or web search with site:reddit.com filter",
+    "Applies a 30-day date filter (after:YYYY-MM-DD)",
+    "Identifies relevant subreddits discussing the topic",
+    "Summarizes sentiment and key discussion themes",
+    "Includes confidence ratings on findings"
+  ],
+  "skill_name": "last30days"
+}

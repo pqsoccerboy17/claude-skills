@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+      "passed": false,
+      "evidence": "Uses 'from PyPDF2 import PdfReader' -- deprecated PyPDF2 library"
+    },
+    {
+      "text": "Iterates over all pages in the PDF",
+      "passed": true,
+      "evidence": "Code: 'for i, page in enumerate(reader.pages)'"
+    },
+    {
+      "text": "Saves extracted text to a .txt file",
+      "passed": true,
+      "evidence": "Writes to output.txt file"
+    },
+    {
+      "text": "Handles the case where a PDF has no extractable text",
+      "passed": false,
+      "evidence": "No handling for no-text case"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": {"Write": 1},
+    "total_tool_calls": 1,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 420
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Same PyPDF2 issue and missing edge case handling"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "Create an Excel budget spreadsheet with monthly columns (Jan-Dec), rows for Income, Rent, Utilities, Food, Transport, Entertainment, and a Total Expenses row with SUM formulas. Include a Savings row that calculates Income minus Total Expenses.",
+  "expectations": [
+    "Uses openpyxl to create the spreadsheet",
+    "Includes SUM formulas for Total Expenses (not hardcoded values)",
+    "Includes a Savings formula (Income - Total Expenses)",
+    "Applies financial model color coding (blue for inputs, black for formulas)",
+    "Runs LibreOffice recalc to verify formula values"
+  ],
+  "skill_name": "xlsx"
+}

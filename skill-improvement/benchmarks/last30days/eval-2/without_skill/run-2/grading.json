@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Uses brave_web_search or web search with site:reddit.com filter",
+      "passed": false,
+      "evidence": "No search performed. Admits lacking ability to search with date filters"
+    },
+    {
+      "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+      "passed": false,
+      "evidence": "No search or date filter"
+    },
+    {
+      "text": "Identifies relevant subreddits discussing the topic",
+      "passed": true,
+      "evidence": "Lists r/consulting, r/MachineLearning, r/artificial, r/freelance"
+    },
+    {
+      "text": "Summarizes sentiment and key discussion themes",
+      "passed": true,
+      "evidence": "Provides themes: Enterprise AI adoption, LLM integration consulting, AI strategy, Data readiness, ROI measurement"
+    },
+    {
+      "text": "Includes confidence ratings on findings",
+      "passed": false,
+      "evidence": "No confidence ratings"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 880
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Consistent without-skill pattern"
+  }
+}

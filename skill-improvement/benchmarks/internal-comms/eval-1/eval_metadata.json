@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "Draft a rent increase letter for a tenant at 123 Oak Street. Current rent is $1,800/month, increasing to $1,900/month effective April 1, 2026. The tenant's name is Sarah Chen and the lease renewal deadline is March 15.",
+  "expectations": [
+    "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+    "Current rent ($1,800) and new rent ($1,900) are both stated",
+    "Effective date (April 1, 2026) is clearly mentioned",
+    "Lease renewal deadline (March 15) is included",
+    "Tone is professional but not cold - follows the real estate template pattern"
+  ],
+  "skill_name": "internal-comms"
+}

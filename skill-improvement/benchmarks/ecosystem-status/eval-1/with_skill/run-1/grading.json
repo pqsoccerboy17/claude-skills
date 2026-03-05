@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": true,
+      "evidence": "Output shows: 'Ran the ecosystem status check script: ~/scripts/status' and 'This executes python3 ~/scripts/ecosystem_status.py'"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": true,
+      "evidence": "Reports on all 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money, Context Sync, Notion Rules (Tax OCR)"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": true,
+      "evidence": "Each system has a status: Watching, Installed, Connected, Synced, Idle - these map to running/idle states"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": true,
+      "evidence": "Output includes 'ATTENTION NEEDED: 2 PDF files in Downloads, 3 media files in Downloads'"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Output is structured as a dashboard with system names, status indicators, and a summary section"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Bash": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 892
+  },
+  "claims": [
+    {
+      "claim": "The script checks all 5 automation systems",
+      "type": "factual",
+      "verified": true,
+      "evidence": "All 5 systems listed in the skill are reported on in the output"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

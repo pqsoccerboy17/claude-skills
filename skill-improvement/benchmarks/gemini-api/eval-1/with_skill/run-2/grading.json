@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+      "passed": true,
+      "evidence": "import google.generativeai as genai"
+    },
+    {
+      "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+      "passed": true,
+      "evidence": "Checks os.environ first, falls back to ~/scripts/ecosystem.env"
+    },
+    {
+      "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+      "passed": true,
+      "evidence": "gemini-1.5-flash with comment 'Flash for cost efficiency per skill'"
+    },
+    {
+      "text": "Sends transactions in a structured prompt and parses the categorized response",
+      "passed": true,
+      "evidence": "Structured prompt with category list, parses response.text.strip()"
+    },
+    {
+      "text": "Includes error handling for API rate limits or failures",
+      "passed": true,
+      "evidence": "Try/except with 429/quota check, wait and retry logic"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2,
+      "Bash": 1
+    },
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 2749
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

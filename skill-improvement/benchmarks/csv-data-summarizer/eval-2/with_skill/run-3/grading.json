@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Housing is identified as the largest expense category ($2,200)", "passed": true, "evidence": "Housing ranked #1 at $2,200.00 (65.9%), described as 'dominant expense category'"},
+    {"text": "Spending is broken down by account (Chase Checking vs Amex Gold)", "passed": true, "evidence": "Account Split section with dollar totals: Chase Checking $3,086.60, Amex Gold $251.45"},
+    {"text": "At least one transaction is flagged as notable or unusual", "passed": true, "evidence": "Rent Payment: $2,200.00 flagged using IQR method as 'well above the upper fence, clear outlier'"},
+    {"text": "Categories are ranked or sorted by total spend amount", "passed": true, "evidence": "Table with categories ranked 1-9 by amount with share percentages"},
+    {"text": "Missing values or data quality issues are mentioned (even if none found)", "passed": true, "evidence": "Data Quality Notes: 'Zero missing values across all columns, No duplicate records'"}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 2, "Bash": 1, "Write": 2}, "total_tool_calls": 5, "total_steps": 4, "errors_encountered": 0, "output_chars": 1310},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid."}
+}

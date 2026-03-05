@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Invoice number (#2026-014) and amount ($4,500) are included", "passed": true, "evidence": "'Invoice #2026-014 for $4,500.00'"},
+    {"text": "Due date (February 15) and days overdue (18) are mentioned", "passed": true, "evidence": "'due on February 15 and is now 18 days overdue'"},
+    {"text": "Tone is firmer than a first reminder but still professional", "passed": true, "evidence": "'I need to get this resolved', references first reminder - escalated tone"},
+    {"text": "Includes a clear call-to-action (pay by specific date or contact to discuss)", "passed": true, "evidence": "'Please arrange payment by March 14, 2026, or let me know if you'd like to discuss a payment plan'"},
+    {"text": "References that this is the second reminder", "passed": true, "evidence": "'I sent a first reminder previously' and subject '2nd Notice'"}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Write": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 820},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid."}
+}

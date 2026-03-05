@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "mcp-builder",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2268,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": true,
+          "evidence": "package.json includes @modelcontextprotocol/sdk dependency"
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "new Server with capabilities: { tools: {} }"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "Tool defined with name 'lookup_property' and address string input"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "CallToolRequestSchema handler uses axios.get to call https://api.properties.example/v1/lookup"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": true,
+          "evidence": "Configuration section shows .mcp.json / settings.json setup"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2268,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": true,
+          "evidence": "package.json includes @modelcontextprotocol/sdk dependency"
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "new Server with capabilities: { tools: {} }"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "Tool defined with name 'lookup_property' and address string input"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "CallToolRequestSchema handler uses axios.get to call https://api.properties.example/v1/lookup"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": true,
+          "evidence": "Configuration section shows .mcp.json / settings.json setup"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2268,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": true,
+          "evidence": "package.json includes @modelcontextprotocol/sdk dependency"
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "new Server with capabilities: { tools: {} }"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "Tool defined with name 'lookup_property' and address string input"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "CallToolRequestSchema handler uses axios.get to call https://api.properties.example/v1/lookup"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": true,
+          "evidence": "Configuration section shows .mcp.json / settings.json setup"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 3242,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses 'from mcp.server import Server' and mcp.types"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined in handle_list_tools with inputSchema"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "Schema has all three required parameters"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": true,
+          "evidence": "INVOICES_FILE = Path('invoices.json'), load_invoices/save_invoices functions"
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": true,
+          "evidence": "Setup section with pip install mcp, configuration JSON for Claude Code"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 3242,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses 'from mcp.server import Server' and mcp.types"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined in handle_list_tools with inputSchema"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "Schema has all three required parameters"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": true,
+          "evidence": "INVOICES_FILE = Path('invoices.json'), load_invoices/save_invoices functions"
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": true,
+          "evidence": "Setup section with pip install mcp, configuration JSON for Claude Code"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 3242,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses 'from mcp.server import Server' and mcp.types"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined in handle_list_tools with inputSchema"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "Schema has all three required parameters"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": true,
+          "evidence": "INVOICES_FILE = Path('invoices.json'), load_invoices/save_invoices functions"
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": true,
+          "evidence": "Setup section with pip install mcp, configuration JSON for Claude Code"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1300,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": false,
+          "evidence": "No package.json created. Only mentions npm install at end."
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "Server instance created with tools capability"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "lookup_property tool defined with address parameter"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "Handler uses fetch to call the API endpoint"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": false,
+          "evidence": "No configuration instructions provided"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1300,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": false,
+          "evidence": "No package.json created. Only mentions npm install at end."
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "Server instance created with tools capability"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "lookup_property tool defined with address parameter"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "Handler uses fetch to call the API endpoint"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": false,
+          "evidence": "No configuration instructions provided"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1300,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+          "passed": false,
+          "evidence": "No package.json created. Only mentions npm install at end."
+        },
+        {
+          "text": "Implements a Server instance with tools capability",
+          "passed": true,
+          "evidence": "Server instance created with tools capability"
+        },
+        {
+          "text": "Defines a lookup_property tool with an address input parameter",
+          "passed": true,
+          "evidence": "lookup_property tool defined with address parameter"
+        },
+        {
+          "text": "Includes handler that calls the external API endpoint",
+          "passed": true,
+          "evidence": "Handler uses fetch to call the API endpoint"
+        },
+        {
+          "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+          "passed": false,
+          "evidence": "No configuration instructions provided"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 657,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses fastmcp"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined with @mcp.tool()"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "All three parameters in function signature"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": false,
+          "evidence": "Uses in-memory list 'invoices = []'. No JSON file persistence."
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": false,
+          "evidence": "Mentions pip install but no Claude configuration instructions"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 657,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses fastmcp"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined with @mcp.tool()"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "All three parameters in function signature"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": false,
+          "evidence": "Uses in-memory list 'invoices = []'. No JSON file persistence."
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": false,
+          "evidence": "Mentions pip install but no Claude configuration instructions"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 657,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+          "passed": true,
+          "evidence": "Uses fastmcp"
+        },
+        {
+          "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+          "passed": true,
+          "evidence": "Both tools defined with @mcp.tool()"
+        },
+        {
+          "text": "create_invoice accepts client_name, amount, and description parameters",
+          "passed": true,
+          "evidence": "All three parameters in function signature"
+        },
+        {
+          "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+          "passed": false,
+          "evidence": "Uses in-memory list 'invoices = []'. No JSON file persistence."
+        },
+        {
+          "text": "Includes setup instructions (pip install, configuration)",
+          "passed": false,
+          "evidence": "Mentions pip install but no Claude configuration instructions"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 2755.0,
+        "stddev": 533.4818,
+        "min": 2268,
+        "max": 3242
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6,
+        "stddev": 0.0,
+        "min": 0.6,
+        "max": 0.6
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 978.5,
+        "stddev": 352.1856,
+        "min": 657,
+        "max": 1300
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.40",
+      "time_seconds": "+0.0",
+      "tokens": "+1776"
+    }
+  },
+  "notes": []
+}

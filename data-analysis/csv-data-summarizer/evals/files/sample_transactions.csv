@@ -1,0 +1,21 @@
+date,description,amount,category,account
+2026-01-03,Starbucks Coffee,-4.75,Food & Drink,Chase Checking
+2026-01-05,Rent Payment,-2200.00,Housing,Chase Checking
+2026-01-05,Payroll Deposit,5500.00,Income,Chase Checking
+2026-01-07,Amazon Purchase,-67.99,Shopping,Amex Gold
+2026-01-08,Uber Ride,-18.50,Transportation,Chase Checking
+2026-01-10,Whole Foods,-132.45,Groceries,Chase Checking
+2026-01-12,Netflix,-15.99,Entertainment,Amex Gold
+2026-01-14,Client Invoice Payment,3200.00,Income,Chase Checking
+2026-01-15,Electric Bill,-145.00,Utilities,Chase Checking
+2026-01-16,Gas Station,-52.30,Transportation,Chase Checking
+2026-01-18,Target,-89.99,Shopping,Amex Gold
+2026-01-20,Trader Joes,-78.62,Groceries,Chase Checking
+2026-01-21,Spotify,-9.99,Entertainment,Amex Gold
+2026-01-22,Insurance Premium,-280.00,Insurance,Chase Checking
+2026-01-23,Restaurant Dinner,-64.50,Food & Drink,Amex Gold
+2026-01-25,Water Bill,-45.00,Utilities,Chase Checking
+2026-01-26,Consulting Fee,1800.00,Income,Chase Checking
+2026-01-27,Gym Membership,-49.99,Health,Chase Checking
+2026-01-28,Apple iCloud,-2.99,Entertainment,Amex Gold
+2026-01-30,Internet Bill,-79.99,Utilities,Chase Checking

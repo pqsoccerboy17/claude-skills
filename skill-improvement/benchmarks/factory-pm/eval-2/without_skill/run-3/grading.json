@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+      "passed": false,
+      "evidence": "No context gathering. Jumps straight to implementation."
+    },
+    {
+      "text": "Asks clarifying questions about the existing tech stack and design system",
+      "passed": false,
+      "evidence": "No questions asked. Asks 'Want me to implement this?' at end but no clarifying questions."
+    },
+    {
+      "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+      "passed": false,
+      "evidence": "No spec file written. Plan is inline."
+    },
+    {
+      "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+      "passed": true,
+      "evidence": "Uses localStorage.setItem/getItem for theme persistence"
+    },
+    {
+      "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+      "passed": false,
+      "evidence": "Already wrote implementation code. 'Want me to implement this?' is asked after code, not before."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 833
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "metadata": {
+    "skill_name": "pdf",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 1050,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfReader' as the skill recommends"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for i, page in enumerate(reader.pages)'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Code: 'with open(output_path, \"w\") as f: f.write(text)'"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": true,
+          "evidence": "Checks 'if not text.strip()' and suggests OCR for scanned documents"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 980,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfReader'"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for page in reader.pages'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Writes to output_path with open(output_path, 'w', encoding='utf-8')"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": true,
+          "evidence": "Checks 'if not all_text.strip()' and prints OCR suggestion"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 890,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfReader'"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for page in reader.pages'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Writes to output_path file"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": true,
+          "evidence": "Checks 'if not text.strip()' and suggests pytesseract + pdf2image for OCR"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 620,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfWriter, PdfReader' -- correct modern library"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Loops through ['report1.pdf', 'report2.pdf', 'report3.pdf']"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": true,
+          "evidence": "Uses PdfWriter.add_page() pattern shown in skill's merge example"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 580,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfWriter, PdfReader'"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Reads report1.pdf, report2.pdf, report3.pdf in loop"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": true,
+          "evidence": "Uses PdfWriter.add_page() matching skill pattern. Notes: 'not the deprecated PyPDF2'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 590,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": true,
+          "evidence": "Uses 'from pypdf import PdfWriter, PdfReader'. Explicitly notes 'not PyPDF2'"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Loops through all 3 report files"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": true,
+          "evidence": "Uses skill's exact pattern. Also mentions qpdf command-line alternative from skill"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 480,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": false,
+          "evidence": "Uses 'from PyPDF2 import PdfReader' -- PyPDF2 is the deprecated library, not pypdf"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for page in reader.pages'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Writes to output_path file"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": false,
+          "evidence": "No handling for empty text extraction. Would write empty file"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 460,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": true,
+          "evidence": "Uses pdfplumber which is one of the accepted libraries"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for page in pdf.pages'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Writes to output_path .txt file"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": false,
+          "evidence": "Only checks individual pages with 'if text:' but doesn't handle the case where all pages return no text"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 420,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+          "passed": false,
+          "evidence": "Uses 'from PyPDF2 import PdfReader' -- deprecated PyPDF2 library"
+        },
+        {
+          "text": "Iterates over all pages in the PDF",
+          "passed": true,
+          "evidence": "Code: 'for i, page in enumerate(reader.pages)'"
+        },
+        {
+          "text": "Saves extracted text to a .txt file",
+          "passed": true,
+          "evidence": "Writes to output.txt file"
+        },
+        {
+          "text": "Handles the case where a PDF has no extractable text",
+          "passed": false,
+          "evidence": "No handling for no-text case"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 380,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": false,
+          "evidence": "Uses 'from PyPDF2 import PdfMerger' -- deprecated library"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Appends report1.pdf, report2.pdf, report3.pdf"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": false,
+          "evidence": "Uses PyPDF2.PdfMerger not the skill's pypdf PdfWriter pattern"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 350,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": false,
+          "evidence": "Uses 'from PyPDF2 import PdfMerger' -- deprecated"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Appends all three report PDFs"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": false,
+          "evidence": "Uses PyPDF2 methods, not the skill's pypdf pattern"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 400,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+          "passed": false,
+          "evidence": "Uses 'import PyPDF2' and 'PyPDF2.PdfMerger()' -- deprecated"
+        },
+        {
+          "text": "Reads all three input files",
+          "passed": true,
+          "evidence": "Appends all three files in list"
+        },
+        {
+          "text": "Writes a single merged output file",
+          "passed": true,
+          "evidence": "Writes to 'combined.pdf'"
+        },
+        {
+          "text": "References the correct library methods from the skill",
+          "passed": false,
+          "evidence": "Uses deprecated PyPDF2 methods"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 785.0,
+        "stddev": 212.8615,
+        "min": 580,
+        "max": 1050
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5417,
+        "stddev": 0.1021,
+        "min": 0.5,
+        "max": 0.75
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 415.0,
+        "stddev": 48.8876,
+        "min": 350,
+        "max": 480
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.46",
+      "time_seconds": "+0.0",
+      "tokens": "+370"
+    }
+  },
+  "notes": []
+}

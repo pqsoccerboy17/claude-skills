@@ -1,0 +1,31 @@
+{
+  "skill_name": "notifications",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add push notification support to a Python script that monitors a folder for new files. When a new file appears, it should send a Pushover notification with the filename and size.",
+      "expected_output": "A Python script with Pushover notification integration using the ecosystem's notify.py module",
+      "files": [],
+      "expectations": [
+        "Imports or references ~/scripts/notify.py send_notification() function",
+        "Uses Pushover as the notification backend (not just macOS notifications)",
+        "Sends notification with the filename included in the message",
+        "Sets an appropriate priority level (0 or 1 for file monitoring)",
+        "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Send a test notification to verify my Pushover setup is working. Use priority 0 (normal) and include a test message.",
+      "expected_output": "A notification sent via Pushover with confirmation of delivery",
+      "files": [],
+      "expectations": [
+        "Uses the send_notification() function from ~/scripts/notify.py",
+        "Sets priority to 0 (normal)",
+        "Includes a descriptive test message",
+        "Checks for required environment variables before sending",
+        "Reports success or failure of the notification delivery"
+      ]
+    }
+  ]
+}

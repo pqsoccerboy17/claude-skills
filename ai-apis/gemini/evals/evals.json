@@ -1,0 +1,31 @@
+{
+  "skill_name": "gemini-api",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Python script that uses the Gemini API to categorize a list of bank transactions. Each transaction has a description and amount. The script should send them to Gemini and get back categories like 'Food', 'Transportation', 'Entertainment', etc.",
+      "expected_output": "A Python script using the Gemini SDK for transaction categorization",
+      "files": [],
+      "expectations": [
+        "Uses the google-generativeai Python SDK (import google.generativeai)",
+        "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+        "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+        "Sends transactions in a structured prompt and parses the categorized response",
+        "Includes error handling for API rate limits or failures"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a script that uses Gemini's multimodal capabilities to extract text and data from receipt images. It should take an image path and return structured JSON with merchant, date, total, and line items.",
+      "expected_output": "A Python script using Gemini's vision/multimodal API for receipt OCR",
+      "files": [],
+      "expectations": [
+        "Uses Gemini's multimodal input (image + text prompt)",
+        "Loads an image file and sends it to the Gemini API",
+        "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+        "Parses the response into JSON format",
+        "Uses the free tier model (Flash) as recommended by the skill"
+      ]
+    }
+  ]
+}

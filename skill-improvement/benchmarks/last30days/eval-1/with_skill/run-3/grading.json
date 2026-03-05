@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Searches Reddit using site:reddit.com with a date filter",
+      "passed": true,
+      "evidence": "Shows: 'site:reddit.com \"Claude Code\" after:2026-02-03' via brave_web_search"
+    },
+    {
+      "text": "Searches X/Twitter for recent mentions",
+      "passed": true,
+      "evidence": "Shows: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+    },
+    {
+      "text": "Provides a sentiment rating or assessment",
+      "passed": true,
+      "evidence": "States: 'Sentiment: Positive'"
+    },
+    {
+      "text": "Includes links to specific threads or posts found",
+      "passed": false,
+      "evidence": "Only placeholder: '(URLs from search results would be listed here)'"
+    },
+    {
+      "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+      "passed": true,
+      "evidence": "Full structured report including confidence rating guide from the skill"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1},
+    "total_tool_calls": 1,
+    "total_steps": 5,
+    "errors_encountered": 0,
+    "output_chars": 2050
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Consistent with other with-skill runs"
+  }
+}

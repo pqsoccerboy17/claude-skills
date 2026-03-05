@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "Set up a folder structure for a new consulting client called 'Acme Corp'. I need folders for contracts, deliverables, invoices, and meeting notes.",
+  "expectations": [
+    "Creates a top-level Acme-Corp or acme-corp directory",
+    "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+    "Provides a script or code to create the structure",
+    "Follows the consulting client pattern from the skill",
+    "Structure is created in a sensible location or user is asked about location"
+  ],
+  "skill_name": "file-organizer"
+}

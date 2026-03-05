@@ -1,0 +1,839 @@
+{
+  "metadata": {
+    "skill_name": "internal-comms",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1050,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "Uses 'Dear Sarah' and '123 Oak Street' throughout"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "'adjusted from $1,800 to $1,900 per month'"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'Effective April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'by March 15, 2026'"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": true,
+          "evidence": "Warm tone: 'valued tenant', 'hope you've been enjoying', 'happy to arrange a time to talk', 'great tenant'. Follows skill's guideline of professional-but-approachable."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 880,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "'Dear Sarah', '123 Oak Street'"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "'from $1,800 to $1,900'"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'effective April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'by March 15, 2026'"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": true,
+          "evidence": "'pleasure having you as a tenant', 'hope you've been enjoying', 'happy to talk through the details'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 760,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "'Dear Sarah', '123 Oak Street'"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "'from $1,800 to $1,900'"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'Beginning April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'by March 15, 2026'"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": true,
+          "evidence": "'wonderful tenant', 'happy to chat', 'Warm regards'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1020,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "Subject: Website Redesign Update - Week 3 of 6"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'halfway mark - 3 weeks into our 6-week timeline'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Completed the wireframes phase' and 'Visual design phase kicks off next week'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'API integration work may require an additional week' with detail about shifting from 6 to 7 weeks"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": true,
+          "evidence": "No bold, asterisks, or markdown formatting. Uses plain text with dashes for lists."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 920,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "'Subject: TechStart Website Redesign - Week 3 Update'"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'3 weeks in on our 6-week timeline, so right at the 50% mark'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Wireframes phase wrapped up' and 'Visual design phase starts next week'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'may need an extra week, which would extend the project to 7 weeks total'"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": true,
+          "evidence": "No markdown formatting. Plain text with dashes for lists."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 900,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "'Subject: Website Redesign Status - 50% Complete'"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'3 weeks into our 6-week engagement, hitting the halfway point'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Wireframes for all pages finalized' and 'Visual design phase begins'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'API integration may require an additional week...total timeline would extend to 7 weeks'"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": true,
+          "evidence": "Plain text throughout, no markdown"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 920,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 for $4,500'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due on February 15, 2026. As of today, this invoice is 18 days past due'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": true,
+          "evidence": "References 'sent an initial reminder previously', uses 'I do need to resolve this', 'avoid any disruption' - firm but professional"
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": true,
+          "evidence": "'please remit payment by March 10, 2026, or contact me to discuss a payment arrangement'"
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "'I sent an initial reminder previously' and subject says 'Second Reminder'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 for $4,500'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due February 15 and is now 18 days past due'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": true,
+          "evidence": "'I do need to resolve this promptly', 'Per our engagement terms' - firm but respectful"
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": true,
+          "evidence": "'Please arrange payment by March 12, 2026, or reach out to me directly'"
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "'This is my second reminder'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 820,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 for $4,500.00'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due on February 15 and is now 18 days overdue'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": true,
+          "evidence": "'I need to get this resolved', references first reminder - escalated tone"
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": true,
+          "evidence": "'Please arrange payment by March 14, 2026, or let me know if you'd like to discuss a payment plan'"
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "'I sent a first reminder previously' and subject '2nd Notice'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 420,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "'Dear Sarah Chen' and '123 Oak Street'"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "Both amounts listed with bold formatting"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'Effective Date: April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'March 15, 2026' mentioned"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": false,
+          "evidence": "Letter is quite terse and formal. Uses bold markdown formatting, no warmth or empathy. Just states facts without building rapport. Does not follow the skill's approachable tone pattern."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 350,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "'Dear Sarah Chen', '123 Oak Street'"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "Both amounts stated"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'effective April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'by March 15, 2026'"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": false,
+          "evidence": "Very terse - just 4 sentences. No warmth, no empathy, no rapport building. Reads like a legal notice rather than a professional-but-approachable letter."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 390,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+          "passed": true,
+          "evidence": "'Dear Sarah Chen', '123 Oak Street'"
+        },
+        {
+          "text": "Current rent ($1,800) and new rent ($1,900) are both stated",
+          "passed": true,
+          "evidence": "'$1,800' and '$1,900' in bold"
+        },
+        {
+          "text": "Effective date (April 1, 2026) is clearly mentioned",
+          "passed": true,
+          "evidence": "'Effective April 1, 2026'"
+        },
+        {
+          "text": "Lease renewal deadline (March 15) is included",
+          "passed": true,
+          "evidence": "'March 15, 2026' in bold"
+        },
+        {
+          "text": "Tone is professional but not cold - follows the real estate template pattern",
+          "passed": false,
+          "evidence": "Uses markdown bold formatting which violates plain-text email rule. Tone is adequate but formal rather than warm/approachable per the skill's tenant guidelines. No empathy or rapport."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 480,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "'Subject: Website Redesign - Project Status Update'"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'3 weeks into the 6-week project (~50% complete)'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Wireframes phase' completed, 'Visual design starts next week'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'API integration may need an extra week, which could push the timeline to 7 weeks total'"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": false,
+          "evidence": "Uses **bold** markdown formatting for Subject, Timeline, Completed, Coming Up, and Risks headers"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 380,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "'Subject: Website Redesign Project - Status Update'"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'3 weeks into the 6-week project'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Wireframes completed' and 'Visual design begins next week'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'API integration might take an extra week'"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": false,
+          "evidence": "Uses **bold** markdown formatting for Subject, What's done, What's next, and Concerns headers"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 440,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email has a clear subject line about project status",
+          "passed": true,
+          "evidence": "'Subject: Website Redesign - Progress Update'"
+        },
+        {
+          "text": "Progress is quantified (3 of 6 weeks, or ~50%)",
+          "passed": true,
+          "evidence": "'3 weeks in on a 6-week timeline, so about halfway through'"
+        },
+        {
+          "text": "Completed work (wireframes) and next phase (visual design) are clearly stated",
+          "passed": true,
+          "evidence": "'Wireframes phase is done' and 'Starting visual design next week'"
+        },
+        {
+          "text": "The API integration risk is flagged with its potential impact (extra week)",
+          "passed": true,
+          "evidence": "'API integration piece may need an extra week'"
+        },
+        {
+          "text": "Output is plain text without markdown formatting (per email drafting rules)",
+          "passed": true,
+          "evidence": "No markdown formatting used. Plain text throughout."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 340,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 for $4,500.00'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due on February 15, 2026. The payment is now 18 days overdue'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": false,
+          "evidence": "Tone is flat and impersonal rather than firm. Says 'at your earliest convenience' which is actually softer than a typical first reminder, not firmer."
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": false,
+          "evidence": "No specific payment deadline given. 'at your earliest convenience' is vague, not a clear call-to-action with a date."
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "'This is a second reminder'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 290,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 in the amount of $4,500'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due on February 15, 2026, and is currently 18 days past due'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": false,
+          "evidence": "Very terse with no escalation language. 'Please process payment as soon as possible' is generic, not specifically firmer than a first reminder."
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": false,
+          "evidence": "'as soon as possible' is vague. No specific date or alternative offered."
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "'This is the second reminder'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 320,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Invoice number (#2026-014) and amount ($4,500) are included",
+          "passed": true,
+          "evidence": "'Invoice #2026-014 for $4,500'"
+        },
+        {
+          "text": "Due date (February 15) and days overdue (18) are mentioned",
+          "passed": true,
+          "evidence": "'due February 15 and is now 18 days overdue'"
+        },
+        {
+          "text": "Tone is firmer than a first reminder but still professional",
+          "passed": true,
+          "evidence": "'Please arrange payment immediately' is firm. Subject says 'Overdue'."
+        },
+        {
+          "text": "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+          "passed": false,
+          "evidence": "'immediately' and 'contact me to discuss' but no specific deadline date"
+        },
+        {
+          "text": "References that this is the second reminder",
+          "passed": true,
+          "evidence": "Title says 'Second Payment Reminder', 'second notice'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 894.4444,
+        "stddev": 98.8826,
+        "min": 760,
+        "max": 1050
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7778,
+        "stddev": 0.1202,
+        "min": 0.6,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 378.8889,
+        "stddev": 60.7134,
+        "min": 290,
+        "max": 480
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.22",
+      "time_seconds": "+0.0",
+      "tokens": "+516"
+    }
+  },
+  "notes": []
+}

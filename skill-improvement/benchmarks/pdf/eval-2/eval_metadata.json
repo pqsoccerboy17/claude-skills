@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "prompt": "Merge three PDF files (report1.pdf, report2.pdf, report3.pdf) into a single combined.pdf file.",
+  "expectations": [
+    "Uses pypdf PdfWriter or PdfMerger (not deprecated PyPDF2)",
+    "Reads all three input files",
+    "Writes a single merged output file",
+    "References the correct library methods from the skill"
+  ],
+  "skill_name": "pdf"
+}

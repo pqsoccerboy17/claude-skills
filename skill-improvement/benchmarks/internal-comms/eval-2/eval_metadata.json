@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "Write a consulting project status update email to my client at TechStart Inc. The project is a website redesign, we're 3 weeks in on a 6-week timeline, we completed the wireframes phase, starting visual design next week, and there's a risk that the API integration may need an extra week.",
+  "expectations": [
+    "Email has a clear subject line about project status",
+    "Progress is quantified (3 of 6 weeks, or ~50%)",
+    "Completed work (wireframes) and next phase (visual design) are clearly stated",
+    "The API integration risk is flagged with its potential impact (extra week)",
+    "Output is plain text without markdown formatting (per email drafting rules)"
+  ],
+  "skill_name": "internal-comms"
+}

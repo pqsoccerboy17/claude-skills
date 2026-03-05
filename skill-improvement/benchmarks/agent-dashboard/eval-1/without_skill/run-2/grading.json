@@ -1,0 +1,12 @@
+{
+  "expectations": [
+    {"text": "Runs node server.js from the agent-dashboard/app directory", "passed": false, "evidence": "Creates new server from scratch, not the existing dashboard"},
+    {"text": "Opens or instructs to open localhost:3847 in the browser", "passed": false, "evidence": "Uses port 8080, not 3847"},
+    {"text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories", "passed": false, "evidence": "References ~/.claude/ generically but not the specific teams/ and tasks/ subdirectories"},
+    {"text": "Does not try to build a new dashboard from scratch", "passed": false, "evidence": "Creates new Express+WebSocket server from scratch with npm init"}
+  ],
+  "summary": {"passed": 0, "failed": 4, "total": 4, "pass_rate": 0.0},
+  "execution_metrics": {"tool_calls": {"Write": 2, "Bash": 1}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 780},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "Same build-from-scratch pattern"}
+}

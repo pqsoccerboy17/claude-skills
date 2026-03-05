@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Searches Reddit using site:reddit.com with a date filter",
+      "passed": false,
+      "evidence": "Does not use site:reddit.com or any date filter. States 'based on general knowledge' without performing searches"
+    },
+    {
+      "text": "Searches X/Twitter for recent mentions",
+      "passed": false,
+      "evidence": "Does not search X/Twitter. Only provides general speculation"
+    },
+    {
+      "text": "Provides a sentiment rating or assessment",
+      "passed": true,
+      "evidence": "Provides general sentiment: 'well-regarded in the developer community' with positive and negative points"
+    },
+    {
+      "text": "Includes links to specific threads or posts found",
+      "passed": false,
+      "evidence": "No links provided. Admits 'I wasn't able to perform actual web searches'"
+    },
+    {
+      "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+      "passed": false,
+      "evidence": "Uses a generic format (Reddit/Twitter/General Assessment), not the skill's structured report with Key Voices table, Trending Themes, Top Threads, Confidence Ratings, etc."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 920
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without skill, agent produces generic commentary instead of structured research"
+  }
+}

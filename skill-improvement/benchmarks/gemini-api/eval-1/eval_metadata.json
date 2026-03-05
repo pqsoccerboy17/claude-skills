@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "Write a Python script that uses the Gemini API to categorize a list of bank transactions. Each transaction has a description and amount. The script should send them to Gemini and get back categories like 'Food', 'Transportation', 'Entertainment', etc.",
+  "expectations": [
+    "Uses the google-generativeai Python SDK (import google.generativeai)",
+    "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+    "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+    "Sends transactions in a structured prompt and parses the categorized response",
+    "Includes error handling for API rate limits or failures"
+  ],
+  "skill_name": "gemini-api"
+}

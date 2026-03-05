@@ -1,0 +1,31 @@
+{
+  "skill_name": "xlsx",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create an Excel budget spreadsheet with monthly columns (Jan-Dec), rows for Income, Rent, Utilities, Food, Transport, Entertainment, and a Total Expenses row with SUM formulas. Include a Savings row that calculates Income minus Total Expenses.",
+      "expected_output": "An Excel file with formulas, formatting, and financial model color coding",
+      "files": [],
+      "expectations": [
+        "Uses openpyxl to create the spreadsheet",
+        "Includes SUM formulas for Total Expenses (not hardcoded values)",
+        "Includes a Savings formula (Income - Total Expenses)",
+        "Applies financial model color coding (blue for inputs, black for formulas)",
+        "Runs LibreOffice recalc to verify formula values"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have an Excel file with a column of prices. Add a 10% tax column with formulas and a total row at the bottom.",
+      "expected_output": "Modified Excel file with formula-based tax column and total",
+      "files": [],
+      "expectations": [
+        "Uses openpyxl to read and modify the existing file",
+        "Adds tax column with formula references (=cell*0.10) not hardcoded values",
+        "Adds a SUM total row at the bottom",
+        "Preserves existing data and formatting",
+        "Mentions zero formula errors requirement"
+      ]
+    }
+  ]
+}

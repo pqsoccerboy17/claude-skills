@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Uses brave_web_search or web search with site:reddit.com filter",
+      "passed": false,
+      "evidence": "No search performed. Relies on general knowledge"
+    },
+    {
+      "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+      "passed": false,
+      "evidence": "No date filter applied. No search executed"
+    },
+    {
+      "text": "Identifies relevant subreddits discussing the topic",
+      "passed": true,
+      "evidence": "Lists r/consulting, r/MachineLearning, r/Entrepreneur, r/freelance as relevant"
+    },
+    {
+      "text": "Summarizes sentiment and key discussion themes",
+      "passed": true,
+      "evidence": "Provides sentiment ('Generally optimistic but cautious') and 5 discussion themes"
+    },
+    {
+      "text": "Includes confidence ratings on findings",
+      "passed": false,
+      "evidence": "No confidence ratings on any findings"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 950
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without skill, agent provides reasonable general analysis but lacks the search methodology and structured output"
+  }
+}

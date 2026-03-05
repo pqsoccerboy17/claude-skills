@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the send_notification() function from ~/scripts/notify.py",
+      "passed": true,
+      "evidence": "from notify import send_notification, sys.path to ~/scripts"
+    },
+    {
+      "text": "Sets priority to 0 (normal)",
+      "passed": true,
+      "evidence": "priority=0 with comment 'Normal priority'"
+    },
+    {
+      "text": "Includes a descriptive test message",
+      "passed": true,
+      "evidence": "Descriptive message about verifying Pushover setup"
+    },
+    {
+      "text": "Checks for required environment variables before sending",
+      "passed": true,
+      "evidence": "Checks PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN with error messages and sys.exit"
+    },
+    {
+      "text": "Reports success or failure of the notification delivery",
+      "passed": true,
+      "evidence": "try/except with success/failure print statements"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2,
+      "Bash": 1
+    },
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 1287
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

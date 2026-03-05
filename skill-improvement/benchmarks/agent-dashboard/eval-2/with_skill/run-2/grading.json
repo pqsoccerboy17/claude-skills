@@ -1,0 +1,12 @@
+{
+  "expectations": [
+    {"text": "Recognizes this as a request for the agent dashboard", "passed": true, "evidence": "States: 'Recognizing this as a request for the surveillance dashboard'"},
+    {"text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app", "passed": true, "evidence": "Uses the existing dashboard path"},
+    {"text": "Starts the server with the correct command (node server.js)", "passed": true, "evidence": "Shows node server.js"},
+    {"text": "Explains what the dashboard shows (agent roster, messages, task board)", "passed": true, "evidence": "Lists Agent Roster, Live Messages, Task Board, History"}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Bash": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 680},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid"}
+}

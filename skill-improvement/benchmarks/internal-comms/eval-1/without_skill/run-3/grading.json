@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)", "passed": true, "evidence": "'Dear Sarah Chen', '123 Oak Street'"},
+    {"text": "Current rent ($1,800) and new rent ($1,900) are both stated", "passed": true, "evidence": "'$1,800' and '$1,900' in bold"},
+    {"text": "Effective date (April 1, 2026) is clearly mentioned", "passed": true, "evidence": "'Effective April 1, 2026'"},
+    {"text": "Lease renewal deadline (March 15) is included", "passed": true, "evidence": "'March 15, 2026' in bold"},
+    {"text": "Tone is professional but not cold - follows the real estate template pattern", "passed": false, "evidence": "Uses markdown bold formatting which violates plain-text email rule. Tone is adequate but formal rather than warm/approachable per the skill's tenant guidelines. No empathy or rapport."}
+  ],
+  "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8},
+  "execution_metrics": {"tool_calls": {"Write": 2}, "total_tool_calls": 2, "total_steps": 2, "errors_encountered": 0, "output_chars": 390},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions."}
+}

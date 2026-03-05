@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Uses brave_web_search or web search with site:reddit.com filter",
+      "passed": true,
+      "evidence": "Shows: 'site:reddit.com \"AI consulting\" trends after:2026-02-03'"
+    },
+    {
+      "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+      "passed": true,
+      "evidence": "Uses after:2026-02-03"
+    },
+    {
+      "text": "Identifies relevant subreddits discussing the topic",
+      "passed": true,
+      "evidence": "Identifies r/consulting, r/freelance"
+    },
+    {
+      "text": "Summarizes sentiment and key discussion themes",
+      "passed": true,
+      "evidence": "Sentiment: 'Positive'. Themes: AI consulting as career pivot, productized AI services, SMB AI adoption, AI audit services"
+    },
+    {
+      "text": "Includes confidence ratings on findings",
+      "passed": true,
+      "evidence": "Each theme has confidence rating. Includes full confidence rating guide from skill"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1},
+    "total_tool_calls": 1,
+    "total_steps": 4,
+    "errors_encountered": 0,
+    "output_chars": 1700
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

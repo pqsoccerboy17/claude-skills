@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "Build me an MCP server in TypeScript that exposes a tool called 'lookup_property' which takes an address string and returns property details. It should connect to a hypothetical REST API at https://api.properties.example/v1/lookup.",
+  "expectations": [
+    "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+    "Implements a Server instance with tools capability",
+    "Defines a lookup_property tool with an address input parameter",
+    "Includes handler that calls the external API endpoint",
+    "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)"
+  ],
+  "skill_name": "mcp-builder"
+}

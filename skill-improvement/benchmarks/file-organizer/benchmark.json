@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "file-organizer",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1850,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "Structure shows Financial, Images, Documents, Archives, plus keyword-based categories"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "Naming convention: {YYYY-MM-DD}_{type}_{description}.{ext} with examples"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Complete Python script with categorize_file, handle_duplicate, and organize_downloads functions"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": true,
+          "evidence": "Script uses 'from pathlib import Path' and 'import shutil', Path().iterdir(), shutil.copy2()"
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": true,
+          "evidence": "handle_duplicate function appends _1, _2 counter when destination file exists"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1420,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "Financial, Images, Documents, Archives categories plus keyword-based categories"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "{YYYY-MM-DD}_{type}_{description}.{ext} pattern"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Complete script with categorize_file, safe_move, organize functions"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": true,
+          "evidence": "Uses Path().iterdir(), Path().suffix, shutil.copy2"
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": true,
+          "evidence": "safe_move function appends _1, _2 counter for existing files"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1550,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "Financial, Images, Documents, Archives plus keyword categories"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "{YYYY-MM-DD}_{type}_{description}.{ext}"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Full organize_downloads function with categorize_file"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": true,
+          "evidence": "Path().iterdir(), Path().suffix, shutil.copy2"
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": true,
+          "evidence": "Duplicate handling with numbered suffix in organize_downloads"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1050,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "Structure shows Acme-Corp/ as directory under Consulting/Clients/"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four present: Contracts/, Deliverables/, Invoices/, Meeting-Notes/ plus Communications/"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "Python script with create_client_structure function using pathlib"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": true,
+          "evidence": "Explicitly references 'skill's consulting client template', nests under Consulting/Clients/, includes Communications/ folder from skill pattern"
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": true,
+          "evidence": "Asks 'Where should this be created?' with three suggested options, defaults to ~/Consulting/Clients/"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 680,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "Acme-Corp/ under Consulting/Clients/"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four plus Communications/"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "Python script using pathlib Path.mkdir"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": true,
+          "evidence": "Nests under Consulting/Clients/, includes Communications/ from skill template"
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": true,
+          "evidence": "Asks 'Where would you like this created? Default is ~/Consulting/Clients/Acme-Corp/'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 620,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "Acme-Corp/ under Consulting/Clients/"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four plus Communications/"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "setup_client function using pathlib"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": true,
+          "evidence": "References 'skill's consulting pattern', uses Consulting/Clients/ structure"
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": true,
+          "evidence": "'Happy to adjust if you prefer a different path' with default ~/Consulting/Clients/"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 890,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "Structure shows documents, images, spreadsheets, pdfs, archives, misc"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "Suggests 'document_2026-03-05_original-name.pdf' pattern"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Python script provided using os.listdir and shutil.copy2"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": false,
+          "evidence": "Uses os.listdir, os.path.join, os.makedirs - os module rather than pathlib. Does use shutil but os is primary file ops module."
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": false,
+          "evidence": "No duplicate handling. If two files have the same name, one would overwrite the other."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "documents, images, spreadsheets, archives, other categories"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "Suggests 'Rename files to include a date prefix'"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Python script with os.listdir loop"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": false,
+          "evidence": "Uses os.listdir, os.path.join, os.makedirs. Uses shutil.move but os module is primary."
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": false,
+          "evidence": "No duplicate handling in script"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 650,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+          "passed": true,
+          "evidence": "docs, images, spreadsheets, archives, other categories"
+        },
+        {
+          "text": "Suggests a date-based or descriptive naming convention",
+          "passed": true,
+          "evidence": "Suggests date prefix: 2026-03-05-filename.ext"
+        },
+        {
+          "text": "Provides a script or code to perform the organization",
+          "passed": true,
+          "evidence": "Python script provided"
+        },
+        {
+          "text": "Uses pathlib or shutil for file operations (not raw os.system calls)",
+          "passed": false,
+          "evidence": "Uses os.listdir, os.path.splitext, os.makedirs. shutil.copy used but os is primary."
+        },
+        {
+          "text": "Handles edge cases like duplicate filenames",
+          "passed": false,
+          "evidence": "No duplicate handling"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 450,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "Structure shows Acme-Corp/ as top-level directory"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four present: contracts/, deliverables/, invoices/, meeting-notes/"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "Python script using os.makedirs"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": false,
+          "evidence": "No reference to skill pattern. Creates flat structure without Consulting/Clients/ nesting or Communications/ folder"
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": false,
+          "evidence": "Script says 'You can run this from wherever you want' but doesn't suggest a specific location or ask the user"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 320,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "acme-corp/ as top-level"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four present"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "Python script with os.makedirs"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": false,
+          "evidence": "No skill reference. Flat structure without Consulting/Clients/ nesting"
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": false,
+          "evidence": "No location discussion. Script creates in current directory."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 380,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Creates a top-level Acme-Corp or acme-corp directory",
+          "passed": true,
+          "evidence": "Acme-Corp/ as top-level"
+        },
+        {
+          "text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories",
+          "passed": true,
+          "evidence": "All four present"
+        },
+        {
+          "text": "Provides a script or code to create the structure",
+          "passed": true,
+          "evidence": "Python script with os.makedirs"
+        },
+        {
+          "text": "Follows the consulting client pattern from the skill",
+          "passed": false,
+          "evidence": "No skill pattern reference. Flat structure."
+        },
+        {
+          "text": "Structure is created in a sensible location or user is asked about location",
+          "passed": true,
+          "evidence": "Asks 'Where would you like me to create this?'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 1195.0,
+        "stddev": 494.4795,
+        "min": 620,
+        "max": 1850
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6333,
+        "stddev": 0.0816,
+        "min": 0.6,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 578.3333,
+        "stddev": 230.4271,
+        "min": 320,
+        "max": 890
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.37",
+      "time_seconds": "+0.0",
+      "tokens": "+617"
+    }
+  },
+  "notes": []
+}

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+      "passed": false,
+      "evidence": "No package.json created. Only mentions npm install at end."
+    },
+    {
+      "text": "Implements a Server instance with tools capability",
+      "passed": true,
+      "evidence": "Server instance created with tools capability"
+    },
+    {
+      "text": "Defines a lookup_property tool with an address input parameter",
+      "passed": true,
+      "evidence": "lookup_property tool defined with address parameter"
+    },
+    {
+      "text": "Includes handler that calls the external API endpoint",
+      "passed": true,
+      "evidence": "Handler uses fetch to call the API endpoint"
+    },
+    {
+      "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+      "passed": false,
+      "evidence": "No configuration instructions provided"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2
+    },
+    "total_tool_calls": 2,
+    "total_steps": 3,
+    "errors_encountered": 0,
+    "output_chars": 1300
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

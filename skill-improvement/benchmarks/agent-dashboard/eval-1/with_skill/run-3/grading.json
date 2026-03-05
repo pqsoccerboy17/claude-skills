@@ -1,0 +1,12 @@
+{
+  "expectations": [
+    {"text": "Runs node server.js from the agent-dashboard/app directory", "passed": true, "evidence": "Shows the correct cd + node server.js command"},
+    {"text": "Opens or instructs to open localhost:3847 in the browser", "passed": true, "evidence": "Shows 'open http://localhost:3847'"},
+    {"text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories", "passed": true, "evidence": "States it monitors these directories"},
+    {"text": "Does not try to build a new dashboard from scratch", "passed": true, "evidence": "Uses existing dashboard"}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Bash": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 720},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid"}
+}

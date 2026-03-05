@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": false,
+      "evidence": "Does not use ecosystem_status.py. Uses generic ps aux, launchctl, and lsof commands"
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": false,
+      "evidence": "Cannot determine Tax Organizer status. Says 'Without specific knowledge of how your tax organizer is set up'"
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": false,
+      "evidence": "Cannot determine Monarch Money status. Says 'without knowing the exact server configuration'"
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": false,
+      "evidence": "States 'unable to definitively confirm the status of either service'"
+    },
+    {
+      "text": "Does not confuse ecosystem-status with ecosystem-config",
+      "passed": true,
+      "evidence": "Neither skill is referenced, so no confusion occurs"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 5},
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "errors_encountered": 0,
+    "output_chars": 850
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Same trivial pass on the confusion assertion as other without-skill runs"
+  }
+}

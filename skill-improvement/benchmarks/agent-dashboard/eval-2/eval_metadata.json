@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "prompt": "Show me what my agents are doing right now.",
+  "expectations": [
+    "Recognizes this as a request for the agent dashboard",
+    "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+    "Starts the server with the correct command (node server.js)",
+    "Explains what the dashboard shows (agent roster, messages, task board)"
+  ],
+  "skill_name": "agent-dashboard"
+}

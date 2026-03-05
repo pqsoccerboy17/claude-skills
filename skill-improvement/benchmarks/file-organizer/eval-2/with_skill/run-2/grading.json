@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Creates a top-level Acme-Corp or acme-corp directory", "passed": true, "evidence": "Acme-Corp/ under Consulting/Clients/"},
+    {"text": "Includes at minimum: contracts, deliverables, invoices, and meeting-notes subdirectories", "passed": true, "evidence": "All four plus Communications/"},
+    {"text": "Provides a script or code to create the structure", "passed": true, "evidence": "Python script using pathlib Path.mkdir"},
+    {"text": "Follows the consulting client pattern from the skill", "passed": true, "evidence": "Nests under Consulting/Clients/, includes Communications/ from skill template"},
+    {"text": "Structure is created in a sensible location or user is asked about location", "passed": true, "evidence": "Asks 'Where would you like this created? Default is ~/Consulting/Clients/Acme-Corp/'"}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Write": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 680},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid."}
+}

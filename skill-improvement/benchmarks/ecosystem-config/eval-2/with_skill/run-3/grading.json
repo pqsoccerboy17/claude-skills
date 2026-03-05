@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": true,
+      "evidence": "Uses 'cat >> ~/scripts/ecosystem.env' and notes 'Written to ~/scripts/ecosystem.env (central config), not ~/.zshrc directly'"
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": true,
+      "evidence": "Sets both variables with correct names"
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Uses test-user-key and test-app-token as provided"
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "States 'Reload your shell: source ~/.zshrc'"
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": true,
+      "evidence": "Notes 'The env file is git-ignored for security'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Bash": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 840
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

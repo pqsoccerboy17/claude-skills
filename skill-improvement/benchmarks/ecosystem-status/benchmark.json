@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "ecosystem-status",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 892,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Output shows: 'Ran the ecosystem status check script: ~/scripts/status' and 'This executes python3 ~/scripts/ecosystem_status.py'"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on all 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money, Context Sync, Notion Rules (Tax OCR)"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Each system has a status: Watching, Installed, Connected, Synced, Idle - these map to running/idle states"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "Output includes 'ATTENTION NEEDED: 2 PDF files in Downloads, 3 media files in Downloads'"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Output is structured as a dashboard with system names, status indicators, and a summary section"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 845,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Output shows: 'Executed the status check: python3 ~/scripts/ecosystem_status.py'"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money MCP Server, Treehouse Context Sync, Notion Rules (Tax OCR)"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Each system has status: Watching, Installed, Connected, Synced, Idle with status legend explaining each"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "Attention Items section: 'PDF files in Downloads waiting to be organized'"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Organized as 'Results Dashboard' with bullet points per system and a Status Legend table"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 901,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Output shows: 'Ran the script: ~/scripts/status'"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on all 5 systems in the dashboard output block"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Statuses shown: Watching, Installed, Connected, Synced, Idle"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "ATTENTION NEEDED section lists '4 PDF files in Downloads' and '7 media files in Downloads'"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Formatted as 'ECOSYSTEM STATUS' dashboard with timestamps, system entries, and attention section"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 920,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Output shows: 'Ran the ecosystem status script: ~/scripts/status'"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Dedicated section: 'Tax PDF Organizer - Status: Watching, Watcher process is running (PID 1572), Last activity: 2 hours ago'"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Dedicated section: 'Monarch Money MCP Server - Status: Connected, Session active: 10 minutes ago'"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Tax Organizer: 'Running and watching for new files'. Monarch: 'Connected with recent session activity'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "Explicitly states: 'This is a status check using the ecosystem-status skill, not ecosystem-config. The status script reports health; config is for managing environment variables and credentials.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 860,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Output shows: 'Executed: python3 ~/scripts/ecosystem_status.py'"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Dedicated section: 'Tax PDF Organizer - Status: Watching, file watcher process is running'"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Dedicated section: 'Monarch Money MCP Server - Status: Connected, Session established recently'"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Tax Organizer: 'actively watching (not stale, not down)'. Monarch: 'connected (not idle, not down)'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "States: 'ecosystem-status script is distinct from ecosystem-config -- this skill checks whether systems are running, while ecosystem-config manages the environment variables'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 875,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Output shows: 'Ran: ~/scripts/status'"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Section: 'Tax PDF Organizer - Status: Watching, Watcher running (PID 2103)'"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Section: 'Monarch Money MCP Server - Status: Connected, Last session: 8 minutes ago'"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Tax Organizer: 'Active, watching for PDFs'. Monarch Money: 'Connected, recent session'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "Explicitly states: 'This check uses the ecosystem-status skill (for monitoring health), not the ecosystem-config skill (for managing credentials and environment variables)'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 780,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Does not run the ecosystem status script. Instead uses generic 'ps aux | grep' and 'launchctl list' commands"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Does not identify any specific automation systems. Reports only generic process information"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No per-system status shown. Only generic suggestions about checking processes"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "No systems flagged. Output says 'Without knowing which specific automation systems you have configured' - unable to identify systems"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": false,
+          "evidence": "No dashboard format. Output is a generic troubleshooting guide asking user for more info"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 820,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Uses generic ps aux and launchctl commands instead of the dedicated status script"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Does not identify specific automation systems. Reports only that 'various background processes' exist"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No per-system status. Only generic observations about background processes"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "No systems flagged for attention"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": false,
+          "evidence": "No dashboard. Output asks user for more information about their setup"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 750,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Uses generic launchctl and ps aux commands, not the dedicated ecosystem status script"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Does not identify specific systems. Says 'Several LaunchAgents are loaded' generically"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No per-system status reporting"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "No attention flagging. Suggests creating a monitoring script instead"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": false,
+          "evidence": "No dashboard. Offers to help build one as a next step"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 920,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Does not run ecosystem_status.py or ~/scripts/status. Uses generic ps aux and launchctl grep commands"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Cannot identify the Tax PDF Organizer. Says 'Without knowing the exact process name or service label' and asks user for more info"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Cannot identify Monarch Money. Says 'I searched for monarch and MCP processes' but provides no definitive status"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "Cannot determine status. Asks user 'If you can share the specific service labels or executable names'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "Does not mention ecosystem-config at all, so no confusion occurs"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 850,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Does not use ecosystem_status.py. Uses generic ps aux, launchctl, and lsof commands"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Cannot determine Tax Organizer status. Says 'Without specific knowledge of how your tax organizer is set up'"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Cannot determine Monarch Money status. Says 'without knowing the exact server configuration'"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "States 'unable to definitively confirm the status of either service'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "Neither skill is referenced, so no confusion occurs"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 810,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Uses generic ps aux and launchctl grep commands instead of the ecosystem status script"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Cannot identify the service. Says 'Found some LaunchAgent entries but cannot confirm specific status'"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Cannot confirm status. Says 'would need more details about the specific server setup'"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "Cannot determine. States 'cannot give definitive running/idle/down status for either service'"
+        },
+        {
+          "text": "Does not confuse ecosystem-status with ecosystem-config",
+          "passed": true,
+          "evidence": "Neither skill mentioned, no confusion"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 882.1667,
+        "stddev": 27.5929,
+        "min": 845,
+        "max": 920
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.1,
+        "stddev": 0.1095,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 821.6667,
+        "stddev": 59.1326,
+        "min": 750,
+        "max": 920
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.90",
+      "time_seconds": "+0.0",
+      "tokens": "+60"
+    }
+  },
+  "notes": []
+}

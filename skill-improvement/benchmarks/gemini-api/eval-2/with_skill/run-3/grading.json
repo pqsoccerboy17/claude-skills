@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses Gemini's multimodal input (image + text prompt)",
+      "passed": true,
+      "evidence": "model.generate_content([prompt, image]) - sends both text and image"
+    },
+    {
+      "text": "Loads an image file and sends it to the Gemini API",
+      "passed": true,
+      "evidence": "PIL.Image.open(image_path) then passed to generate_content"
+    },
+    {
+      "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+      "passed": true,
+      "evidence": "Prompt requests merchant, date, total, line_items in JSON format"
+    },
+    {
+      "text": "Parses the response into JSON format",
+      "passed": true,
+      "evidence": "json.loads(text) with code fence stripping"
+    },
+    {
+      "text": "Uses the free tier model (Flash) as recommended by the skill",
+      "passed": true,
+      "evidence": "gemini-1.5-flash with comment 'Free tier per skill recommendation'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2,
+      "Bash": 1
+    },
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 1701
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

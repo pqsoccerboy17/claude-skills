@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+      "passed": false,
+      "evidence": "Uses 'from PyPDF2 import PdfReader' -- PyPDF2 is the deprecated library, not pypdf"
+    },
+    {
+      "text": "Iterates over all pages in the PDF",
+      "passed": true,
+      "evidence": "Code: 'for page in reader.pages'"
+    },
+    {
+      "text": "Saves extracted text to a .txt file",
+      "passed": true,
+      "evidence": "Writes to output_path file"
+    },
+    {
+      "text": "Handles the case where a PDF has no extractable text",
+      "passed": false,
+      "evidence": "No handling for empty text extraction. Would write empty file"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": {"Write": 1},
+    "total_tool_calls": 1,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 480
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without skill, uses deprecated PyPDF2 and misses edge case handling"
+  }
+}

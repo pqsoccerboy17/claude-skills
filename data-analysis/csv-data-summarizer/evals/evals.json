@@ -1,0 +1,31 @@
+{
+  "skill_name": "csv-data-summarizer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze the transactions in evals/files/sample_transactions.csv. Give me a summary with total income, total expenses, spending by category, and monthly cash flow.",
+      "expected_output": "A structured analysis showing income totals, expense totals, category breakdowns, and net cash flow",
+      "files": ["evals/files/sample_transactions.csv"],
+      "expectations": [
+        "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+        "Total expenses are correctly calculated (sum of all negative amounts)",
+        "Spending is broken down by category with at least 5 categories shown",
+        "Net cash flow / surplus is calculated (income minus expenses)",
+        "Uses pandas for the analysis rather than manual calculation"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Look at evals/files/sample_transactions.csv and tell me which spending categories are the highest, and flag any unusual transactions. Also identify how spending splits between my two accounts.",
+      "expected_output": "Category ranking by spend amount, flagged outliers, and per-account spending breakdown",
+      "files": ["evals/files/sample_transactions.csv"],
+      "expectations": [
+        "Housing is identified as the largest expense category ($2,200)",
+        "Spending is broken down by account (Chase Checking vs Amex Gold)",
+        "At least one transaction is flagged as notable or unusual",
+        "Categories are ranked or sorted by total spend amount",
+        "Missing values or data quality issues are mentioned (even if none found)"
+      ]
+    }
+  ]
+}

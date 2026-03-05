@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Searches Reddit using site:reddit.com with a date filter",
+      "passed": false,
+      "evidence": "No search performed. States 'I don't have access to perform live web searches'"
+    },
+    {
+      "text": "Searches X/Twitter for recent mentions",
+      "passed": false,
+      "evidence": "No search performed"
+    },
+    {
+      "text": "Provides a sentiment rating or assessment",
+      "passed": true,
+      "evidence": "States: 'The general sentiment appears positive'"
+    },
+    {
+      "text": "Includes links to specific threads or posts found",
+      "passed": false,
+      "evidence": "No links provided"
+    },
+    {
+      "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+      "passed": false,
+      "evidence": "Generic format without the skill's structured sections"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 870
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Expected without-skill pattern"
+  }
+}

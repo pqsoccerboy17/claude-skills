@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "I need to add my Notion API token to the ecosystem config. How do I set it up?",
+  "expectations": [
+    "References ~/scripts/ecosystem.env as the central config file",
+    "Shows the correct environment variable name for Notion token (NOTION_API_TOKEN or similar)",
+    "Explains how to source the env file from ~/.zshrc",
+    "Does not suggest editing ~/.zshrc directly for individual keys",
+    "Mentions the ecosystem.env.example file if applicable"
+  ],
+  "skill_name": "ecosystem-config"
+}

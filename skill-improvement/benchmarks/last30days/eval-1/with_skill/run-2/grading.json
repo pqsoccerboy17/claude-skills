@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Searches Reddit using site:reddit.com with a date filter",
+      "passed": true,
+      "evidence": "Shows: 'site:reddit.com \"Claude Code\" after:2026-02-03' via brave_web_search"
+    },
+    {
+      "text": "Searches X/Twitter for recent mentions",
+      "passed": true,
+      "evidence": "Shows: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+    },
+    {
+      "text": "Provides a sentiment rating or assessment",
+      "passed": true,
+      "evidence": "States: 'Overall sentiment: Mixed to Positive'"
+    },
+    {
+      "text": "Includes links to specific threads or posts found",
+      "passed": false,
+      "evidence": "States: '(Would contain actual URLs from brave_web_search results)' - placeholder only"
+    },
+    {
+      "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+      "passed": true,
+      "evidence": "Complete structured report with all sections from the skill template"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1},
+    "total_tool_calls": 1,
+    "total_steps": 5,
+    "errors_encountered": 0,
+    "output_chars": 2250
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Same links issue as other with-skill runs in simulated eval"
+  }
+}

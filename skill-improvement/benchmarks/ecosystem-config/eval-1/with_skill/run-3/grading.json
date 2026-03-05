@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "References ~/scripts/ecosystem.env as the central config file",
+      "passed": true,
+      "evidence": "States: 'all ecosystem automation credentials live in ~/scripts/ecosystem.env'"
+    },
+    {
+      "text": "Shows the correct environment variable name for Notion token (NOTION_API_TOKEN or similar)",
+      "passed": true,
+      "evidence": "Shows 'export NOTION_TOKEN' and states 'the ecosystem-config skill lists NOTION_TOKEN as the variable name'"
+    },
+    {
+      "text": "Explains how to source the env file from ~/.zshrc",
+      "passed": true,
+      "evidence": "States: 'This line should be in ~/.zshrc: source ~/scripts/ecosystem.env'"
+    },
+    {
+      "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+      "passed": true,
+      "evidence": "States: 'Do not add individual API keys directly to ~/.zshrc -- use the centralized ecosystem.env file'"
+    },
+    {
+      "text": "Mentions the ecosystem.env.example file if applicable",
+      "passed": true,
+      "evidence": "States: 'cp ~/scripts/ecosystem.env.example ~/scripts/ecosystem.env' and 'template shows all supported variables'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1},
+    "total_tool_calls": 1,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 890
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the Python MCP SDK (mcp or fastmcp)",
+      "passed": true,
+      "evidence": "Uses fastmcp"
+    },
+    {
+      "text": "Defines both list_invoices and create_invoice tools with proper schemas",
+      "passed": true,
+      "evidence": "Both tools defined with @mcp.tool()"
+    },
+    {
+      "text": "create_invoice accepts client_name, amount, and description parameters",
+      "passed": true,
+      "evidence": "All three parameters in function signature"
+    },
+    {
+      "text": "Uses a JSON file for data persistence (not an in-memory dict alone)",
+      "passed": false,
+      "evidence": "Uses in-memory list 'invoices = []'. No JSON file persistence."
+    },
+    {
+      "text": "Includes setup instructions (pip install, configuration)",
+      "passed": false,
+      "evidence": "Mentions pip install but no Claude configuration instructions"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 657
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

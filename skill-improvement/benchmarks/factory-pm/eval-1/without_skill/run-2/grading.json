@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Asks 3-5 clarifying questions before writing any spec",
+      "passed": false,
+      "evidence": "No questions asked. Jumps straight to implementation plan."
+    },
+    {
+      "text": "Questions address scope, users, constraints, or integration points",
+      "passed": false,
+      "evidence": "No questions at all"
+    },
+    {
+      "text": "Writes a spec file to specs/ directory (not inline only)",
+      "passed": false,
+      "evidence": "No spec file created. Plan is inline only."
+    },
+    {
+      "text": "Spec includes prioritized features or MVP scope",
+      "passed": false,
+      "evidence": "Features listed but not prioritized (no P0/P1/P2)"
+    },
+    {
+      "text": "Does NOT write any implementation code before getting user approval",
+      "passed": false,
+      "evidence": "Writes TypeScript code immediately and says 'Let me start building this out'"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 587
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

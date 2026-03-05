@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)", "passed": true, "evidence": "'Dear Sarah Chen' and '123 Oak Street'"},
+    {"text": "Current rent ($1,800) and new rent ($1,900) are both stated", "passed": true, "evidence": "Both amounts listed with bold formatting"},
+    {"text": "Effective date (April 1, 2026) is clearly mentioned", "passed": true, "evidence": "'Effective Date: April 1, 2026'"},
+    {"text": "Lease renewal deadline (March 15) is included", "passed": true, "evidence": "'March 15, 2026' mentioned"},
+    {"text": "Tone is professional but not cold - follows the real estate template pattern", "passed": false, "evidence": "Letter is quite terse and formal. Uses bold markdown formatting, no warmth or empathy. Just states facts without building rapport. Does not follow the skill's approachable tone pattern."}
+  ],
+  "summary": {"passed": 4, "failed": 1, "total": 5, "pass_rate": 0.8},
+  "execution_metrics": {"tool_calls": {"Write": 2}, "total_tool_calls": 2, "total_steps": 2, "errors_encountered": 0, "output_chars": 420},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "Tone assertion is subjective but effective at differentiating."}
+}

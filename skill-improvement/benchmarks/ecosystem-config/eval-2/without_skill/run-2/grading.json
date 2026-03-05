@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": false,
+      "evidence": "Writes to ~/.zshrc and a generic project .env file, not ~/scripts/ecosystem.env"
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": false,
+      "evidence": "Uses PUSHOVER_USER and PUSHOVER_TOKEN -- incorrect variable names (missing _KEY and _APP_ prefix)"
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Values test-user-key and test-app-token are used correctly"
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "Includes 'source ~/.zshrc' after adding variables"
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": false,
+      "evidence": "Puts credentials directly in ~/.zshrc"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 2},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 600
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Wrong variable names and wrong config file without skill"
+  }
+}

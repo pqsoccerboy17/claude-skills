@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+      "passed": true,
+      "evidence": "Uses pdfplumber which is one of the accepted libraries"
+    },
+    {
+      "text": "Iterates over all pages in the PDF",
+      "passed": true,
+      "evidence": "Code: 'for page in pdf.pages'"
+    },
+    {
+      "text": "Saves extracted text to a .txt file",
+      "passed": true,
+      "evidence": "Writes to output_path .txt file"
+    },
+    {
+      "text": "Handles the case where a PDF has no extractable text",
+      "passed": false,
+      "evidence": "Only checks individual pages with 'if text:' but doesn't handle the case where all pages return no text"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": {"Write": 1},
+    "total_tool_calls": 1,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 460
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without-skill run 2 uses pdfplumber (acceptable) but misses the no-text handling"
+  }
+}

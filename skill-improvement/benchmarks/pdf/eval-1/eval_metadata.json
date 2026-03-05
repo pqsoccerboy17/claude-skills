@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "prompt": "Write a Python script to extract all text from a multi-page PDF file and save it to a text file.",
+  "expectations": [
+    "Uses pypdf (PdfReader) or pdfplumber for extraction",
+    "Iterates over all pages in the PDF",
+    "Saves extracted text to a .txt file",
+    "Handles the case where a PDF has no extractable text"
+  ],
+  "skill_name": "pdf"
+}

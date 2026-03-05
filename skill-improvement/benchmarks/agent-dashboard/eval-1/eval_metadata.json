@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "prompt": "Launch the agent dashboard so I can monitor my agent teams.",
+  "expectations": [
+    "Runs node server.js from the agent-dashboard/app directory",
+    "Opens or instructs to open localhost:3847 in the browser",
+    "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+    "Does not try to build a new dashboard from scratch"
+  ],
+  "skill_name": "agent-dashboard"
+}

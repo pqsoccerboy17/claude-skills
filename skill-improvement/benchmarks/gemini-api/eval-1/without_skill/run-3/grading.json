@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+      "passed": false,
+      "evidence": "Uses openai package instead. Mentions Gemini as alternative at end but doesn't use it."
+    },
+    {
+      "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+      "passed": false,
+      "evidence": "Reads OPENAI_API_KEY, not GEMINI_API_KEY"
+    },
+    {
+      "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+      "passed": false,
+      "evidence": "Uses gpt-3.5-turbo, not a Gemini model"
+    },
+    {
+      "text": "Sends transactions in a structured prompt and parses the categorized response",
+      "passed": true,
+      "evidence": "Sends structured prompt and parses response"
+    },
+    {
+      "text": "Includes error handling for API rate limits or failures",
+      "passed": false,
+      "evidence": "No error handling or rate limit logic"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 1004
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

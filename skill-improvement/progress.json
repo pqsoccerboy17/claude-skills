@@ -1,0 +1,160 @@
+{
+  "skills": {
+    "ecosystem-status": {
+      "path": "productivity/ecosystem-status",
+      "priority": "high",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "ecosystem-config": {
+      "path": "productivity/ecosystem-config",
+      "priority": "high",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "notifications": {
+      "path": "productivity/notifications",
+      "priority": "high",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "gemini-api": {
+      "path": "ai-apis/gemini",
+      "priority": "high",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "last30days": {
+      "path": "research/last30days",
+      "priority": "high",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "csv-data-summarizer": {
+      "path": "data-analysis/csv-data-summarizer",
+      "priority": "medium",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "file-organizer": {
+      "path": "productivity/file-organizer",
+      "priority": "medium",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "internal-comms": {
+      "path": "productivity/internal-comms",
+      "priority": "medium",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "mcp-builder": {
+      "path": "dev-tools/mcp-builder",
+      "priority": "medium",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "pdf": {
+      "path": "document-processing/pdf",
+      "priority": "lower",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "xlsx": {
+      "path": "document-processing/xlsx",
+      "priority": "lower",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "factory-pm": {
+      "path": "dev-tools/factory-pm",
+      "priority": "lower",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    },
+    "agent-dashboard": {
+      "path": "dev-tools/agent-dashboard",
+      "priority": "lower",
+      "activity_1_trigger_eval_created": "done",
+      "activity_1_trigger_eval_reviewed": "done",
+      "activity_1_description_optimized": "done",
+      "activity_2_content_review": "done",
+      "activity_3_evals_created": "done",
+      "activity_3_evals_run": "done",
+      "activity_3_grading": "done",
+      "activity_4_benchmark": "done"
+    }
+  }
+}

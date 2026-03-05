@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "Create a script that uses Gemini's multimodal capabilities to extract text and data from receipt images. It should take an image path and return structured JSON with merchant, date, total, and line items.",
+  "expectations": [
+    "Uses Gemini's multimodal input (image + text prompt)",
+    "Loads an image file and sends it to the Gemini API",
+    "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+    "Parses the response into JSON format",
+    "Uses the free tier model (Flash) as recommended by the skill"
+  ],
+  "skill_name": "gemini-api"
+}

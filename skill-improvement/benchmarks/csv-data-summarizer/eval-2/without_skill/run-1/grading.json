@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Housing is identified as the largest expense category ($2,200)",
+      "passed": true,
+      "evidence": "Housing listed first at $2,200.00 with note 'Housing is by far the largest at $2,200'"
+    },
+    {
+      "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+      "passed": true,
+      "evidence": "Account Split section lists Chase Checking and Amex Gold transactions, though without dollar totals per account"
+    },
+    {
+      "text": "At least one transaction is flagged as notable or unusual",
+      "passed": true,
+      "evidence": "'The $2,200 rent payment stands out as much larger than any other single expense'"
+    },
+    {
+      "text": "Categories are ranked or sorted by total spend amount",
+      "passed": true,
+      "evidence": "Categories numbered 1-9 in descending order by amount"
+    },
+    {
+      "text": "Missing values or data quality issues are mentioned (even if none found)",
+      "passed": false,
+      "evidence": "No mention of missing values, data quality, or data completeness anywhere in the output"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Write": 2},
+    "total_tool_calls": 3,
+    "total_steps": 3,
+    "errors_encountered": 0,
+    "output_chars": 945
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+        "reason": "This passed despite not including dollar totals per account. Consider requiring numeric totals per account, not just listing which transactions go to which account."
+      }
+    ],
+    "overall": "The data quality assertion effectively discriminates - without the skill's patterns, executors don't think to check for missing values."
+  }
+}

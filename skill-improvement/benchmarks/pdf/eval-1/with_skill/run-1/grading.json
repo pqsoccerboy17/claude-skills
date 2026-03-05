@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+      "passed": true,
+      "evidence": "Uses 'from pypdf import PdfReader' as the skill recommends"
+    },
+    {
+      "text": "Iterates over all pages in the PDF",
+      "passed": true,
+      "evidence": "Code: 'for i, page in enumerate(reader.pages)'"
+    },
+    {
+      "text": "Saves extracted text to a .txt file",
+      "passed": true,
+      "evidence": "Code: 'with open(output_path, \"w\") as f: f.write(text)'"
+    },
+    {
+      "text": "Handles the case where a PDF has no extractable text",
+      "passed": true,
+      "evidence": "Checks 'if not text.strip()' and suggests OCR for scanned documents"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Write": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 1050
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

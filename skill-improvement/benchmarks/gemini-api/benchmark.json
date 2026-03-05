@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "gemini-api",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2749,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": true,
+          "evidence": "import google.generativeai as genai"
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": true,
+          "evidence": "Checks os.environ first, falls back to ~/scripts/ecosystem.env"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Flash for cost efficiency per skill'"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Structured prompt with category list, parses response.text.strip()"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": true,
+          "evidence": "Try/except with 429/quota check, wait and retry logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2749,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": true,
+          "evidence": "import google.generativeai as genai"
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": true,
+          "evidence": "Checks os.environ first, falls back to ~/scripts/ecosystem.env"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Flash for cost efficiency per skill'"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Structured prompt with category list, parses response.text.strip()"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": true,
+          "evidence": "Try/except with 429/quota check, wait and retry logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2749,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": true,
+          "evidence": "import google.generativeai as genai"
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": true,
+          "evidence": "Checks os.environ first, falls back to ~/scripts/ecosystem.env"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Flash for cost efficiency per skill'"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Structured prompt with category list, parses response.text.strip()"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": true,
+          "evidence": "Try/except with 429/quota check, wait and retry logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1701,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": true,
+          "evidence": "model.generate_content([prompt, image]) - sends both text and image"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": true,
+          "evidence": "PIL.Image.open(image_path) then passed to generate_content"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": true,
+          "evidence": "Prompt requests merchant, date, total, line_items in JSON format"
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads(text) with code fence stripping"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Free tier per skill recommendation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1701,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": true,
+          "evidence": "model.generate_content([prompt, image]) - sends both text and image"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": true,
+          "evidence": "PIL.Image.open(image_path) then passed to generate_content"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": true,
+          "evidence": "Prompt requests merchant, date, total, line_items in JSON format"
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads(text) with code fence stripping"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Free tier per skill recommendation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1701,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": true,
+          "evidence": "model.generate_content([prompt, image]) - sends both text and image"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": true,
+          "evidence": "PIL.Image.open(image_path) then passed to generate_content"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": true,
+          "evidence": "Prompt requests merchant, date, total, line_items in JSON format"
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads(text) with code fence stripping"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": true,
+          "evidence": "gemini-1.5-flash with comment 'Free tier per skill recommendation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1004,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": false,
+          "evidence": "Uses openai package instead. Mentions Gemini as alternative at end but doesn't use it."
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": false,
+          "evidence": "Reads OPENAI_API_KEY, not GEMINI_API_KEY"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": false,
+          "evidence": "Uses gpt-3.5-turbo, not a Gemini model"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Sends structured prompt and parses response"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": false,
+          "evidence": "No error handling or rate limit logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1004,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": false,
+          "evidence": "Uses openai package instead. Mentions Gemini as alternative at end but doesn't use it."
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": false,
+          "evidence": "Reads OPENAI_API_KEY, not GEMINI_API_KEY"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": false,
+          "evidence": "Uses gpt-3.5-turbo, not a Gemini model"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Sends structured prompt and parses response"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": false,
+          "evidence": "No error handling or rate limit logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1004,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the google-generativeai Python SDK (import google.generativeai)",
+          "passed": false,
+          "evidence": "Uses openai package instead. Mentions Gemini as alternative at end but doesn't use it."
+        },
+        {
+          "text": "Reads GEMINI_API_KEY from environment variable or ~/scripts/ecosystem.env",
+          "passed": false,
+          "evidence": "Reads OPENAI_API_KEY, not GEMINI_API_KEY"
+        },
+        {
+          "text": "Uses an appropriate Gemini model (Flash for cost efficiency or Pro for accuracy)",
+          "passed": false,
+          "evidence": "Uses gpt-3.5-turbo, not a Gemini model"
+        },
+        {
+          "text": "Sends transactions in a structured prompt and parses the categorized response",
+          "passed": true,
+          "evidence": "Sends structured prompt and parses response"
+        },
+        {
+          "text": "Includes error handling for API rate limits or failures",
+          "passed": false,
+          "evidence": "No error handling or rate limit logic"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 999,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": false,
+          "evidence": "Uses OpenAI GPT-4 Vision, not Gemini"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": false,
+          "evidence": "Sends to OpenAI API, not Gemini"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": false,
+          "evidence": "Prompts GPT-4 Vision, not Gemini. Does request the right data though."
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads on response content"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": false,
+          "evidence": "Uses gpt-4-vision-preview, not Flash"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 999,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": false,
+          "evidence": "Uses OpenAI GPT-4 Vision, not Gemini"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": false,
+          "evidence": "Sends to OpenAI API, not Gemini"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": false,
+          "evidence": "Prompts GPT-4 Vision, not Gemini. Does request the right data though."
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads on response content"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": false,
+          "evidence": "Uses gpt-4-vision-preview, not Flash"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 999,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Gemini's multimodal input (image + text prompt)",
+          "passed": false,
+          "evidence": "Uses OpenAI GPT-4 Vision, not Gemini"
+        },
+        {
+          "text": "Loads an image file and sends it to the Gemini API",
+          "passed": false,
+          "evidence": "Sends to OpenAI API, not Gemini"
+        },
+        {
+          "text": "Prompts Gemini to extract structured data (merchant, date, total, line items)",
+          "passed": false,
+          "evidence": "Prompts GPT-4 Vision, not Gemini. Does request the right data though."
+        },
+        {
+          "text": "Parses the response into JSON format",
+          "passed": true,
+          "evidence": "json.loads on response content"
+        },
+        {
+          "text": "Uses the free tier model (Flash) as recommended by the skill",
+          "passed": false,
+          "evidence": "Uses gpt-4-vision-preview, not Flash"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 2225.0,
+        "stddev": 574.0132,
+        "min": 1701,
+        "max": 2749
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.2,
+        "stddev": 0.0,
+        "min": 0.2,
+        "max": 0.2
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 1001.5,
+        "stddev": 2.7386,
+        "min": 999,
+        "max": 1004
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.80",
+      "time_seconds": "+0.0",
+      "tokens": "+1224"
+    }
+  },
+  "notes": []
+}

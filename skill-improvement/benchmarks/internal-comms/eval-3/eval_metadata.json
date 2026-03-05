@@ -1,0 +1,12 @@
+{
+  "eval_id": 3,
+  "prompt": "Draft a late payment reminder for a consulting client. Invoice #2026-014 for $4,500 was due February 15 and is now 18 days overdue. This is the second reminder.",
+  "expectations": [
+    "Invoice number (#2026-014) and amount ($4,500) are included",
+    "Due date (February 15) and days overdue (18) are mentioned",
+    "Tone is firmer than a first reminder but still professional",
+    "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+    "References that this is the second reminder"
+  ],
+  "skill_name": "internal-comms"
+}

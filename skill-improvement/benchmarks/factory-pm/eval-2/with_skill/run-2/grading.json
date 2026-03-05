@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+      "passed": true,
+      "evidence": "Phase 1 mentions reading CLAUDE.md, package.json, specs/ directory, project structure"
+    },
+    {
+      "text": "Asks clarifying questions about the existing tech stack and design system",
+      "passed": true,
+      "evidence": "Questions about CSS framework, design tokens, scope, and system preference"
+    },
+    {
+      "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+      "passed": true,
+      "evidence": "References writing to specs/dark-mode.md"
+    },
+    {
+      "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+      "passed": true,
+      "evidence": "'localStorage for simplicity' and 'System preference detection' mentioned"
+    },
+    {
+      "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+      "passed": true,
+      "evidence": "Phase 4 approval gate: 'reply Approved to start implementation'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2,
+      "Bash": 1
+    },
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 1234
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

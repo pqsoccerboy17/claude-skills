@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Housing is identified as the largest expense category ($2,200)",
+      "passed": true,
+      "evidence": "Table shows Housing ranked #1 at $2,200.00, described as 'largest by far (65.9% of total)'"
+    },
+    {
+      "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+      "passed": true,
+      "evidence": "Account Breakdown table shows Chase Checking $3,086.60 (11 txns) and Amex Gold $251.45 (6 txns) with percentage split"
+    },
+    {
+      "text": "At least one transaction is flagged as notable or unusual",
+      "passed": true,
+      "evidence": "Rent Payment ($2,200.00) flagged as 'Statistical outlier - 11.2x the average expense of $196.36'"
+    },
+    {
+      "text": "Categories are ranked or sorted by total spend amount",
+      "passed": true,
+      "evidence": "Categories listed in descending order from Housing ($2,200) to Entertainment ($28.97) with rank numbers"
+    },
+    {
+      "text": "Missing values or data quality issues are mentioned (even if none found)",
+      "passed": true,
+      "evidence": "Data Quality section states 'No missing values detected across all 5 columns' and 'No duplicate entries found'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 2, "Bash": 1, "Write": 2},
+    "total_tool_calls": 5,
+    "total_steps": 4,
+    "errors_encountered": 0,
+    "output_chars": 1620
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

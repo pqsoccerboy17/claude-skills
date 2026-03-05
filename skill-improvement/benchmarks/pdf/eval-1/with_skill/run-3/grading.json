@@ -1,0 +1,42 @@
+{
+  "expectations": [
+    {
+      "text": "Uses pypdf (PdfReader) or pdfplumber for extraction",
+      "passed": true,
+      "evidence": "Uses 'from pypdf import PdfReader'"
+    },
+    {
+      "text": "Iterates over all pages in the PDF",
+      "passed": true,
+      "evidence": "Code: 'for page in reader.pages'"
+    },
+    {
+      "text": "Saves extracted text to a .txt file",
+      "passed": true,
+      "evidence": "Writes to output_path file"
+    },
+    {
+      "text": "Handles the case where a PDF has no extractable text",
+      "passed": true,
+      "evidence": "Checks 'if not text.strip()' and suggests pytesseract + pdf2image for OCR"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Write": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 890
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

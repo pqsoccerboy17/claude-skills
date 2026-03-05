@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": false,
+      "evidence": "Writes directly to ~/.zshrc with 'cat >> ~/.zshrc'"
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": true,
+      "evidence": "Uses correct variable names PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN"
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Values test-user-key and test-app-token match the prompt"
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "Includes 'source ~/.zshrc' in the instructions"
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": false,
+      "evidence": "Puts credentials directly in ~/.zshrc which could be committed to a dotfiles repo"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 1},
+    "total_tool_calls": 1,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 550
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Gets variable names right by convention but writes to wrong file"
+  }
+}

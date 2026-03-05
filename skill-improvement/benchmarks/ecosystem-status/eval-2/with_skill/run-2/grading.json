@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": true,
+      "evidence": "Output shows: 'Executed: python3 ~/scripts/ecosystem_status.py'"
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": true,
+      "evidence": "Dedicated section: 'Tax PDF Organizer - Status: Watching, file watcher process is running'"
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": true,
+      "evidence": "Dedicated section: 'Monarch Money MCP Server - Status: Connected, Session established recently'"
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": true,
+      "evidence": "Tax Organizer: 'actively watching (not stale, not down)'. Monarch: 'connected (not idle, not down)'"
+    },
+    {
+      "text": "Does not confuse ecosystem-status with ecosystem-config",
+      "passed": true,
+      "evidence": "States: 'ecosystem-status script is distinct from ecosystem-config -- this skill checks whether systems are running, while ecosystem-config manages the environment variables'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Read": 1, "Bash": 1},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 860
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid"
+  }
+}

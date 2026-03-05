@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "factory-pm",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1303,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": true,
+          "evidence": "5 numbered clarifying questions about scope, users, integration, constraints, priority"
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": true,
+          "evidence": "Questions cover scope (comments), users (how many), integration (invoicing), constraints (tech stack), priority"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": true,
+          "evidence": "References writing to specs/client-portal.md"
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": true,
+          "evidence": "Mentions P0/P1/P2 requirements structure"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": true,
+          "evidence": "Explicit approval gate: 'No code will be written until explicit approval'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1303,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": true,
+          "evidence": "5 numbered clarifying questions about scope, users, integration, constraints, priority"
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": true,
+          "evidence": "Questions cover scope (comments), users (how many), integration (invoicing), constraints (tech stack), priority"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": true,
+          "evidence": "References writing to specs/client-portal.md"
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": true,
+          "evidence": "Mentions P0/P1/P2 requirements structure"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": true,
+          "evidence": "Explicit approval gate: 'No code will be written until explicit approval'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1303,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": true,
+          "evidence": "5 numbered clarifying questions about scope, users, integration, constraints, priority"
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": true,
+          "evidence": "Questions cover scope (comments), users (how many), integration (invoicing), constraints (tech stack), priority"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": true,
+          "evidence": "References writing to specs/client-portal.md"
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": true,
+          "evidence": "Mentions P0/P1/P2 requirements structure"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": true,
+          "evidence": "Explicit approval gate: 'No code will be written until explicit approval'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1234,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": true,
+          "evidence": "Phase 1 mentions reading CLAUDE.md, package.json, specs/ directory, project structure"
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": true,
+          "evidence": "Questions about CSS framework, design tokens, scope, and system preference"
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": true,
+          "evidence": "References writing to specs/dark-mode.md"
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "'localStorage for simplicity' and 'System preference detection' mentioned"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": true,
+          "evidence": "Phase 4 approval gate: 'reply Approved to start implementation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1234,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": true,
+          "evidence": "Phase 1 mentions reading CLAUDE.md, package.json, specs/ directory, project structure"
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": true,
+          "evidence": "Questions about CSS framework, design tokens, scope, and system preference"
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": true,
+          "evidence": "References writing to specs/dark-mode.md"
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "'localStorage for simplicity' and 'System preference detection' mentioned"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": true,
+          "evidence": "Phase 4 approval gate: 'reply Approved to start implementation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1234,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": true,
+          "evidence": "Phase 1 mentions reading CLAUDE.md, package.json, specs/ directory, project structure"
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": true,
+          "evidence": "Questions about CSS framework, design tokens, scope, and system preference"
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": true,
+          "evidence": "References writing to specs/dark-mode.md"
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "'localStorage for simplicity' and 'System preference detection' mentioned"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": true,
+          "evidence": "Phase 4 approval gate: 'reply Approved to start implementation'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 587,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": false,
+          "evidence": "No questions asked. Jumps straight to implementation plan."
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": false,
+          "evidence": "No questions at all"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": false,
+          "evidence": "No spec file created. Plan is inline only."
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": false,
+          "evidence": "Features listed but not prioritized (no P0/P1/P2)"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": false,
+          "evidence": "Writes TypeScript code immediately and says 'Let me start building this out'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 587,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": false,
+          "evidence": "No questions asked. Jumps straight to implementation plan."
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": false,
+          "evidence": "No questions at all"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": false,
+          "evidence": "No spec file created. Plan is inline only."
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": false,
+          "evidence": "Features listed but not prioritized (no P0/P1/P2)"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": false,
+          "evidence": "Writes TypeScript code immediately and says 'Let me start building this out'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 587,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Asks 3-5 clarifying questions before writing any spec",
+          "passed": false,
+          "evidence": "No questions asked. Jumps straight to implementation plan."
+        },
+        {
+          "text": "Questions address scope, users, constraints, or integration points",
+          "passed": false,
+          "evidence": "No questions at all"
+        },
+        {
+          "text": "Writes a spec file to specs/ directory (not inline only)",
+          "passed": false,
+          "evidence": "No spec file created. Plan is inline only."
+        },
+        {
+          "text": "Spec includes prioritized features or MVP scope",
+          "passed": false,
+          "evidence": "Features listed but not prioritized (no P0/P1/P2)"
+        },
+        {
+          "text": "Does NOT write any implementation code before getting user approval",
+          "passed": false,
+          "evidence": "Writes TypeScript code immediately and says 'Let me start building this out'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 833,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": false,
+          "evidence": "No context gathering. Jumps straight to implementation."
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": false,
+          "evidence": "No questions asked. Asks 'Want me to implement this?' at end but no clarifying questions."
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": false,
+          "evidence": "No spec file written. Plan is inline."
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "Uses localStorage.setItem/getItem for theme persistence"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": false,
+          "evidence": "Already wrote implementation code. 'Want me to implement this?' is asked after code, not before."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 833,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": false,
+          "evidence": "No context gathering. Jumps straight to implementation."
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": false,
+          "evidence": "No questions asked. Asks 'Want me to implement this?' at end but no clarifying questions."
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": false,
+          "evidence": "No spec file written. Plan is inline."
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "Uses localStorage.setItem/getItem for theme persistence"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": false,
+          "evidence": "Already wrote implementation code. 'Want me to implement this?' is asked after code, not before."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 833,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+          "passed": false,
+          "evidence": "No context gathering. Jumps straight to implementation."
+        },
+        {
+          "text": "Asks clarifying questions about the existing tech stack and design system",
+          "passed": false,
+          "evidence": "No questions asked. Asks 'Want me to implement this?' at end but no clarifying questions."
+        },
+        {
+          "text": "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+          "passed": false,
+          "evidence": "No spec file written. Plan is inline."
+        },
+        {
+          "text": "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+          "passed": true,
+          "evidence": "Uses localStorage.setItem/getItem for theme persistence"
+        },
+        {
+          "text": "Includes an explicit approval gate - waits for user sign-off before coding",
+          "passed": false,
+          "evidence": "Already wrote implementation code. 'Want me to implement this?' is asked after code, not before."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 1268.5,
+        "stddev": 37.7929,
+        "min": 1234,
+        "max": 1303
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.1,
+        "stddev": 0.1095,
+        "min": 0.0,
+        "max": 0.2
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 710.0,
+        "stddev": 134.7397,
+        "min": 587,
+        "max": 833
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.90",
+      "time_seconds": "+0.0",
+      "tokens": "+558"
+    }
+  },
+  "notes": []
+}

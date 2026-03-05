@@ -1,0 +1,44 @@
+{
+  "skill_name": "internal-comms",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft a rent increase letter for a tenant at 123 Oak Street. Current rent is $1,800/month, increasing to $1,900/month effective April 1, 2026. The tenant's name is Sarah Chen and the lease renewal deadline is March 15.",
+      "expected_output": "A professional rent increase letter with all required details",
+      "files": [],
+      "expectations": [
+        "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)",
+        "Current rent ($1,800) and new rent ($1,900) are both stated",
+        "Effective date (April 1, 2026) is clearly mentioned",
+        "Lease renewal deadline (March 15) is included",
+        "Tone is professional but not cold - follows the real estate template pattern"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a consulting project status update email to my client at TechStart Inc. The project is a website redesign, we're 3 weeks in on a 6-week timeline, we completed the wireframes phase, starting visual design next week, and there's a risk that the API integration may need an extra week.",
+      "expected_output": "A professional status update email following consulting communication patterns",
+      "files": [],
+      "expectations": [
+        "Email has a clear subject line about project status",
+        "Progress is quantified (3 of 6 weeks, or ~50%)",
+        "Completed work (wireframes) and next phase (visual design) are clearly stated",
+        "The API integration risk is flagged with its potential impact (extra week)",
+        "Output is plain text without markdown formatting (per email drafting rules)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Draft a late payment reminder for a consulting client. Invoice #2026-014 for $4,500 was due February 15 and is now 18 days overdue. This is the second reminder.",
+      "expected_output": "A firm but professional late payment reminder",
+      "files": [],
+      "expectations": [
+        "Invoice number (#2026-014) and amount ($4,500) are included",
+        "Due date (February 15) and days overdue (18) are mentioned",
+        "Tone is firmer than a first reminder but still professional",
+        "Includes a clear call-to-action (pay by specific date or contact to discuss)",
+        "References that this is the second reminder"
+      ]
+    }
+  ]
+}

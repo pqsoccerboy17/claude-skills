@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": false,
+      "evidence": "Does not run the ecosystem status script. Instead uses generic 'ps aux | grep' and 'launchctl list' commands"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": false,
+      "evidence": "Does not identify any specific automation systems. Reports only generic process information"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": false,
+      "evidence": "No per-system status shown. Only generic suggestions about checking processes"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": false,
+      "evidence": "No systems flagged. Output says 'Without knowing which specific automation systems you have configured' - unable to identify systems"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": false,
+      "evidence": "No dashboard format. Output is a generic troubleshooting guide asking user for more info"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 3},
+    "total_tool_calls": 3,
+    "total_steps": 3,
+    "errors_encountered": 0,
+    "output_chars": 780
+  },
+  "claims": [
+    {
+      "claim": "Checked for common system processes and services",
+      "type": "process",
+      "verified": true,
+      "evidence": "Used ps aux and launchctl list commands"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without-skill run correctly demonstrates the gap -- without knowing about the ecosystem_status.py script, the agent cannot perform the task"
+  }
+}

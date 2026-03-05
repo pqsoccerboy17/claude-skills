@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the send_notification() function from ~/scripts/notify.py",
+      "passed": false,
+      "evidence": "Uses requests.post directly to Pushover API instead of the notify.py module"
+    },
+    {
+      "text": "Sets priority to 0 (normal)",
+      "passed": true,
+      "evidence": "priority: 0 in POST data"
+    },
+    {
+      "text": "Includes a descriptive test message",
+      "passed": false,
+      "evidence": "'Test notification' is very generic, not descriptive about what's being tested"
+    },
+    {
+      "text": "Checks for required environment variables before sending",
+      "passed": false,
+      "evidence": "Gets env vars but doesn't check if they're None before using them"
+    },
+    {
+      "text": "Reports success or failure of the notification delivery",
+      "passed": true,
+      "evidence": "Checks status_code and prints success/failure"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 0,
+      "Write": 2,
+      "Bash": 0
+    },
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "files_created": 2,
+    "errors_encountered": 0,
+    "output_chars": 504
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

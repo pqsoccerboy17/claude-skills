@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Email has a clear subject line about project status", "passed": true, "evidence": "Subject: Website Redesign Update - Week 3 of 6"},
+    {"text": "Progress is quantified (3 of 6 weeks, or ~50%)", "passed": true, "evidence": "'halfway mark - 3 weeks into our 6-week timeline'"},
+    {"text": "Completed work (wireframes) and next phase (visual design) are clearly stated", "passed": true, "evidence": "'Completed the wireframes phase' and 'Visual design phase kicks off next week'"},
+    {"text": "The API integration risk is flagged with its potential impact (extra week)", "passed": true, "evidence": "'API integration work may require an additional week' with detail about shifting from 6 to 7 weeks"},
+    {"text": "Output is plain text without markdown formatting (per email drafting rules)", "passed": true, "evidence": "No bold, asterisks, or markdown formatting. Uses plain text with dashes for lists."}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Write": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 1020},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid."}
+}

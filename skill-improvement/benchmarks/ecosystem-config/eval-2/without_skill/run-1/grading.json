@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": false,
+      "evidence": "Writes directly to ~/.zshrc: 'echo export PUSHOVER_USER_KEY >> ~/.zshrc'"
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": true,
+      "evidence": "Uses correct variable names PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN"
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Uses test-user-key and test-app-token as provided"
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "Includes 'source ~/.zshrc' after adding variables"
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": false,
+      "evidence": "Puts credentials directly in ~/.zshrc which may be committed to dotfiles repos. Only warns 'Don't commit your .zshrc with credentials visible' but still puts them there"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 2},
+    "total_tool_calls": 2,
+    "total_steps": 2,
+    "errors_encountered": 0,
+    "output_chars": 620
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without-skill run gets variable names right (common convention) but writes to wrong file"
+  }
+}

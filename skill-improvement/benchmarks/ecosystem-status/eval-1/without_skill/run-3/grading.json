@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": false,
+      "evidence": "Uses generic launchctl and ps aux commands, not the dedicated ecosystem status script"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": false,
+      "evidence": "Does not identify specific systems. Says 'Several LaunchAgents are loaded' generically"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": false,
+      "evidence": "No per-system status reporting"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": false,
+      "evidence": "No attention flagging. Suggests creating a monitoring script instead"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": false,
+      "evidence": "No dashboard. Offers to help build one as a next step"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 3},
+    "total_tool_calls": 3,
+    "total_steps": 3,
+    "errors_encountered": 0,
+    "output_chars": 750
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Expected failure without skill knowledge"
+  }
+}

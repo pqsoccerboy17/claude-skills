@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "What are people saying about Claude Code on Reddit and Twitter in the last 30 days?",
+  "expectations": [
+    "Searches Reddit using site:reddit.com with a date filter",
+    "Searches X/Twitter for recent mentions",
+    "Provides a sentiment rating or assessment",
+    "Includes links to specific threads or posts found",
+    "Organizes findings into the structured report format (trending themes, key voices, etc.)"
+  ],
+  "skill_name": "last30days"
+}

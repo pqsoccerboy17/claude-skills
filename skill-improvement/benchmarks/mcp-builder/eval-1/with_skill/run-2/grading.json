@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+      "passed": true,
+      "evidence": "package.json includes @modelcontextprotocol/sdk dependency"
+    },
+    {
+      "text": "Implements a Server instance with tools capability",
+      "passed": true,
+      "evidence": "new Server with capabilities: { tools: {} }"
+    },
+    {
+      "text": "Defines a lookup_property tool with an address input parameter",
+      "passed": true,
+      "evidence": "Tool defined with name 'lookup_property' and address string input"
+    },
+    {
+      "text": "Includes handler that calls the external API endpoint",
+      "passed": true,
+      "evidence": "CallToolRequestSchema handler uses axios.get to call https://api.properties.example/v1/lookup"
+    },
+    {
+      "text": "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)",
+      "passed": true,
+      "evidence": "Configuration section shows .mcp.json / settings.json setup"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 2,
+      "Write": 2
+    },
+    "total_tool_calls": 4,
+    "total_steps": 3,
+    "errors_encountered": 0,
+    "output_chars": 2268
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No suggestions, evals look solid."
+  }
+}

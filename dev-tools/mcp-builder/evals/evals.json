@@ -1,0 +1,31 @@
+{
+  "skill_name": "mcp-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build me an MCP server in TypeScript that exposes a tool called 'lookup_property' which takes an address string and returns property details. It should connect to a hypothetical REST API at https://api.properties.example/v1/lookup.",
+      "expected_output": "A complete TypeScript MCP server scaffold with the lookup_property tool implemented",
+      "files": [],
+      "expectations": [
+        "Creates a TypeScript project with package.json including @modelcontextprotocol/sdk dependency",
+        "Implements a Server instance with tools capability",
+        "Defines a lookup_property tool with an address input parameter",
+        "Includes handler that calls the external API endpoint",
+        "Includes configuration instructions for Claude Desktop or Claude Code (.mcp.json)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a Python MCP server that exposes two tools: 'list_invoices' which returns recent invoices, and 'create_invoice' which takes client_name, amount, and description. Use a simple JSON file as the data store.",
+      "expected_output": "A Python MCP server with two tools and JSON file storage",
+      "files": [],
+      "expectations": [
+        "Uses the Python MCP SDK (mcp or fastmcp)",
+        "Defines both list_invoices and create_invoice tools with proper schemas",
+        "create_invoice accepts client_name, amount, and description parameters",
+        "Uses a JSON file for data persistence (not an in-memory dict alone)",
+        "Includes setup instructions (pip install, configuration)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "Add a dark mode toggle to my website. It should remember the user's preference.",
+  "expectations": [
+    "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+    "Asks clarifying questions about the existing tech stack and design system",
+    "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+    "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+    "Includes an explicit approval gate - waits for user sign-off before coding"
+  ],
+  "skill_name": "factory-pm"
+}

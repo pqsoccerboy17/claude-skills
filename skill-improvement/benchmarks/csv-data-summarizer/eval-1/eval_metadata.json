@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "Analyze the transactions in evals/files/sample_transactions.csv. Give me a summary with total income, total expenses, spending by category, and monthly cash flow.",
+  "expectations": [
+    "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+    "Total expenses are correctly calculated (sum of all negative amounts)",
+    "Spending is broken down by category with at least 5 categories shown",
+    "Net cash flow / surplus is calculated (income minus expenses)",
+    "Uses pandas for the analysis rather than manual calculation"
+  ],
+  "skill_name": "csv-data-summarizer"
+}

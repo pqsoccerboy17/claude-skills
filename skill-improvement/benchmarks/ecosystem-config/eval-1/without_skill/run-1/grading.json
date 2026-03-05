@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "References ~/scripts/ecosystem.env as the central config file",
+      "passed": false,
+      "evidence": "Does not reference ~/scripts/ecosystem.env. Suggests adding to ~/.zshrc directly or a generic .env file"
+    },
+    {
+      "text": "Shows the correct environment variable name for Notion token (NOTION_API_TOKEN or similar)",
+      "passed": true,
+      "evidence": "Uses 'NOTION_API_TOKEN' which is close to the expected name (NOTION_TOKEN per skill, but NOTION_API_TOKEN is acceptable per eval)"
+    },
+    {
+      "text": "Explains how to source the env file from ~/.zshrc",
+      "passed": false,
+      "evidence": "Suggests editing ~/.zshrc directly with 'echo export >> ~/.zshrc' rather than sourcing a separate env file"
+    },
+    {
+      "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+      "passed": false,
+      "evidence": "Directly suggests: 'echo export NOTION_API_TOKEN >> ~/.zshrc' -- the exact anti-pattern"
+    },
+    {
+      "text": "Mentions the ecosystem.env.example file if applicable",
+      "passed": false,
+      "evidence": "No mention of ecosystem.env.example"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 680
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Without-skill correctly shows the agent defaults to generic env var setup patterns"
+  }
+}

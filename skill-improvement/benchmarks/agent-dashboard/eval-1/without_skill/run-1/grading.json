@@ -1,0 +1,12 @@
+{
+  "expectations": [
+    {"text": "Runs node server.js from the agent-dashboard/app directory", "passed": false, "evidence": "Does not use the existing dashboard. Creates a new Express server from scratch on port 3000"},
+    {"text": "Opens or instructs to open localhost:3847 in the browser", "passed": false, "evidence": "Uses port 3000, not 3847"},
+    {"text": "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories", "passed": false, "evidence": "No reference to these directories. Says 'TODO: Read agent status from somewhere'"},
+    {"text": "Does not try to build a new dashboard from scratch", "passed": false, "evidence": "Builds an entirely new Express dashboard from scratch with npm init"}
+  ],
+  "summary": {"passed": 0, "failed": 4, "total": 4, "pass_rate": 0.0},
+  "execution_metrics": {"tool_calls": {"Write": 2}, "total_tool_calls": 2, "total_steps": 2, "errors_encountered": 0, "output_chars": 850},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "Without skill, agent tries to build a new dashboard -- the exact thing the eval checks against"}
+}

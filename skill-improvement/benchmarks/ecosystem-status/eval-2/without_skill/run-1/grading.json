@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": false,
+      "evidence": "Does not run ecosystem_status.py or ~/scripts/status. Uses generic ps aux and launchctl grep commands"
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": false,
+      "evidence": "Cannot identify the Tax PDF Organizer. Says 'Without knowing the exact process name or service label' and asks user for more info"
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": false,
+      "evidence": "Cannot identify Monarch Money. Says 'I searched for monarch and MCP processes' but provides no definitive status"
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": false,
+      "evidence": "Cannot determine status. Asks user 'If you can share the specific service labels or executable names'"
+    },
+    {
+      "text": "Does not confuse ecosystem-status with ecosystem-config",
+      "passed": true,
+      "evidence": "Does not mention ecosystem-config at all, so no confusion occurs"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  },
+  "execution_metrics": {
+    "tool_calls": {"Bash": 4},
+    "total_tool_calls": 4,
+    "total_steps": 4,
+    "errors_encountered": 0,
+    "output_chars": 920
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Does not confuse ecosystem-status with ecosystem-config",
+        "reason": "This passes trivially when neither skill is known. Consider rephrasing to 'correctly identifies this as a status check task' to be more discriminating"
+      }
+    ],
+    "overall": "One assertion passes trivially in without-skill mode. Consider tightening it."
+  }
+}

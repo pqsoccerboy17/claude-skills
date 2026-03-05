@@ -1,0 +1,12 @@
+{
+  "expectations": [
+    {"text": "Recognizes this as a request for the agent dashboard", "passed": false, "evidence": "Does not recognize an existing dashboard exists. Treats it as a generic monitoring question"},
+    {"text": "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app", "passed": false, "evidence": "Does not reference the existing dashboard. Suggests building one or using pm2"},
+    {"text": "Starts the server with the correct command (node server.js)", "passed": false, "evidence": "No server started. Generic process checking with ps aux instead"},
+    {"text": "Explains what the dashboard shows (agent roster, messages, task board)", "passed": false, "evidence": "Does not describe any dashboard features. Offers to build a monitoring solution"}
+  ],
+  "summary": {"passed": 0, "failed": 4, "total": 4, "pass_rate": 0.0},
+  "execution_metrics": {"tool_calls": {"Bash": 2}, "total_tool_calls": 2, "total_steps": 2, "errors_encountered": 0, "output_chars": 650},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "Complete failure without skill - agent doesn't know the dashboard exists"}
+}

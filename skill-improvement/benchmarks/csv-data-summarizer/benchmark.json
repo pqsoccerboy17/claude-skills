@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "csv-data-summarizer",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1182,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Output states 'Total Income: $10,500.00' with breakdown of Payroll Deposit $5,500.00, Client Invoice Payment $3,200.00, Consulting Fee $1,800.00"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Output states 'Total Expenses: $3,338.05' which matches the sum of all negative amounts"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "9 expense categories shown in a table: Housing, Insurance, Utilities, Groceries, Shopping, Transportation, Food & Drink, Health, Entertainment"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output states 'Net Cash Flow: +$7,161.95' which equals $10,500.00 - $3,338.05"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": true,
+          "evidence": "Code block shows 'import pandas as pd', 'pd.read_csv', 'df.groupby', 'df['date'].dt.to_period' - all pandas operations following the skill pattern"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1350,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Table shows Payroll Deposit $5,500.00, Client Invoice $3,200.00, Consulting Fee $1,800.00, Total Income $10,500.00"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Output states 'Total Expenses: $3,338.05'"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "Category Breakdown table shows 9 categories with Total, Count, and Average columns"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output states 'Net cash flow: +$7,161.95'"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": true,
+          "evidence": "Code shows 'import pandas as pd', pd.read_csv with parse_dates, df.groupby, dt.to_period - following the skill's analyze_transactions pattern"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1205,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Output lists three income sources totaling $10,500.00"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Output states 'Expenses: $3,338.05'"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "9 categories listed with individual transaction details for each"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output states 'Net: +$7,161.95 surplus'"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": true,
+          "evidence": "Code shows import pandas, pd.read_csv with parse_dates, groupby, dt.to_period"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1620,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Table shows Housing ranked #1 at $2,200.00, described as 'largest by far (65.9% of total)'"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Account Breakdown table shows Chase Checking $3,086.60 (11 txns) and Amex Gold $251.45 (6 txns) with percentage split"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "Rent Payment ($2,200.00) flagged as 'Statistical outlier - 11.2x the average expense of $196.36'"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "Categories listed in descending order from Housing ($2,200) to Entertainment ($28.97) with rank numbers"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": true,
+          "evidence": "Data Quality section states 'No missing values detected across all 5 columns' and 'No duplicate entries found'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1180,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Housing listed #1 at $2,200.00 (65.9%)"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Account Breakdown table with Chase Checking $3,086.60 and Amex Gold $251.45"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "Rent Payment ($2,200.00) flagged as outlier, Whole Foods ($132.45) also flagged"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "9 categories listed in descending order with percentages"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": true,
+          "evidence": "Data Quality section: 'No missing values in any column, No duplicates detected'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1310,
+        "tool_calls": 5,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Housing ranked #1 at $2,200.00 (65.9%), described as 'dominant expense category'"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Account Split section with dollar totals: Chase Checking $3,086.60, Amex Gold $251.45"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "Rent Payment: $2,200.00 flagged using IQR method as 'well above the upper fence, clear outlier'"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "Table with categories ranked 1-9 by amount with share percentages"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": true,
+          "evidence": "Data Quality Notes: 'Zero missing values across all columns, No duplicate records'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 987,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Output states 'Total Income: $10,500.00' with correct breakdown of three income sources"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Output lists all 17 individual expenses and states 'Total Expenses: $3,338.05'"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "9 categories listed: Housing, Insurance, Utilities, Groceries, Shopping, Transportation, Food & Drink, Health, Entertainment"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output shows '$10,500.00 - $3,338.05 = $7,161.95 surplus'"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": false,
+          "evidence": "No pandas import or usage shown. Output reads the CSV directly and lists transactions manually without any data analysis library."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 812,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Output states 'Total Income: $10,500.00'"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Output states 'Total spending across all categories: $3,338.05'"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "9 categories listed with amounts"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output shows 'Net for January: $10,500.00 - $3,338.05 = $7,161.95 surplus'"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": false,
+          "evidence": "No pandas or any data analysis library used. Analysis done by reading CSV directly."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 654,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Total income is correctly calculated as $10,500.00 (5500 + 3200 + 1800)",
+          "passed": true,
+          "evidence": "Output lists income items totaling $10,500"
+        },
+        {
+          "text": "Total expenses are correctly calculated (sum of all negative amounts)",
+          "passed": true,
+          "evidence": "Table shows Total of $3,338.05"
+        },
+        {
+          "text": "Spending is broken down by category with at least 5 categories shown",
+          "passed": true,
+          "evidence": "9 categories in table format"
+        },
+        {
+          "text": "Net cash flow / surplus is calculated (income minus expenses)",
+          "passed": true,
+          "evidence": "Output states 'Net: +$7,161.95'"
+        },
+        {
+          "text": "Uses pandas for the analysis rather than manual calculation",
+          "passed": false,
+          "evidence": "No pandas usage. Data read and summarized manually."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 945,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Housing listed first at $2,200.00 with note 'Housing is by far the largest at $2,200'"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Account Split section lists Chase Checking and Amex Gold transactions, though without dollar totals per account"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "'The $2,200 rent payment stands out as much larger than any other single expense'"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "Categories numbered 1-9 in descending order by amount"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": false,
+          "evidence": "No mention of missing values, data quality, or data completeness anywhere in the output"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 720,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Housing listed first at $2,200.00, noted as 'top category'"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Both accounts described with transaction lists, though without exact dollar totals"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "'The $2,200 rent payment is the single largest expense, dwarfing everything else'"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "Categories numbered 1-9 in descending order"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": false,
+          "evidence": "No mention of data quality or missing values"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 630,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Housing is identified as the largest expense category ($2,200)",
+          "passed": true,
+          "evidence": "Housing listed first at $2,200, noted as 'biggest by a wide margin'"
+        },
+        {
+          "text": "Spending is broken down by account (Chase Checking vs Amex Gold)",
+          "passed": true,
+          "evidence": "Account Split section describes both accounts' usage patterns"
+        },
+        {
+          "text": "At least one transaction is flagged as notable or unusual",
+          "passed": true,
+          "evidence": "'The rent at $2,200 is far larger than any other expense - it alone is 66% of total spending'"
+        },
+        {
+          "text": "Categories are ranked or sorted by total spend amount",
+          "passed": true,
+          "evidence": "Categories numbered 1-9 in descending order"
+        },
+        {
+          "text": "Missing values or data quality issues are mentioned (even if none found)",
+          "passed": false,
+          "evidence": "No mention of data quality, missing values, or data completeness"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 1307.8333,
+        "stddev": 168.5116,
+        "min": 1180,
+        "max": 1620
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.8,
+        "stddev": 0.0,
+        "min": 0.8,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 791.3333,
+        "stddev": 149.8688,
+        "min": 630,
+        "max": 987
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.20",
+      "time_seconds": "+0.0",
+      "tokens": "+516"
+    }
+  },
+  "notes": []
+}

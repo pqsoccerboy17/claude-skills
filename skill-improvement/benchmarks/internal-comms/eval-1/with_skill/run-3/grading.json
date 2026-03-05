@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "Letter includes tenant name (Sarah Chen) and property address (123 Oak Street)", "passed": true, "evidence": "'Dear Sarah', '123 Oak Street'"},
+    {"text": "Current rent ($1,800) and new rent ($1,900) are both stated", "passed": true, "evidence": "'from $1,800 to $1,900'"},
+    {"text": "Effective date (April 1, 2026) is clearly mentioned", "passed": true, "evidence": "'Beginning April 1, 2026'"},
+    {"text": "Lease renewal deadline (March 15) is included", "passed": true, "evidence": "'by March 15, 2026'"},
+    {"text": "Tone is professional but not cold - follows the real estate template pattern", "passed": true, "evidence": "'wonderful tenant', 'happy to chat', 'Warm regards'"}
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0},
+  "execution_metrics": {"tool_calls": {"Read": 1, "Write": 2}, "total_tool_calls": 3, "total_steps": 3, "errors_encountered": 0, "output_chars": 760},
+  "claims": [],
+  "eval_feedback": {"suggestions": [], "overall": "No suggestions, evals look solid."}
+}

@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "skill_name": "last30days",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-03-05T23:47:50Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2100,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": true,
+          "evidence": "Shows query: 'site:reddit.com \"Claude Code\" after:2026-02-03' using brave_web_search"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": true,
+          "evidence": "Shows query: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "States: 'Overall sentiment is Positive with notable enthusiasm around agentic coding workflows'"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "Links are placeholder: '(Reddit threads would be listed here with actual URLs from search results)' - no actual URLs"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": true,
+          "evidence": "Report includes all skill-specified sections: Overview & Sentiment, Key Voices table, Trending Themes, Top Reddit Threads, Top X/Twitter Posts, Recent Articles, Conflicting Viewpoints, Source Links"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2250,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": true,
+          "evidence": "Shows: 'site:reddit.com \"Claude Code\" after:2026-02-03' via brave_web_search"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": true,
+          "evidence": "Shows: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "States: 'Overall sentiment: Mixed to Positive'"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "States: '(Would contain actual URLs from brave_web_search results)' - placeholder only"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": true,
+          "evidence": "Complete structured report with all sections from the skill template"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 2050,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": true,
+          "evidence": "Shows: 'site:reddit.com \"Claude Code\" after:2026-02-03' via brave_web_search"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": true,
+          "evidence": "Shows: '(site:x.com OR site:twitter.com) \"Claude Code\" after:2026-02-03'"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "States: 'Sentiment: Positive'"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "Only placeholder: '(URLs from search results would be listed here)'"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": true,
+          "evidence": "Full structured report including confidence rating guide from the skill"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1850,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": true,
+          "evidence": "Shows: 'site:reddit.com \"AI consulting\" after:2026-02-03' using brave_web_search"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": true,
+          "evidence": "Uses 'after:2026-02-03' which is 30 days before 2026-03-05"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Identifies r/consulting, r/freelance, r/MachineLearning as relevant subreddits"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Sentiment: 'Mixed to Positive'. Themes include AI implementation consulting demand, pricing models, prompt engineering as a service, AI strategy consulting"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": true,
+          "evidence": "Each theme and thread has confidence ratings (High/Medium/Low)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1800,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": true,
+          "evidence": "Shows: 'site:reddit.com \"AI consulting\" trends after:2026-02-03' via brave_web_search"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": true,
+          "evidence": "Uses after:2026-02-03"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Identifies r/consulting, r/Entrepreneur, r/CTO, r/MachineLearning"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Sentiment: 'Positive'. Themes: AI readiness assessments, vertical AI solutions, AI governance consulting, tool-agnostic approach"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": true,
+          "evidence": "Themes have High/Medium ratings. Threads have confidence columns"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1700,
+        "tool_calls": 1,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": true,
+          "evidence": "Shows: 'site:reddit.com \"AI consulting\" trends after:2026-02-03'"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": true,
+          "evidence": "Uses after:2026-02-03"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Identifies r/consulting, r/freelance"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Sentiment: 'Positive'. Themes: AI consulting as career pivot, productized AI services, SMB AI adoption, AI audit services"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": true,
+          "evidence": "Each theme has confidence rating. Includes full confidence rating guide from skill"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 920,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": false,
+          "evidence": "Does not use site:reddit.com or any date filter. States 'based on general knowledge' without performing searches"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": false,
+          "evidence": "Does not search X/Twitter. Only provides general speculation"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "Provides general sentiment: 'well-regarded in the developer community' with positive and negative points"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "No links provided. Admits 'I wasn't able to perform actual web searches'"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": false,
+          "evidence": "Uses a generic format (Reddit/Twitter/General Assessment), not the skill's structured report with Key Voices table, Trending Themes, Top Threads, Confidence Ratings, etc."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 880,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": false,
+          "evidence": "No search performed. States 'I cannot perform real-time web searches'"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": false,
+          "evidence": "No search performed. Generic speculation only"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "States: 'Generally positive, with developers praising the agentic approach'"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "No links. Suggests user search manually"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": false,
+          "evidence": "Generic sections (Reddit, Twitter, Sentiment), not the skill's structured format"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 870,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Searches Reddit using site:reddit.com with a date filter",
+          "passed": false,
+          "evidence": "No search performed. States 'I don't have access to perform live web searches'"
+        },
+        {
+          "text": "Searches X/Twitter for recent mentions",
+          "passed": false,
+          "evidence": "No search performed"
+        },
+        {
+          "text": "Provides a sentiment rating or assessment",
+          "passed": true,
+          "evidence": "States: 'The general sentiment appears positive'"
+        },
+        {
+          "text": "Includes links to specific threads or posts found",
+          "passed": false,
+          "evidence": "No links provided"
+        },
+        {
+          "text": "Organizes findings into the structured report format (trending themes, key voices, etc.)",
+          "passed": false,
+          "evidence": "Generic format without the skill's structured sections"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 950,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": false,
+          "evidence": "No search performed. Relies on general knowledge"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": false,
+          "evidence": "No date filter applied. No search executed"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Lists r/consulting, r/MachineLearning, r/Entrepreneur, r/freelance as relevant"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Provides sentiment ('Generally optimistic but cautious') and 5 discussion themes"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": false,
+          "evidence": "No confidence ratings on any findings"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 880,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": false,
+          "evidence": "No search performed. Admits lacking ability to search with date filters"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": false,
+          "evidence": "No search or date filter"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Lists r/consulting, r/MachineLearning, r/artificial, r/freelance"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Provides themes: Enterprise AI adoption, LLM integration consulting, AI strategy, Data readiness, ROI measurement"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": false,
+          "evidence": "No confidence ratings"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 820,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses brave_web_search or web search with site:reddit.com filter",
+          "passed": false,
+          "evidence": "No search performed. Admits inability to search Reddit in real-time"
+        },
+        {
+          "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+          "passed": false,
+          "evidence": "No date filter applied"
+        },
+        {
+          "text": "Identifies relevant subreddits discussing the topic",
+          "passed": true,
+          "evidence": "Lists r/consulting, r/MachineLearning, r/datascience, r/Entrepreneur"
+        },
+        {
+          "text": "Summarizes sentiment and key discussion themes",
+          "passed": true,
+          "evidence": "Provides sentiment ('Broadly positive with pragmatic undertones') and 5 key themes"
+        },
+        {
+          "text": "Includes confidence ratings on findings",
+          "passed": false,
+          "evidence": "No confidence ratings on any findings"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9,
+        "stddev": 0.1095,
+        "min": 0.8,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 1958.3333,
+        "stddev": 208.3667,
+        "min": 1700,
+        "max": 2250
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.3,
+        "stddev": 0.1095,
+        "min": 0.2,
+        "max": 0.4
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 886.6667,
+        "stddev": 44.572,
+        "min": 820,
+        "max": 950
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.60",
+      "time_seconds": "+0.0",
+      "tokens": "+1072"
+    }
+  },
+  "notes": []
+}

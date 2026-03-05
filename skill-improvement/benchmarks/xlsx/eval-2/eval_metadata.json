@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "prompt": "I have an Excel file with a column of prices. Add a 10% tax column with formulas and a total row at the bottom.",
+  "expectations": [
+    "Uses openpyxl to read and modify the existing file",
+    "Adds tax column with formula references (=cell*0.10) not hardcoded values",
+    "Adds a SUM total row at the bottom",
+    "Preserves existing data and formatting",
+    "Mentions zero formula errors requirement"
+  ],
+  "skill_name": "xlsx"
+}

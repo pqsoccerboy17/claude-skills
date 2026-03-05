@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "Uses brave_web_search or web search with site:reddit.com filter",
+      "passed": false,
+      "evidence": "No search performed. Admits inability to search Reddit in real-time"
+    },
+    {
+      "text": "Applies a 30-day date filter (after:YYYY-MM-DD)",
+      "passed": false,
+      "evidence": "No date filter applied"
+    },
+    {
+      "text": "Identifies relevant subreddits discussing the topic",
+      "passed": true,
+      "evidence": "Lists r/consulting, r/MachineLearning, r/datascience, r/Entrepreneur"
+    },
+    {
+      "text": "Summarizes sentiment and key discussion themes",
+      "passed": true,
+      "evidence": "Provides sentiment ('Broadly positive with pragmatic undertones') and 5 key themes"
+    },
+    {
+      "text": "Includes confidence ratings on findings",
+      "passed": false,
+      "evidence": "No confidence ratings on any findings"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": 0,
+    "output_chars": 820
+  },
+  "claims": [],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Consistent without-skill pattern"
+  }
+}

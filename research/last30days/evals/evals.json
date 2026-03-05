@@ -1,0 +1,31 @@
+{
+  "skill_name": "last30days",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What are people saying about Claude Code on Reddit and Twitter in the last 30 days?",
+      "expected_output": "A structured social listening report with sentiment, key threads, and sources",
+      "files": [],
+      "expectations": [
+        "Searches Reddit using site:reddit.com with a date filter",
+        "Searches X/Twitter for recent mentions",
+        "Provides a sentiment rating or assessment",
+        "Includes links to specific threads or posts found",
+        "Organizes findings into the structured report format (trending themes, key voices, etc.)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Check Reddit for what people are saying about AI consulting trends in the last 30 days.",
+      "expected_output": "A social listening report focused on Reddit discussion of AI consulting",
+      "files": [],
+      "expectations": [
+        "Uses brave_web_search or web search with site:reddit.com filter",
+        "Applies a 30-day date filter (after:YYYY-MM-DD)",
+        "Identifies relevant subreddits discussing the topic",
+        "Summarizes sentiment and key discussion themes",
+        "Includes confidence ratings on findings"
+      ]
+    }
+  ]
+}

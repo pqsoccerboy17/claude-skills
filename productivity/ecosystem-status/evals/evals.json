@@ -1,0 +1,31 @@
+{
+  "skill_name": "ecosystem-status",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check the status of all my automation systems. Are they all running?",
+      "expected_output": "Runs the ecosystem status script and reports the health of each system",
+      "files": [],
+      "expectations": [
+        "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+        "Reports status for multiple automation systems",
+        "Shows running/idle/stale/down status for each system",
+        "Flags any systems needing attention",
+        "Presents results in a dashboard or summary format"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Is my tax organizer running? What about the Monarch Money server?",
+      "expected_output": "Status check focused on the specific systems asked about",
+      "files": [],
+      "expectations": [
+        "Runs the ecosystem status check script",
+        "Specifically reports on the Tax PDF Organizer status",
+        "Specifically reports on the Monarch Money MCP Server status",
+        "Indicates whether each is running, idle, or down",
+        "Does not confuse ecosystem-status with ecosystem-config"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill_name": "agent-dashboard",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Launch the agent dashboard so I can monitor my agent teams.",
+      "expected_output": "Starts the dashboard server and opens the browser",
+      "files": [],
+      "expectations": [
+        "Runs node server.js from the agent-dashboard/app directory",
+        "Opens or instructs to open localhost:3847 in the browser",
+        "References watching ~/.claude/teams/ and ~/.claude/tasks/ directories",
+        "Does not try to build a new dashboard from scratch"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Show me what my agents are doing right now.",
+      "expected_output": "Launches the surveillance dashboard to monitor active agent teams",
+      "files": [],
+      "expectations": [
+        "Recognizes this as a request for the agent dashboard",
+        "Uses the existing dashboard at ~/Projects/claude-skills/dev-tools/agent-dashboard/app",
+        "Starts the server with the correct command (node server.js)",
+        "Explains what the dashboard shows (agent roster, messages, task board)"
+      ]
+    }
+  ]
+}

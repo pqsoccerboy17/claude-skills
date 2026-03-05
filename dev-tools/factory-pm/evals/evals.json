@@ -1,0 +1,31 @@
+{
+  "skill_name": "factory-pm",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build me a client portal where my consulting clients can log in, view their project status, download deliverables, and see invoices.",
+      "expected_output": "A spec document written to specs/ with clarifying questions asked first, NOT immediate code",
+      "files": [],
+      "expectations": [
+        "Asks 3-5 clarifying questions before writing any spec",
+        "Questions address scope, users, constraints, or integration points",
+        "Writes a spec file to specs/ directory (not inline only)",
+        "Spec includes prioritized features or MVP scope",
+        "Does NOT write any implementation code before getting user approval"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a dark mode toggle to my website. It should remember the user's preference.",
+      "expected_output": "Clarifying questions followed by a spec, with no code until approved",
+      "files": [],
+      "expectations": [
+        "Gathers project context silently first (reads CLAUDE.md, package.json, etc.)",
+        "Asks clarifying questions about the existing tech stack and design system",
+        "Writes a spec to specs/dark-mode.md or similar descriptive filename",
+        "Spec addresses persistence mechanism (localStorage, cookie, or system preference)",
+        "Includes an explicit approval gate - waits for user sign-off before coding"
+      ]
+    }
+  ]
+}

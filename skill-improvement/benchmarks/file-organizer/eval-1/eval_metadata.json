@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "prompt": "I have a messy Downloads folder at evals/files/test-downloads/ with mixed file types. Organize these files into a clean folder structure by type and suggest a naming convention.",
+  "expectations": [
+    "Proposes organizing files by type (documents, images, spreadsheets, etc.)",
+    "Suggests a date-based or descriptive naming convention",
+    "Provides a script or code to perform the organization",
+    "Uses pathlib or shutil for file operations (not raw os.system calls)",
+    "Handles edge cases like duplicate filenames"
+  ],
+  "skill_name": "file-organizer"
+}
