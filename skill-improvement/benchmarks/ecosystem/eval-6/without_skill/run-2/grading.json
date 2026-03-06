@@ -1,0 +1,38 @@
+{
+  "eval_id": 6,
+  "run": 2,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses the send_notification() function from ~/scripts/notify.py",
+      "passed": false,
+      "evidence": "Wrote inline Python using requests to call Pushover API. No reference to ~/scripts/notify.py."
+    },
+    {
+      "text": "Sets priority to 0 (normal)",
+      "passed": true,
+      "evidence": "Set priority to 0 in the request data."
+    },
+    {
+      "text": "Includes a descriptive test message",
+      "passed": true,
+      "evidence": "Message: 'Test notification - Pushover setup verified'."
+    },
+    {
+      "text": "Checks for required environment variables before sending",
+      "passed": true,
+      "evidence": "Checks if user_key and app_token are set before making the API call."
+    },
+    {
+      "text": "Reports success or failure of the notification delivery",
+      "passed": true,
+      "evidence": "Checks response.ok and prints 'Success!' or 'Failed: {response text}'."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "score": 0.8
+  }
+}

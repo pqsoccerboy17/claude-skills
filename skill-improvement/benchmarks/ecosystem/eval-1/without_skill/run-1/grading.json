@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "run": 1,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": false,
+      "evidence": "Did not know about ecosystem_status.py. Used generic ps aux and launchctl commands instead."
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": false,
+      "evidence": "Could not report on specific automation systems. Only showed raw process lists and asked the user what systems they have."
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": false,
+      "evidence": "No structured status categories. Only showed that some Python/Node processes exist."
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": false,
+      "evidence": "Could not identify systems needing attention because it does not know what systems exist."
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": false,
+      "evidence": "Output was a generic process listing, not a dashboard format. Asked the user for more information."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "score": 0.0
+  }
+}

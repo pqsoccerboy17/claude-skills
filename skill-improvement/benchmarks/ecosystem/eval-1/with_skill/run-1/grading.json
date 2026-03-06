@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": true,
+      "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": true,
+      "evidence": "Reports on all 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money, Treehouse Context Sync, Notion Rules"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": true,
+      "evidence": "Shows Running, Idle, Connected, Synced status indicators matching the skill's status categories"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": true,
+      "evidence": "Notes that Media Organizer is idle and explains this is normal, clarifying no systems need attention"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Uses a formatted table with System/Status/Details columns and a summary section"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

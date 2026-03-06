@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "run": 3,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Imports or references ~/scripts/notify.py send_notification() function",
+      "passed": false,
+      "evidence": "Wrote its own send_notification function from scratch using http.client. No reference to ~/scripts/notify.py."
+    },
+    {
+      "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+      "passed": true,
+      "evidence": "Sends to api.pushover.net directly via HTTP."
+    },
+    {
+      "text": "Sends notification with the filename included in the message",
+      "passed": true,
+      "evidence": "Message format is '{filename} - {size}'."
+    },
+    {
+      "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+      "passed": false,
+      "evidence": "Did not include priority in the Pushover request parameters."
+    },
+    {
+      "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+      "passed": false,
+      "evidence": "Used PUSHOVER_TOKEN and PUSHOVER_USER instead of the expected PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "score": 0.4
+  }
+}

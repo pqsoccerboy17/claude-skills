@@ -1,0 +1,1618 @@
+{
+  "metadata": {
+    "skill_name": "ecosystem",
+    "skill_path": "productivity/ecosystem",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-05T23:55:00Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 742,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on all 5 systems: Tax PDF Organizer, Media Organizer, Monarch Money, Treehouse Context Sync, Notion Rules"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Shows Running, Idle, Connected, Synced status indicators matching the skill's status categories"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "Notes that Media Organizer is idle and explains this is normal, clarifying no systems need attention"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Uses a formatted table with System/Status/Details columns and a summary section"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 742,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Did not know about ecosystem_status.py. Used generic ps aux and launchctl commands instead."
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Could not report on specific automation systems. Only showed raw process lists and asked the user what systems they have."
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No structured status categories. Only showed that some Python/Node processes exist."
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "Could not identify systems needing attention because it does not know what systems exist."
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": false,
+          "evidence": "Output was a generic process listing, not a dashboard format. Asked the user for more information."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 698,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Runs '~/scripts/status' via Bash tool"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on all 5 systems individually with bullet points"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Shows Running, Connected, Synced, and Idle statuses for each system"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "States all 5 systems are operational and no systems are down or stale"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Uses a bold header and structured bullet list with a summary paragraph"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 698,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Used launchctl, crontab, and ps aux instead. No knowledge of ecosystem_status.py."
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Only found dev-sync-check LaunchAgent. Could not identify or report on specific automation systems."
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No per-system status breakdown. Only raw process info."
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "Unable to flag systems - does not know what systems should be running."
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": false,
+          "evidence": "Presented raw command output with follow-up questions, not a dashboard."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 781,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": true,
+          "evidence": "Reports on all 5 systems in a table format"
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": true,
+          "evidence": "Shows Running, Stale, Connected, Synced statuses for each system"
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": true,
+          "evidence": "Explicitly flags Media Organizer as stale with troubleshooting steps and restart command"
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Uses a formatted table plus an attention section with actionable troubleshooting"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 631,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+          "passed": false,
+          "evidence": "Ran ps aux, launchctl list, and ls LaunchAgents. Did not know about ecosystem_status.py."
+        },
+        {
+          "text": "Reports status for multiple automation systems",
+          "passed": false,
+          "evidence": "Only found generic processes and one LaunchAgent. Did not identify specific automation systems."
+        },
+        {
+          "text": "Shows running/idle/stale/down status for each system",
+          "passed": false,
+          "evidence": "No categorized status display. Just raw process information."
+        },
+        {
+          "text": "Flags any systems needing attention",
+          "passed": false,
+          "evidence": "Cannot flag anything without knowing what systems should be running."
+        },
+        {
+          "text": "Presents results in a dashboard or summary format",
+          "passed": true,
+          "evidence": "Made a reasonable attempt at organizing output with bold headers and bullet points, though it was incomplete."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 478,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Dedicates a section to Tax PDF Organizer showing it is Running with LaunchAgent and watcher details"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Dedicates a section to Monarch Money MCP Server showing it is Connected"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Tax PDF Organizer is 'Running', Monarch Money is 'Connected' - both clearly stated"
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": true,
+          "evidence": "Only reports status, does not suggest editing config files or changing settings"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 718,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Used ps aux and launchctl instead of ecosystem_status.py."
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Could not identify the Tax PDF Organizer. Searched for 'tax' in process names and asked the user for the exact name."
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Could not confirm the Monarch Money server. Searched generically for 'monarch' and 'mcp' but could not provide a definitive status."
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "Could not give a running/idle/down status for either system. Just said it was uncertain."
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": true,
+          "evidence": "Did stay focused on checking status via process inspection, did not suggest changing configuration."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 462,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Runs '~/scripts/status' via Bash tool"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Reports Tax PDF Organizer as Running with LaunchAgent and watcher details"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Reports Monarch Money MCP Server as Connected with authentication status"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Uses 'Running' and 'Connected' status labels clearly"
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": true,
+          "evidence": "Purely reports status without suggesting any config changes"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 665,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Used ps aux grep instead of the ecosystem status script."
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Could not find the process. Asked user for script name or plist file."
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Did not find the Monarch process. Speculated it might be an on-demand MCP server but could not confirm."
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "Could not determine status for either system. Only reported that processes were not found."
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": false,
+          "evidence": "Partially confused status with configuration by suggesting checking MCP configuration settings rather than runtime status."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 582,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": true,
+          "evidence": "Dedicated section showing Running status with LaunchAgent and watcher details"
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": true,
+          "evidence": "Dedicated section showing Connected status with session auth note"
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": true,
+          "evidence": "Clearly states Running and Connected for the two systems"
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": true,
+          "evidence": "Reports only status information; mentions session auth as context but does not suggest config changes"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 692,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Runs the ecosystem status check script",
+          "passed": false,
+          "evidence": "Used pgrep and launchctl. No knowledge of ecosystem_status.py."
+        },
+        {
+          "text": "Specifically reports on the Tax PDF Organizer status",
+          "passed": false,
+          "evidence": "Only searched for 'tax' in process names. Could not identify the system or its status."
+        },
+        {
+          "text": "Specifically reports on the Monarch Money MCP Server status",
+          "passed": false,
+          "evidence": "Only searched for 'monarch' in process names and LaunchAgents. Could not identify it."
+        },
+        {
+          "text": "Indicates whether each is running, idle, or down",
+          "passed": false,
+          "evidence": "Said both were 'not found' but could not distinguish between down, idle, or not-installed."
+        },
+        {
+          "text": "Does not confuse status checking with configuration",
+          "passed": true,
+          "evidence": "Stayed focused on checking running status. Did not suggest changing any configuration."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 812,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": true,
+          "evidence": "Opens ~/scripts/ecosystem.env and instructs to keep all credentials in this central file"
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": true,
+          "evidence": "Uses NOTION_TOKEN as the variable name, matching the skill documentation"
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": true,
+          "evidence": "Shows 'source ~/scripts/ecosystem.env' in ~/.zshrc and explains reload with 'source ~/.zshrc'"
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": true,
+          "evidence": "Explicitly states 'Do not add the token directly to ~/.zshrc'"
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": true,
+          "evidence": "References '~/scripts/ecosystem.env.example' as a template for all available variables"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 798,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": false,
+          "evidence": "No mention of ecosystem.env. Suggested ~/.zshrc or a project-specific .env file."
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": true,
+          "evidence": "Used NOTION_API_TOKEN which is a reasonable variable name, though may not match the ecosystem convention."
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": false,
+          "evidence": "Suggested editing ~/.zshrc directly rather than sourcing a separate env file from it."
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": false,
+          "evidence": "Explicitly suggested adding the token directly to ~/.zshrc as Option 1."
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": false,
+          "evidence": "No mention of ecosystem.env.example or any example/template file."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 788,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": true,
+          "evidence": "References ~/scripts/ecosystem.env as the central config and reads/edits it"
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": true,
+          "evidence": "Uses NOTION_TOKEN as the variable name"
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": true,
+          "evidence": "Shows 'source ~/scripts/ecosystem.env' line for ~/.zshrc and 'source ~/.zshrc' to reload"
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": true,
+          "evidence": "Explains credentials are managed through ecosystem.env rather than individual exports in shell profile"
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": true,
+          "evidence": "Shows cp command to copy ecosystem.env.example as a template"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 621,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": false,
+          "evidence": "No knowledge of ecosystem.env. Suggested editing ~/.zshrc directly."
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": true,
+          "evidence": "Used NOTION_TOKEN which matches the expected variable name."
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": false,
+          "evidence": "Did not describe sourcing a separate env file. Suggested putting the export directly in ~/.zshrc."
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": false,
+          "evidence": "Explicitly recommended adding the export line to ~/.zshrc."
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": false,
+          "evidence": "No mention of any example file."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 803,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": true,
+          "evidence": "Reads and edits ~/scripts/ecosystem.env directly"
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": true,
+          "evidence": "Uses NOTION_TOKEN and also lists related NOTION_DOCUMENT_INDEX_DB_ID and NOTION_PROPERTIES_DB_ID"
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": true,
+          "evidence": "Shows 'source ~/.zshrc' to reload and provides the echo command to add the source line if missing"
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": true,
+          "evidence": "States 'Keep all credentials in ecosystem.env - do not add them directly to .zshrc'"
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": true,
+          "evidence": "References ~/scripts/ecosystem.env.example as the template for all available variables"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 812,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "References ~/scripts/ecosystem.env as the central config file",
+          "passed": false,
+          "evidence": "No mention of ecosystem.env. Suggested ~/.zshrc or a generic .env file."
+        },
+        {
+          "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+          "passed": false,
+          "evidence": "Used NOTION_API_KEY which does not match the ecosystem convention."
+        },
+        {
+          "text": "Explains how to source the env file from ~/.zshrc",
+          "passed": false,
+          "evidence": "Suggested putting the export directly in ~/.zshrc, not sourcing a separate file."
+        },
+        {
+          "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+          "passed": false,
+          "evidence": "Explicitly recommended editing ~/.zshrc to add the token."
+        },
+        {
+          "text": "Mentions the ecosystem.env.example file if applicable",
+          "passed": false,
+          "evidence": "No mention of any example or template file."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 568,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": true,
+          "evidence": "Reads then edits ~/scripts/ecosystem.env to add credentials"
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": true,
+          "evidence": "Sets both PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN, plus NOTIFY_ENABLED"
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Uses 'test-user-key' and 'test-app-token' as provided by user"
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Shows 'source ~/.zshrc' command and explains why"
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": true,
+          "evidence": "Writes to ecosystem.env (not committed to git) and does not echo credentials to stdout"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 876,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": false,
+          "evidence": "Wrote directly to ~/.zshrc. No knowledge of ecosystem.env."
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": true,
+          "evidence": "Used the correct variable names PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Used the exact values 'test-user-key' and 'test-app-token' as provided."
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Explicitly included 'source ~/.zshrc' instruction."
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": false,
+          "evidence": "Used echo to append credentials to ~/.zshrc which would be visible in shell history. Also suggested echo-ing the values to verify."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 612,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": true,
+          "evidence": "Reads and edits ~/scripts/ecosystem.env specifically"
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": true,
+          "evidence": "Sets both PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN in the config"
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Uses exact values 'test-user-key' and 'test-app-token'"
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Shows 'source ~/.zshrc' with explanation that it reloads ecosystem.env"
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": true,
+          "evidence": "Credentials stored only in ecosystem.env which is not committed to git"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 654,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": false,
+          "evidence": "Wrote directly to ~/.zshrc using cat heredoc. No knowledge of ecosystem.env."
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": false,
+          "evidence": "Used PUSHOVER_USER and PUSHOVER_TOKEN instead of the expected PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Used the exact values 'test-user-key' and 'test-app-token'."
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Included 'source ~/.zshrc' instruction."
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": false,
+          "evidence": "Credentials written via heredoc to ~/.zshrc are visible in shell history. Also echo-ed values for verification."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 648,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": true,
+          "evidence": "Edits ~/scripts/ecosystem.env directly with the Pushover section"
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": true,
+          "evidence": "Both variables set along with NOTIFY_ENABLED"
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Uses 'test-user-key' and 'test-app-token' as provided"
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Shows 'source ~/.zshrc' command to apply changes"
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": true,
+          "evidence": "Uses (set) placeholder in summary table instead of showing values; notes ecosystem.env is excluded from git"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 578,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+          "passed": false,
+          "evidence": "Wrote directly to ~/.zshrc. No knowledge of ecosystem.env."
+        },
+        {
+          "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+          "passed": true,
+          "evidence": "Used the correct variable names PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+        },
+        {
+          "text": "Uses the provided credential values",
+          "passed": true,
+          "evidence": "Used the exact values 'test-user-key' and 'test-app-token'."
+        },
+        {
+          "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+          "passed": true,
+          "evidence": "Included 'source ~/.zshrc' instruction."
+        },
+        {
+          "text": "Does not expose credentials in any insecure way",
+          "passed": false,
+          "evidence": "Used echo commands to append credentials to ~/.zshrc, which would be visible in shell history."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1482,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": true,
+          "evidence": "Uses sys.path.insert for ~/scripts and imports send_notification from notify module"
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Uses send_notification() from notify.py which sends via Pushover as primary backend"
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Message includes filepath.name and file size: f'{filepath.name} ({size})'"
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": true,
+          "evidence": "Uses priority=0 (normal) for file monitoring events"
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": true,
+          "evidence": "Uses notify.py which reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment; explained in description"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1687,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": false,
+          "evidence": "Wrote notification logic from scratch using requests library. No knowledge of ~/scripts/notify.py."
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Uses Pushover API directly via requests.post to api.pushover.net."
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Message includes filename: 'New file detected: {filename} ({size_str})'."
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": true,
+          "evidence": "Sets priority to 0 (normal) in the request data."
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": true,
+          "evidence": "Uses os.environ.get() to read both PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1534,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": true,
+          "evidence": "Uses sys.path.insert(0, str(Path.home() / 'scripts')) and imports send_notification from notify"
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Uses send_notification() from notify.py which uses Pushover as primary; mentions macOS as fallback only"
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Message includes f.name and size in the notification body"
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": true,
+          "evidence": "Uses priority=1 (high) with reasoning that file monitoring warrants prompt alerts"
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": true,
+          "evidence": "Explicitly notes that notify.py reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1342,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": false,
+          "evidence": "Used python-pushover library (pip install python-pushover) instead of the ecosystem's notify.py module."
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Uses the python-pushover Client library which sends via Pushover."
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Message includes 'New file: {name}' with the filename."
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": false,
+          "evidence": "Did not set a priority level at all. Used default from the library without specifying priority."
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": false,
+          "evidence": "Used PUSHOVER_USER and PUSHOVER_API_TOKEN instead of the expected PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variable names."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1456,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": true,
+          "evidence": "Uses sys.path.insert for ~/scripts and imports send_notification from notify"
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Uses send_notification() from notify.py with Pushover as primary backend via env vars"
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Notification message is f'{name} - {size}' including the filename"
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": true,
+          "evidence": "Uses priority=0 (normal) for file monitoring"
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": true,
+          "evidence": "Explains that notify.py reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from ecosystem.env"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1398,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Imports or references ~/scripts/notify.py send_notification() function",
+          "passed": false,
+          "evidence": "Wrote its own send_notification function from scratch using http.client. No reference to ~/scripts/notify.py."
+        },
+        {
+          "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+          "passed": true,
+          "evidence": "Sends to api.pushover.net directly via HTTP."
+        },
+        {
+          "text": "Sends notification with the filename included in the message",
+          "passed": true,
+          "evidence": "Message format is '{filename} - {size}'."
+        },
+        {
+          "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+          "passed": false,
+          "evidence": "Did not include priority in the Pushover request parameters."
+        },
+        {
+          "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+          "passed": false,
+          "evidence": "Used PUSHOVER_TOKEN and PUSHOVER_USER instead of the expected PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 652,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/notify.py' which invokes send_notification() via CLI interface"
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Passes 0 as the third argument for priority"
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Message is 'This is a test notification to verify your Pushover setup is working correctly.'"
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": true,
+          "evidence": "First checks PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN are set before sending"
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": true,
+          "evidence": "Reports 'Test notification sent successfully' and provides troubleshooting if not received"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 832,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": false,
+          "evidence": "Used curl to call the Pushover API directly. No knowledge of ~/scripts/notify.py."
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Included '--form-string priority=0' in the curl command."
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Included 'Test notification from Claude Code - verifying Pushover setup is working correctly'."
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": false,
+          "evidence": "Checked after attempting to send rather than before. The curl command runs first, then checks if vars are set."
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": false,
+          "evidence": "Did not check the actual API response. Only described what the response would look like in theory."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 638,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": true,
+          "evidence": "Runs 'python3 ~/scripts/notify.py' CLI which calls send_notification() internally"
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Passes 0 as the priority argument and confirms in the summary"
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Message is 'Testing notification delivery - if you see this, your Pushover setup is working.'"
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": true,
+          "evidence": "Runs a check for PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN before sending"
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": true,
+          "evidence": "Reports 'test notification was sent successfully' with delivery summary and troubleshooting tips"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 1098,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": false,
+          "evidence": "Wrote inline Python using requests to call Pushover API. No reference to ~/scripts/notify.py."
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Set priority to 0 in the request data."
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Message: 'Test notification - Pushover setup verified'."
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": true,
+          "evidence": "Checks if user_key and app_token are set before making the API call."
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": true,
+          "evidence": "Checks response.ok and prints 'Success!' or 'Failed: {response text}'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 698,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": true,
+          "evidence": "Imports send_notification from notify module via sys.path and calls it directly in Python"
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Uses priority=0 in the send_notification() call and confirms in summary"
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Message is 'Verifying Pushover notification delivery. Priority: normal (0).'"
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": true,
+          "evidence": "Checks for PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN via env grep before sending"
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": true,
+          "evidence": "Reports 'Notification sent successfully' with full delivery summary"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 3,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 756,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the send_notification() function from ~/scripts/notify.py",
+          "passed": false,
+          "evidence": "Used curl to call Pushover API directly. No knowledge of ~/scripts/notify.py."
+        },
+        {
+          "text": "Sets priority to 0 (normal)",
+          "passed": true,
+          "evidence": "Included priority=0 in the curl form data."
+        },
+        {
+          "text": "Includes a descriptive test message",
+          "passed": true,
+          "evidence": "Message: 'Hello! This is a test notification sent from Claude Code to verify your Pushover setup.'"
+        },
+        {
+          "text": "Checks for required environment variables before sending",
+          "passed": true,
+          "evidence": "Shell script checks if PUSHOVER_APP_TOKEN and PUSHOVER_USER_KEY are empty before proceeding."
+        },
+        {
+          "text": "Reports success or failure of the notification delivery",
+          "passed": false,
+          "evidence": "Did not parse the curl response to report success/failure. Only reported that credentials were missing."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.3333,
+        "stddev": 0.2657,
+        "min": 0.0,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.67",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "Merged skill from ecosystem-status + ecosystem-config + notifications"
+  ]
+}

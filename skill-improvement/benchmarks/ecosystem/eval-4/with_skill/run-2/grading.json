@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": true,
+      "evidence": "Reads and edits ~/scripts/ecosystem.env specifically"
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": true,
+      "evidence": "Sets both PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN in the config"
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Uses exact values 'test-user-key' and 'test-app-token'"
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "Shows 'source ~/.zshrc' with explanation that it reloads ecosystem.env"
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": true,
+      "evidence": "Credentials stored only in ecosystem.env which is not committed to git"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": true,
+      "evidence": "Runs '~/scripts/status' via Bash tool"
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": true,
+      "evidence": "Reports Tax PDF Organizer as Running with LaunchAgent and watcher details"
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": true,
+      "evidence": "Reports Monarch Money MCP Server as Connected with authentication status"
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": true,
+      "evidence": "Uses 'Running' and 'Connected' status labels clearly"
+    },
+    {
+      "text": "Does not confuse status checking with configuration",
+      "passed": true,
+      "evidence": "Purely reports status without suggesting any config changes"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

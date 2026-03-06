@@ -1,0 +1,13 @@
+{
+  "eval_id": 6,
+  "skill_name": "ecosystem",
+  "prompt": "Send a test notification to verify my Pushover setup is working. Use priority 0 (normal) and include a test message.",
+  "expected_output": "A notification sent via Pushover with confirmation of delivery",
+  "expectations": [
+    "Uses the send_notification() function from ~/scripts/notify.py",
+    "Sets priority to 0 (normal)",
+    "Includes a descriptive test message",
+    "Checks for required environment variables before sending",
+    "Reports success or failure of the notification delivery"
+  ]
+}

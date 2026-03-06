@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": true,
+      "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": true,
+      "evidence": "Reports on all 5 systems in a table format"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": true,
+      "evidence": "Shows Running, Stale, Connected, Synced statuses for each system"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": true,
+      "evidence": "Explicitly flags Media Organizer as stale with troubleshooting steps and restart command"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Uses a formatted table plus an attention section with actionable troubleshooting"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

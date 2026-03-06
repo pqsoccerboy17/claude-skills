@@ -1,0 +1,38 @@
+{
+  "eval_id": 3,
+  "run": 3,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "References ~/scripts/ecosystem.env as the central config file",
+      "passed": false,
+      "evidence": "No mention of ecosystem.env. Suggested ~/.zshrc or a generic .env file."
+    },
+    {
+      "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+      "passed": false,
+      "evidence": "Used NOTION_API_KEY which does not match the ecosystem convention."
+    },
+    {
+      "text": "Explains how to source the env file from ~/.zshrc",
+      "passed": false,
+      "evidence": "Suggested putting the export directly in ~/.zshrc, not sourcing a separate file."
+    },
+    {
+      "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+      "passed": false,
+      "evidence": "Explicitly recommended editing ~/.zshrc to add the token."
+    },
+    {
+      "text": "Mentions the ecosystem.env.example file if applicable",
+      "passed": false,
+      "evidence": "No mention of any example or template file."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "score": 0.0
+  }
+}

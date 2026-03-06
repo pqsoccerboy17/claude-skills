@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "skill_name": "ecosystem",
+  "prompt": "Is my tax organizer running? What about the Monarch Money server?",
+  "expected_output": "Status check focused on the specific systems asked about",
+  "expectations": [
+    "Runs the ecosystem status check script",
+    "Specifically reports on the Tax PDF Organizer status",
+    "Specifically reports on the Monarch Money MCP Server status",
+    "Indicates whether each is running, idle, or down",
+    "Does not confuse status checking with configuration"
+  ]
+}

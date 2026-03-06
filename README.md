@@ -22,12 +22,10 @@ cd ~/claude-skills
 | Data Analysis | [csv-data-summarizer](data-analysis/csv-data-summarizer/) | Quick analysis of exported financial data |
 | Productivity | [file-organizer](productivity/file-organizer/) | Financial document organization, photo pipelines |
 | Productivity | [internal-comms](productivity/internal-comms/) | Client/tenant/investor communication templates |
-| Productivity | [ecosystem-status](productivity/ecosystem-status/) | Monitor all automation systems at a glance |
-| Productivity | [notifications](productivity/notifications/) | Unified push notifications (Pushover/macOS) |
-| Productivity | [ecosystem-config](productivity/ecosystem-config/) | Central configuration for all ecosystem tools |
-| AI APIs | [gemini](ai-apis/gemini/) | Gemini API for categorization, summarization, research |
+| Productivity | [ecosystem](productivity/ecosystem/) | Automation status, config, and notifications |
 | Dev Tools | [mcp-builder](dev-tools/mcp-builder/) | Build custom MCP servers for Claude integrations |
 | Dev Tools | [factory-pm](dev-tools/factory-pm/) | Spec-before-code PM agent with approval gate |
+| Dev Tools | [agent-dashboard](dev-tools/agent-dashboard/) | Monitor and manage Claude agent sessions |
 | Research | [last30days](research/last30days/) | Real-time social listening across Reddit and X/Twitter |
 
 ## Directory Structure
@@ -54,20 +52,8 @@ claude-skills/
 │   ├── internal-comms/         # Communication templates
 │   │   ├── SKILL.md
 │   │   └── references/
-│   ├── ecosystem-status/       # Automation system monitoring
-│   │   ├── SKILL.md
-│   │   └── scripts/
-│   ├── notifications/          # Unified notifications
-│   │   ├── SKILL.md
-│   │   └── scripts/
-│   └── ecosystem-config/       # Central configuration
-│       ├── SKILL.md
-│       └── ecosystem.env.example
-├── ai-apis/
-│   └── gemini/                 # Google Gemini API integration
-│       ├── SKILL.md
-│       └── scripts/
-│           └── gemini_api.py
+│   └── ecosystem/              # Status, config, and notifications
+│       └── SKILL.md
 ├── dev-tools/
 │   ├── mcp-builder/            # MCP server development
 │   │   ├── SKILL.md
@@ -169,51 +155,13 @@ Professional communication templates:
 - `references/consulting-templates.md` - [YourCo] Consulting
 - `references/startup-templates.md` - Tap investor relations
 
-#### Ecosystem Status (`productivity/ecosystem-status/`)
-**Source:** Custom monitoring skill
+#### Ecosystem (`productivity/ecosystem/`)
+**Source:** Custom skill (merged from ecosystem-status, ecosystem-config, notifications)
 
-Monitor all automation systems at a glance:
-- Tax PDF Organizer status
-- Media Organizer status
-- Monarch Money connection
-- Treehouse Context Sync
-- Notion Rules (Tax OCR)
-
-#### Notifications (`productivity/notifications/`)
-**Source:** Custom notification skill
-
-Unified notification system supporting:
-- Pushover (mobile/desktop push)
-- macOS Notification Center (fallback)
-
-### AI APIs
-
-#### Gemini API (`ai-apis/gemini/`)
-**Source:** Custom skill for Google Gemini integration
-
-Google Gemini API helper for AI-powered automation:
-- Transaction categorization (financial data)
-- Text summarization
-- Company research (lead enrichment)
-- Receipt OCR with multimodal support
-
-**Usage:**
-```bash
-# Categorize a transaction
-python scripts/gemini_api.py categorize "COSTCO WHOLESALE" -89.47
-
-# Summarize text
-python scripts/gemini_api.py summarize "Long text to summarize..."
-
-# Research a company
-python scripts/gemini_api.py research "Acme Corp"
-
-# Extract data from receipt image
-python scripts/gemini_api.py receipt /path/to/receipt.jpg
-```
-
-**Environment:**
-- `GEMINI_API_KEY` - API key from aistudio.google.com (free tier available)
+Unified automation infrastructure management:
+- Status monitoring of all automation systems
+- Central credential configuration via ~/scripts/ecosystem.env
+- Push notifications via Pushover and macOS fallback
 
 ### Dev Tools
 

@@ -1,0 +1,38 @@
+{
+  "eval_id": 6,
+  "run": 3,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses the send_notification() function from ~/scripts/notify.py",
+      "passed": false,
+      "evidence": "Used curl to call Pushover API directly. No knowledge of ~/scripts/notify.py."
+    },
+    {
+      "text": "Sets priority to 0 (normal)",
+      "passed": true,
+      "evidence": "Included priority=0 in the curl form data."
+    },
+    {
+      "text": "Includes a descriptive test message",
+      "passed": true,
+      "evidence": "Message: 'Hello! This is a test notification sent from Claude Code to verify your Pushover setup.'"
+    },
+    {
+      "text": "Checks for required environment variables before sending",
+      "passed": true,
+      "evidence": "Shell script checks if PUSHOVER_APP_TOKEN and PUSHOVER_USER_KEY are empty before proceeding."
+    },
+    {
+      "text": "Reports success or failure of the notification delivery",
+      "passed": false,
+      "evidence": "Did not parse the curl response to report success/failure. Only reported that credentials were missing."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "score": 0.6
+  }
+}

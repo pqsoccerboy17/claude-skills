@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "skill_name": "ecosystem",
+  "prompt": "Check the status of all my automation systems. Are they all running?",
+  "expected_output": "Runs the ecosystem status script and reports the health of each system",
+  "expectations": [
+    "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+    "Reports status for multiple automation systems",
+    "Shows running/idle/stale/down status for each system",
+    "Flags any systems needing attention",
+    "Presents results in a dashboard or summary format"
+  ]
+}

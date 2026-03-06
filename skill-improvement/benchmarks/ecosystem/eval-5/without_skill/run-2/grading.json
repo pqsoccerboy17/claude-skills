@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "run": 2,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Imports or references ~/scripts/notify.py send_notification() function",
+      "passed": false,
+      "evidence": "Used python-pushover library (pip install python-pushover) instead of the ecosystem's notify.py module."
+    },
+    {
+      "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+      "passed": true,
+      "evidence": "Uses the python-pushover Client library which sends via Pushover."
+    },
+    {
+      "text": "Sends notification with the filename included in the message",
+      "passed": true,
+      "evidence": "Message includes 'New file: {name}' with the filename."
+    },
+    {
+      "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+      "passed": false,
+      "evidence": "Did not set a priority level at all. Used default from the library without specifying priority."
+    },
+    {
+      "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+      "passed": false,
+      "evidence": "Used PUSHOVER_USER and PUSHOVER_API_TOKEN instead of the expected PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variable names."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "score": 0.4
+  }
+}

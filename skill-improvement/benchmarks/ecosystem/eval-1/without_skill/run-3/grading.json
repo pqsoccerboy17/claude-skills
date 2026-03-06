@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "run": 3,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": false,
+      "evidence": "Ran ps aux, launchctl list, and ls LaunchAgents. Did not know about ecosystem_status.py."
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": false,
+      "evidence": "Only found generic processes and one LaunchAgent. Did not identify specific automation systems."
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": false,
+      "evidence": "No categorized status display. Just raw process information."
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": false,
+      "evidence": "Cannot flag anything without knowing what systems should be running."
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Made a reasonable attempt at organizing output with bold headers and bullet points, though it was incomplete."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "score": 0.2
+  }
+}

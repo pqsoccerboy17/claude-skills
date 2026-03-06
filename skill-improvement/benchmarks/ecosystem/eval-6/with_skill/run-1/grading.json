@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the send_notification() function from ~/scripts/notify.py",
+      "passed": true,
+      "evidence": "Runs 'python3 ~/scripts/notify.py' which invokes send_notification() via CLI interface"
+    },
+    {
+      "text": "Sets priority to 0 (normal)",
+      "passed": true,
+      "evidence": "Passes 0 as the third argument for priority"
+    },
+    {
+      "text": "Includes a descriptive test message",
+      "passed": true,
+      "evidence": "Message is 'This is a test notification to verify your Pushover setup is working correctly.'"
+    },
+    {
+      "text": "Checks for required environment variables before sending",
+      "passed": true,
+      "evidence": "First checks PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN are set before sending"
+    },
+    {
+      "text": "Reports success or failure of the notification delivery",
+      "passed": true,
+      "evidence": "Reports 'Test notification sent successfully' and provides troubleshooting if not received"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

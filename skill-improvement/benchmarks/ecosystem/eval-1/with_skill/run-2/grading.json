@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": true,
+      "evidence": "Runs '~/scripts/status' via Bash tool"
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": true,
+      "evidence": "Reports on all 5 systems individually with bullet points"
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": true,
+      "evidence": "Shows Running, Connected, Synced, and Idle statuses for each system"
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": true,
+      "evidence": "States all 5 systems are operational and no systems are down or stale"
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": true,
+      "evidence": "Uses a bold header and structured bullet list with a summary paragraph"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

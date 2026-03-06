@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": true,
+      "evidence": "Runs 'python3 ~/scripts/ecosystem_status.py' via Bash tool"
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": true,
+      "evidence": "Dedicates a section to Tax PDF Organizer showing it is Running with LaunchAgent and watcher details"
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": true,
+      "evidence": "Dedicates a section to Monarch Money MCP Server showing it is Connected"
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": true,
+      "evidence": "Tax PDF Organizer is 'Running', Monarch Money is 'Connected' - both clearly stated"
+    },
+    {
+      "text": "Does not confuse status checking with configuration",
+      "passed": true,
+      "evidence": "Only reports status, does not suggest editing config files or changing settings"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

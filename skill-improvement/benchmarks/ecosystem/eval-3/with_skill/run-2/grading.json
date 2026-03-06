@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "References ~/scripts/ecosystem.env as the central config file",
+      "passed": true,
+      "evidence": "References ~/scripts/ecosystem.env as the central config and reads/edits it"
+    },
+    {
+      "text": "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+      "passed": true,
+      "evidence": "Uses NOTION_TOKEN as the variable name"
+    },
+    {
+      "text": "Explains how to source the env file from ~/.zshrc",
+      "passed": true,
+      "evidence": "Shows 'source ~/scripts/ecosystem.env' line for ~/.zshrc and 'source ~/.zshrc' to reload"
+    },
+    {
+      "text": "Does not suggest editing ~/.zshrc directly for individual keys",
+      "passed": true,
+      "evidence": "Explains credentials are managed through ecosystem.env rather than individual exports in shell profile"
+    },
+    {
+      "text": "Mentions the ecosystem.env.example file if applicable",
+      "passed": true,
+      "evidence": "Shows cp command to copy ecosystem.env.example as a template"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

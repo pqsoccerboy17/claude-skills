@@ -1,0 +1,13 @@
+{
+  "eval_id": 5,
+  "skill_name": "ecosystem",
+  "prompt": "Add push notification support to a Python script that monitors a folder for new files. When a new file appears, it should send a Pushover notification with the filename and size.",
+  "expected_output": "A Python script with Pushover notification integration using the ecosystem's notify.py module",
+  "expectations": [
+    "Imports or references ~/scripts/notify.py send_notification() function",
+    "Uses Pushover as the notification backend (not just macOS notifications)",
+    "Sends notification with the filename included in the message",
+    "Sets an appropriate priority level (0 or 1 for file monitoring)",
+    "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment"
+  ]
+}

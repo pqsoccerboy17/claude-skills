@@ -1,0 +1,13 @@
+{
+  "eval_id": 4,
+  "skill_name": "ecosystem",
+  "prompt": "Set up my Pushover credentials for notifications. My user key is 'test-user-key' and my app token is 'test-app-token'.",
+  "expected_output": "Adds Pushover credentials to ecosystem.env",
+  "expectations": [
+    "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+    "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+    "Uses the provided credential values",
+    "Advises reloading the shell (source ~/.zshrc) after changes",
+    "Does not expose credentials in any insecure way"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Imports or references ~/scripts/notify.py send_notification() function",
+      "passed": true,
+      "evidence": "Uses sys.path.insert for ~/scripts and imports send_notification from notify module"
+    },
+    {
+      "text": "Uses Pushover as the notification backend (not just macOS notifications)",
+      "passed": true,
+      "evidence": "Uses send_notification() from notify.py which sends via Pushover as primary backend"
+    },
+    {
+      "text": "Sends notification with the filename included in the message",
+      "passed": true,
+      "evidence": "Message includes filepath.name and file size: f'{filepath.name} ({size})'"
+    },
+    {
+      "text": "Sets an appropriate priority level (0 or 1 for file monitoring)",
+      "passed": true,
+      "evidence": "Uses priority=0 (normal) for file monitoring events"
+    },
+    {
+      "text": "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment",
+      "passed": true,
+      "evidence": "Uses notify.py which reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment; explained in description"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "score": 1.0
+  }
+}

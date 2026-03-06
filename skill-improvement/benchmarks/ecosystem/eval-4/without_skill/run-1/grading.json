@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "run": 1,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+      "passed": false,
+      "evidence": "Wrote directly to ~/.zshrc. No knowledge of ecosystem.env."
+    },
+    {
+      "text": "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+      "passed": true,
+      "evidence": "Used the correct variable names PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN."
+    },
+    {
+      "text": "Uses the provided credential values",
+      "passed": true,
+      "evidence": "Used the exact values 'test-user-key' and 'test-app-token' as provided."
+    },
+    {
+      "text": "Advises reloading the shell (source ~/.zshrc) after changes",
+      "passed": true,
+      "evidence": "Explicitly included 'source ~/.zshrc' instruction."
+    },
+    {
+      "text": "Does not expose credentials in any insecure way",
+      "passed": false,
+      "evidence": "Used echo to append credentials to ~/.zshrc which would be visible in shell history. Also suggested echo-ing the values to verify."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "score": 0.6
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "run": 3,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": false,
+      "evidence": "Used pgrep and launchctl. No knowledge of ecosystem_status.py."
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": false,
+      "evidence": "Only searched for 'tax' in process names. Could not identify the system or its status."
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": false,
+      "evidence": "Only searched for 'monarch' in process names and LaunchAgents. Could not identify it."
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": false,
+      "evidence": "Said both were 'not found' but could not distinguish between down, idle, or not-installed."
+    },
+    {
+      "text": "Does not confuse status checking with configuration",
+      "passed": true,
+      "evidence": "Stayed focused on checking running status. Did not suggest changing any configuration."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "score": 0.2
+  }
+}

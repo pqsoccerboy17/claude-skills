@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "run": 2,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+      "passed": false,
+      "evidence": "Used launchctl, crontab, and ps aux instead. No knowledge of ecosystem_status.py."
+    },
+    {
+      "text": "Reports status for multiple automation systems",
+      "passed": false,
+      "evidence": "Only found dev-sync-check LaunchAgent. Could not identify or report on specific automation systems."
+    },
+    {
+      "text": "Shows running/idle/stale/down status for each system",
+      "passed": false,
+      "evidence": "No per-system status breakdown. Only raw process info."
+    },
+    {
+      "text": "Flags any systems needing attention",
+      "passed": false,
+      "evidence": "Unable to flag systems - does not know what systems should be running."
+    },
+    {
+      "text": "Presents results in a dashboard or summary format",
+      "passed": false,
+      "evidence": "Presented raw command output with follow-up questions, not a dashboard."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "score": 0.0
+  }
+}

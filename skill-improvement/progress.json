@@ -1,7 +1,7 @@
 {
   "skills": {
-    "ecosystem-status": {
-      "path": "productivity/ecosystem-status",
+    "ecosystem": {
+      "path": "productivity/ecosystem",
       "priority": "high",
       "activity_1_trigger_eval_created": "done",
       "activity_1_trigger_eval_reviewed": "done",
@@ -10,43 +10,8 @@
       "activity_3_evals_created": "done",
       "activity_3_evals_run": "done",
       "activity_3_grading": "done",
-      "activity_4_benchmark": "done"
-    },
-    "ecosystem-config": {
-      "path": "productivity/ecosystem-config",
-      "priority": "high",
-      "activity_1_trigger_eval_created": "done",
-      "activity_1_trigger_eval_reviewed": "done",
-      "activity_1_description_optimized": "done",
-      "activity_2_content_review": "done",
-      "activity_3_evals_created": "done",
-      "activity_3_evals_run": "done",
-      "activity_3_grading": "done",
-      "activity_4_benchmark": "done"
-    },
-    "notifications": {
-      "path": "productivity/notifications",
-      "priority": "high",
-      "activity_1_trigger_eval_created": "done",
-      "activity_1_trigger_eval_reviewed": "done",
-      "activity_1_description_optimized": "done",
-      "activity_2_content_review": "done",
-      "activity_3_evals_created": "done",
-      "activity_3_evals_run": "done",
-      "activity_3_grading": "done",
-      "activity_4_benchmark": "done"
-    },
-    "gemini-api": {
-      "path": "ai-apis/gemini",
-      "priority": "high",
-      "activity_1_trigger_eval_created": "done",
-      "activity_1_trigger_eval_reviewed": "done",
-      "activity_1_description_optimized": "done",
-      "activity_2_content_review": "done",
-      "activity_3_evals_created": "done",
-      "activity_3_evals_run": "done",
-      "activity_3_grading": "done",
-      "activity_4_benchmark": "done"
+      "activity_4_benchmark": "done",
+      "notes": "Merged from ecosystem-status + ecosystem-config + notifications"
     },
     "last30days": {
       "path": "research/last30days",

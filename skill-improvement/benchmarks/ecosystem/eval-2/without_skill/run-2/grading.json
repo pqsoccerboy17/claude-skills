@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "run": 2,
+  "mode": "without_skill",
+  "expectations": [
+    {
+      "text": "Runs the ecosystem status check script",
+      "passed": false,
+      "evidence": "Used ps aux grep instead of the ecosystem status script."
+    },
+    {
+      "text": "Specifically reports on the Tax PDF Organizer status",
+      "passed": false,
+      "evidence": "Could not find the process. Asked user for script name or plist file."
+    },
+    {
+      "text": "Specifically reports on the Monarch Money MCP Server status",
+      "passed": false,
+      "evidence": "Did not find the Monarch process. Speculated it might be an on-demand MCP server but could not confirm."
+    },
+    {
+      "text": "Indicates whether each is running, idle, or down",
+      "passed": false,
+      "evidence": "Could not determine status for either system. Only reported that processes were not found."
+    },
+    {
+      "text": "Does not confuse status checking with configuration",
+      "passed": false,
+      "evidence": "Partially confused status with configuration by suggesting checking MCP configuration settings rather than runtime status."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "score": 0.0
+  }
+}

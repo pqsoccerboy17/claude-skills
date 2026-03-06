@@ -1,0 +1,83 @@
+{
+  "skill_name": "ecosystem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check the status of all my automation systems. Are they all running?",
+      "expected_output": "Runs the ecosystem status script and reports the health of each system",
+      "files": [],
+      "expectations": [
+        "Runs ~/scripts/ecosystem_status.py or ~/scripts/status",
+        "Reports status for multiple automation systems",
+        "Shows running/idle/stale/down status for each system",
+        "Flags any systems needing attention",
+        "Presents results in a dashboard or summary format"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Is my tax organizer running? What about the Monarch Money server?",
+      "expected_output": "Status check focused on the specific systems asked about",
+      "files": [],
+      "expectations": [
+        "Runs the ecosystem status check script",
+        "Specifically reports on the Tax PDF Organizer status",
+        "Specifically reports on the Monarch Money MCP Server status",
+        "Indicates whether each is running, idle, or down",
+        "Does not confuse status checking with configuration"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to add my Notion API token to the ecosystem config. How do I set it up?",
+      "expected_output": "Instructions for adding Notion API token to ~/scripts/ecosystem.env",
+      "files": [],
+      "expectations": [
+        "References ~/scripts/ecosystem.env as the central config file",
+        "Shows the correct environment variable name for Notion token (NOTION_TOKEN or similar)",
+        "Explains how to source the env file from ~/.zshrc",
+        "Does not suggest editing ~/.zshrc directly for individual keys",
+        "Mentions the ecosystem.env.example file if applicable"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Set up my Pushover credentials for notifications. My user key is 'test-user-key' and my app token is 'test-app-token'.",
+      "expected_output": "Adds Pushover credentials to ecosystem.env",
+      "files": [],
+      "expectations": [
+        "Writes to ~/scripts/ecosystem.env (not ~/.zshrc directly)",
+        "Sets PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN variables",
+        "Uses the provided credential values",
+        "Advises reloading the shell (source ~/.zshrc) after changes",
+        "Does not expose credentials in any insecure way"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Add push notification support to a Python script that monitors a folder for new files. When a new file appears, it should send a Pushover notification with the filename and size.",
+      "expected_output": "A Python script with Pushover notification integration using the ecosystem's notify.py module",
+      "files": [],
+      "expectations": [
+        "Imports or references ~/scripts/notify.py send_notification() function",
+        "Uses Pushover as the notification backend (not just macOS notifications)",
+        "Sends notification with the filename included in the message",
+        "Sets an appropriate priority level (0 or 1 for file monitoring)",
+        "Reads PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN from environment"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Send a test notification to verify my Pushover setup is working. Use priority 0 (normal) and include a test message.",
+      "expected_output": "A notification sent via Pushover with confirmation of delivery",
+      "files": [],
+      "expectations": [
+        "Uses the send_notification() function from ~/scripts/notify.py",
+        "Sets priority to 0 (normal)",
+        "Includes a descriptive test message",
+        "Checks for required environment variables before sending",
+        "Reports success or failure of the notification delivery"
+      ]
+    }
+  ]
+}
