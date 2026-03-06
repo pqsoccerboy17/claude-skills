@@ -1,0 +1,22 @@
+[
+  {"query": "I want to use Gemini to categorize my bank transactions automatically", "should_trigger": true},
+  {"query": "Set up the free Gemini API to do OCR on my receipts and extract the totals", "should_trigger": true},
+  {"query": "Can I use Gemini to analyze a PDF document and pull out key data points?", "should_trigger": true},
+  {"query": "I need a cheap AI solution to classify expense categories - Gemini's free tier should work right?", "should_trigger": true},
+  {"query": "Help me write a script that sends receipt images to Gemini for text extraction", "should_trigger": true},
+  {"query": "Use the Gemini API to summarize a batch of transaction descriptions into clean categories", "should_trigger": true},
+  {"query": "I want to process my tax documents through Gemini to extract amounts and dates", "should_trigger": true},
+  {"query": "Set up Gemini integration for my media organizer to auto-tag files based on content", "should_trigger": true},
+  {"query": "Can Gemini help me parse messy CSV data and normalize the column values?", "should_trigger": true},
+  {"query": "I need to use Google's free AI API to do document analysis on my scanned paperwork", "should_trigger": true},
+  {"query": "How do I use the Claude API to build a chatbot for my website?", "should_trigger": false},
+  {"query": "Set up OpenAI's GPT-4 API for my text generation pipeline", "should_trigger": false},
+  {"query": "What's the current price of Gemini cryptocurrency?", "should_trigger": false},
+  {"query": "How do I transfer Bitcoin from Coinbase to Gemini exchange?", "should_trigger": false},
+  {"query": "I want to train a custom machine learning model to classify images", "should_trigger": false},
+  {"query": "Help me fine-tune a language model on my company's documentation", "should_trigger": false},
+  {"query": "What's the best AI API for real-time voice transcription?", "should_trigger": false},
+  {"query": "Set up Google Cloud Vision API for my image recognition pipeline", "should_trigger": false},
+  {"query": "I need to build a RAG system with embeddings and vector search", "should_trigger": false},
+  {"query": "Compare the pricing of different LLM APIs for my production workload", "should_trigger": false}
+]

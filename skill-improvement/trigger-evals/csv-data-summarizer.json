@@ -1,0 +1,22 @@
+[
+  {"query": "Analyze this CSV export from Monarch Money and tell me my top spending categories", "should_trigger": true},
+  {"query": "I have a transactions.csv from my bank - can you summarize monthly totals and flag any outliers?", "should_trigger": true},
+  {"query": "Compare these two CSV files of quarterly revenue and highlight the differences", "should_trigger": true},
+  {"query": "Generate basic statistics from this dataset - mean, median, standard deviation for each column", "should_trigger": true},
+  {"query": "I exported my Stripe payments as a CSV, can you break down revenue by month and customer?", "should_trigger": true},
+  {"query": "Summarize this CSV of tenant rent payments and show me who's behind", "should_trigger": true},
+  {"query": "Read the CSV at ~/Downloads/survey-results.csv and give me a quick summary of the responses", "should_trigger": true},
+  {"query": "I have a big spreadsheet export with 50 columns - help me understand what's in it and find the interesting patterns", "should_trigger": true},
+  {"query": "Take this CSV of client hours and calculate total billable hours per project", "should_trigger": true},
+  {"query": "Can you pivot this sales data CSV by region and product line?", "should_trigger": true},
+  {"query": "Create an Excel spreadsheet with formulas that auto-calculate monthly totals and conditional formatting", "should_trigger": false},
+  {"query": "Extract the table from this PDF invoice and save it somewhere", "should_trigger": false},
+  {"query": "Build me a Python machine learning model to predict churn from this customer dataset", "should_trigger": false},
+  {"query": "Write a SQL query to pull transaction data from my Postgres database", "should_trigger": false},
+  {"query": "Set up a Jupyter notebook with matplotlib charts for my quarterly review presentation", "should_trigger": false},
+  {"query": "Help me design a database schema for tracking financial transactions", "should_trigger": false},
+  {"query": "Convert this JSON API response into a CSV file", "should_trigger": false},
+  {"query": "Build a real-time dashboard that reads from a CSV and updates automatically", "should_trigger": false},
+  {"query": "Scrape this website's pricing table and save it as structured data", "should_trigger": false},
+  {"query": "I need to clean and transform this data pipeline using dbt - can you write the models?", "should_trigger": false}
+]

@@ -1,0 +1,22 @@
+[
+  {"query": "What are people saying about Cursor IDE on Reddit lately?", "should_trigger": true},
+  {"query": "Can you check Twitter/X for recent buzz about the new Claude model release?", "should_trigger": true},
+  {"query": "I want to see the sentiment around Notion's latest pricing changes on social media over the past few weeks", "should_trigger": true},
+  {"query": "Search Reddit and X for any discussion about MCP servers in the last month", "should_trigger": true},
+  {"query": "What's the general vibe on social media about Vercel vs Netlify right now?", "should_trigger": true},
+  {"query": "Are people on Reddit talking about the new Apple Vision Pro price drop?", "should_trigger": true},
+  {"query": "Pull up recent Twitter threads about AI coding assistants - I want to see what developers think", "should_trigger": true},
+  {"query": "Do a social listening sweep on 'fractional CTO' - what are founders saying about hiring them?", "should_trigger": true},
+  {"query": "Check if there's any recent Reddit drama or complaints about Anthropic's API pricing", "should_trigger": true},
+  {"query": "What's trending on X about the SaaS downturn? I want links and a sentiment summary", "should_trigger": true},
+  {"query": "Find me the Wikipedia article about the history of Reddit", "should_trigger": false},
+  {"query": "Research the complete history of social media platforms from 2004 to 2020", "should_trigger": false},
+  {"query": "Search the web for the best project management tools and give me a comparison table", "should_trigger": false},
+  {"query": "Find the official documentation page for the Twitter API v2", "should_trigger": false},
+  {"query": "Aggregate the top tech news headlines from this week across major outlets", "should_trigger": false},
+  {"query": "Write a Reddit post draft announcing my new SaaS product launch", "should_trigger": false},
+  {"query": "Help me set up a Twitter bot that auto-replies to mentions", "should_trigger": false},
+  {"query": "What were the biggest Reddit threads about Bitcoin back in 2017?", "should_trigger": false},
+  {"query": "Search Google Scholar for academic papers about social media sentiment analysis", "should_trigger": false},
+  {"query": "Find me a good restaurant near downtown Austin with recent Google reviews", "should_trigger": false}
+]

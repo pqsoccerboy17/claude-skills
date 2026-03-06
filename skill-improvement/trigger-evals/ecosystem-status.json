@@ -1,0 +1,22 @@
+[
+  {"query": "Are all my automations running? Give me a quick health check", "should_trigger": true},
+  {"query": "Is my tax PDF organizer still working or did it crash?", "should_trigger": true},
+  {"query": "Check the status of my media organizer and let me know if anything looks off", "should_trigger": true},
+  {"query": "What's the current state of my Monarch Money MCP server?", "should_trigger": true},
+  {"query": "Give me a dashboard view of all my ecosystem tools - are they healthy?", "should_trigger": true},
+  {"query": "Is Treehouse Context Sync running right now? I haven't seen any updates lately", "should_trigger": true},
+  {"query": "Quick status check - which of my automation systems are up and which are down?", "should_trigger": true},
+  {"query": "Something feels broken. Can you check if my Notion Rules automation is still active?", "should_trigger": true},
+  {"query": "I want to see the health of all my background automations at a glance", "should_trigger": true},
+  {"query": "Run a systems check on my ecosystem - tax organizer, media organizer, everything", "should_trigger": true},
+  {"query": "I need to change the output directory for my media organizer", "should_trigger": false},
+  {"query": "Set up a new API key for the Monarch Money MCP server", "should_trigger": false},
+  {"query": "Send me a push notification whenever the tax organizer finishes processing", "should_trigger": false},
+  {"query": "How do I install Homebrew on my Mac?", "should_trigger": false},
+  {"query": "Configure the Treehouse Context Sync to use a different Notion database", "should_trigger": false},
+  {"query": "What's the status of my latest GitHub pull request?", "should_trigger": false},
+  {"query": "Check if my Vercel deployment succeeded", "should_trigger": false},
+  {"query": "I need to update the environment variables for my tax organizer", "should_trigger": false},
+  {"query": "Is my MacBook's disk space running low?", "should_trigger": false},
+  {"query": "Add a new rule to my Notion Rules automation for tagging new entries", "should_trigger": false}
+]

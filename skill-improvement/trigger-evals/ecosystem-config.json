@@ -1,0 +1,22 @@
+[
+  {"query": "I need to add my Monarch Money API key to the ecosystem config", "should_trigger": true},
+  {"query": "Set up the environment variables for my tax PDF organizer automation", "should_trigger": true},
+  {"query": "Where's the central config file for all my ecosystem tools? I need to update a path", "should_trigger": true},
+  {"query": "Configure the Notion token for my ecosystem automations", "should_trigger": true},
+  {"query": "I got a new Pushover API key - update it in the ecosystem configuration", "should_trigger": true},
+  {"query": "Add the Gemini API key to my unified ecosystem env file", "should_trigger": true},
+  {"query": "What environment variables does my media organizer need? Set them up in the central config", "should_trigger": true},
+  {"query": "I'm setting up Treehouse Context Sync for the first time - help me configure the env vars", "should_trigger": true},
+  {"query": "Change the output directory path in my ecosystem config for the tax organizer", "should_trigger": true},
+  {"query": "Show me all the env vars in my ecosystem config and tell me which ones are missing", "should_trigger": true},
+  {"query": "Are my automations running? Quick health check please", "should_trigger": false},
+  {"query": "How do I set NODE_ENV to production in my Next.js app?", "should_trigger": false},
+  {"query": "Add an environment variable to my Vercel project for the database URL", "should_trigger": false},
+  {"query": "I need to configure nginx as a reverse proxy for my app", "should_trigger": false},
+  {"query": "Send me a notification when the tax organizer finishes a batch", "should_trigger": false},
+  {"query": "What's the status of my Monarch Money MCP server?", "should_trigger": false},
+  {"query": "Set up a .env file for my React project with the API base URL", "should_trigger": false},
+  {"query": "Configure my VS Code settings for TypeScript development", "should_trigger": false},
+  {"query": "I need to add a new cron job to run my backup script nightly", "should_trigger": false},
+  {"query": "Update my shell profile to add a new alias for git commands", "should_trigger": false}
+]

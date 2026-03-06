@@ -1,0 +1,22 @@
+[
+  {"query": "Set up a Pushover notification for when my tax organizer finishes processing a batch", "should_trigger": true},
+  {"query": "I want my media organizer to send me a push notification when it encounters an error", "should_trigger": true},
+  {"query": "How do I integrate Pushover alerts into my ecosystem scripts?", "should_trigger": true},
+  {"query": "Add a macOS notification that fires when Treehouse Context Sync completes a run", "should_trigger": true},
+  {"query": "Configure the notification system to alert me when any automation fails", "should_trigger": true},
+  {"query": "I want to send a test notification through the ecosystem notification system to make sure it works", "should_trigger": true},
+  {"query": "Set up alerts so I get a push notification on my phone whenever Monarch Money imports new transactions", "should_trigger": true},
+  {"query": "Can you show me how to use the unified notification system to send both Pushover and macOS alerts?", "should_trigger": true},
+  {"query": "My automation notifications stopped working - help me debug the Pushover integration", "should_trigger": true},
+  {"query": "Add a notification hook to my ecosystem tools that pings me with a summary at end of day", "should_trigger": true},
+  {"query": "How do I turn off Do Not Disturb on my Mac?", "should_trigger": false},
+  {"query": "Send an email notification to the client when their invoice is ready", "should_trigger": false},
+  {"query": "Set up Slack webhook notifications for my GitHub repo", "should_trigger": false},
+  {"query": "I need to configure email alerts in my Next.js app using SendGrid", "should_trigger": false},
+  {"query": "What's the status of my tax organizer automation?", "should_trigger": false},
+  {"query": "Configure the Pushover API key in my ecosystem env file", "should_trigger": false},
+  {"query": "How do I schedule a macOS reminder for 3pm tomorrow?", "should_trigger": false},
+  {"query": "Set up Discord bot notifications for my server", "should_trigger": false},
+  {"query": "Add toast notifications to my React app when a form submits", "should_trigger": false},
+  {"query": "I want to send SMS alerts using Twilio when my server goes down", "should_trigger": false}
+]

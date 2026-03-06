@@ -1,0 +1,22 @@
+[
+  {"query": "Create an Excel spreadsheet with a monthly budget template including SUM formulas for each category.", "should_trigger": true},
+  {"query": "Open this .xlsx file and add conditional formatting to highlight any cells over $10,000 in red.", "should_trigger": true},
+  {"query": "Build me a financial model in Excel with revenue projections, COGS, and a net income row with formulas.", "should_trigger": true},
+  {"query": "I need to add a new worksheet tab to this existing Excel file with a pivot-style summary.", "should_trigger": true},
+  {"query": "Format this Excel report so it has frozen headers, column widths auto-sized, and alternating row colors.", "should_trigger": true},
+  {"query": "Update cell B7 in the Q1 sheet of my xlsx file to use a VLOOKUP formula referencing the Rates tab.", "should_trigger": true},
+  {"query": "Create a multi-sheet Excel workbook - one sheet per department - with headcount and salary totals.", "should_trigger": true},
+  {"query": "I have an xlsx file with formulas that need recalculating. Can you recalc and save it?", "should_trigger": true},
+  {"query": "Build an Excel amortization schedule with PMT formulas, running balance, and interest breakdown.", "should_trigger": true},
+  {"query": "Take this raw data and create a polished Excel report with charts, borders, and a summary row.", "should_trigger": true},
+  {"query": "Analyze this CSV file and give me summary statistics - mean, median, standard deviation.", "should_trigger": false},
+  {"query": "Generate a PDF report with a table showing our quarterly revenue.", "should_trigger": false},
+  {"query": "Write a Python script that reads data from a database and plots a chart.", "should_trigger": false},
+  {"query": "Can you update our Google Sheet with the latest sales numbers?", "should_trigger": false},
+  {"query": "Read this CSV and create a bar chart visualization.", "should_trigger": false},
+  {"query": "Parse this JSON data and calculate the average order value.", "should_trigger": false},
+  {"query": "I need a quick data analysis - load this CSV into pandas and show me correlations.", "should_trigger": false},
+  {"query": "Create a dashboard in React that displays these financial metrics.", "should_trigger": false},
+  {"query": "Convert this Excel file to CSV format so I can import it elsewhere.", "should_trigger": false},
+  {"query": "Help me write SQL queries to analyze our sales database.", "should_trigger": false}
+]

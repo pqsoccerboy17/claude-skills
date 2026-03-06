@@ -1,0 +1,22 @@
+[
+  {"query": "Draft a rent increase notice for my tenant at the Oak Street property - going up 4% starting July 1", "should_trigger": true},
+  {"query": "Write a monthly investor update email for Treehouse LLC covering Q1 occupancy and maintenance spend", "should_trigger": true},
+  {"query": "I need a professional email to a consulting client explaining a project delay of two weeks", "should_trigger": true},
+  {"query": "Prepare a lease renewal letter for the tenant in Unit B - same terms, one year extension", "should_trigger": true},
+  {"query": "Draft a status update email to the Tap team summarizing what we shipped this sprint", "should_trigger": true},
+  {"query": "Write a notice to tenants about scheduled maintenance on the HVAC system next Tuesday", "should_trigger": true},
+  {"query": "I need to send a professional but firm late rent reminder - this is the second notice", "should_trigger": true},
+  {"query": "Create a quarterly business review email template I can send to my consulting clients", "should_trigger": true},
+  {"query": "Draft an email to my property manager requesting a walkthrough report for all units", "should_trigger": true},
+  {"query": "Write a welcome letter for a new tenant moving into the duplex on March 15", "should_trigger": true},
+  {"query": "Write a blog post about the benefits of fractional consulting for startups", "should_trigger": false},
+  {"query": "Create marketing copy for the Tap AI landing page hero section", "should_trigger": false},
+  {"query": "Draft a cold outreach email sequence for prospecting new consulting leads on LinkedIn", "should_trigger": false},
+  {"query": "Write the technical documentation for our new API endpoint", "should_trigger": false},
+  {"query": "Help me write a personal essay about my journey into real estate investing", "should_trigger": false},
+  {"query": "Generate social media posts promoting our consulting services", "should_trigger": false},
+  {"query": "Write a press release announcing our new product launch", "should_trigger": false},
+  {"query": "Draft a job description for a junior developer position at Tap", "should_trigger": false},
+  {"query": "Help me write my annual self-review for performance evaluation", "should_trigger": false},
+  {"query": "Create a pitch deck script for presenting to potential venture capital investors", "should_trigger": false}
+]

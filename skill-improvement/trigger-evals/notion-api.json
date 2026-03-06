@@ -1,0 +1,22 @@
+[
+  {"query": "I need to query my Notion database for all clients with status 'active' - I'm in Code mode so I can't use the MCP server", "should_trigger": true},
+  {"query": "Can you create a new page in my Notion CRM database? I'm running in a cloud container without MCP access", "should_trigger": true},
+  {"query": "Update the 'Priority' property on my Notion project tracker page to 'High' - this is a Code mode session", "should_trigger": true},
+  {"query": "I want to pull all entries from my Notion meeting notes database using the API directly since MCP isn't available", "should_trigger": true},
+  {"query": "Write a script that reads from my Notion database and exports to CSV - I need direct API calls since I'm in Code mode", "should_trigger": true},
+  {"query": "How do I authenticate with the Notion API? I need to set up the integration token for Code mode usage", "should_trigger": true},
+  {"query": "Delete a block from my Notion page using the API - no MCP server running in this environment", "should_trigger": true},
+  {"query": "Search across all my Notion databases for entries mentioning 'Q2 revenue' - running headless, no MCP", "should_trigger": true},
+  {"query": "I need to add a row to my Notion task database with title, due date, and assignee fields via the API", "should_trigger": true},
+  {"query": "Batch update 50 records in my Notion inventory database - set all items with quantity 0 to 'out of stock' status", "should_trigger": true},
+  {"query": "Search my Notion workspace for the meeting notes from last Tuesday", "should_trigger": false},
+  {"query": "Can you look up the client info in my Notion CRM?", "should_trigger": false},
+  {"query": "How do I create a linked database view in Notion?", "should_trigger": false},
+  {"query": "What's the best way to structure a Notion project management workspace?", "should_trigger": false},
+  {"query": "Query my PostgreSQL database for all users created this month", "should_trigger": false},
+  {"query": "I need to set up a REST API endpoint that returns JSON data from my backend", "should_trigger": false},
+  {"query": "How do I use the Airtable API to read records from a base?", "should_trigger": false},
+  {"query": "Create a new page in my Notion workspace with the meeting agenda", "should_trigger": false},
+  {"query": "What Notion templates do you recommend for tracking OKRs?", "should_trigger": false},
+  {"query": "Help me build a MongoDB query to aggregate sales data by region", "should_trigger": false}
+]

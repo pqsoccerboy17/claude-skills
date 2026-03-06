@@ -1,0 +1,22 @@
+[
+  {"query": "Extract all the text from this PDF invoice so I can paste it into a spreadsheet.", "should_trigger": true},
+  {"query": "I need to fill out this IRS W-9 PDF form with my company info and save it.", "should_trigger": true},
+  {"query": "Merge these three PDF reports into a single document in order.", "should_trigger": true},
+  {"query": "Split this 80-page PDF into individual chapters based on page ranges I'll give you.", "should_trigger": true},
+  {"query": "This is a scanned contract image in PDF format - can you OCR it and pull out the text?", "should_trigger": true},
+  {"query": "I have a PDF with tables of financial data. Extract those tables into structured data I can work with.", "should_trigger": true},
+  {"query": "Generate a PDF report from this dataset with headers, a table, and page numbers.", "should_trigger": true},
+  {"query": "Take this fillable PDF application and populate the name, address, and SSN fields programmatically.", "should_trigger": true},
+  {"query": "I've got 200 PDF invoices in a folder. Extract the total amount and vendor name from each one.", "should_trigger": true},
+  {"query": "Remove pages 5 through 12 from this PDF and save the result as a new file.", "should_trigger": true},
+  {"query": "Can you read this PDF and summarize what it says?", "should_trigger": false},
+  {"query": "Open this Excel file and pull out the data from the second sheet.", "should_trigger": false},
+  {"query": "Convert this CSV data into a nicely formatted markdown table.", "should_trigger": false},
+  {"query": "Write me a two-page document about our product launch strategy.", "should_trigger": false},
+  {"query": "Analyze the sales data in this spreadsheet and give me insights.", "should_trigger": false},
+  {"query": "What does this PDF contract say about the termination clause?", "should_trigger": false},
+  {"query": "Create a Word document with our meeting notes from today.", "should_trigger": false},
+  {"query": "Look at the attached PDF and tell me if the numbers add up.", "should_trigger": false},
+  {"query": "Parse this JSON file and extract all the email addresses.", "should_trigger": false},
+  {"query": "Take this text content and format it as a nice-looking HTML page.", "should_trigger": false}
+]

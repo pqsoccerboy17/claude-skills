@@ -1,0 +1,22 @@
+[
+  {"query": "My Downloads folder is a mess - can you organize everything into logical subfolders by type and date?", "should_trigger": true},
+  {"query": "Sort these client receipts into folders by year and month", "should_trigger": true},
+  {"query": "I need a folder structure set up for a new consulting client - the usual categories", "should_trigger": true},
+  {"query": "Batch rename all the files in this folder to include the date prefix in YYYY-MM-DD format", "should_trigger": true},
+  {"query": "Organize my real estate documents folder - leases, inspections, tax docs, insurance all mixed together", "should_trigger": true},
+  {"query": "I just dumped 200 files from a zip archive into a folder - help me sort them into something usable", "should_trigger": true},
+  {"query": "Set up a standard project folder template for Treehouse LLC property management documents", "should_trigger": true},
+  {"query": "Can you clean up my Desktop? Group similar files together and move old stuff into an archive folder", "should_trigger": true},
+  {"query": "I have invoices, contracts, and proposals all in one folder - separate them out by document type", "should_trigger": true},
+  {"query": "Rename and organize these tax documents so my accountant can actually find things", "should_trigger": true},
+  {"query": "Reorganize the src directory in my React project - components are all over the place", "should_trigger": false},
+  {"query": "Analyze the contents of these PDF files and give me a summary of each one", "should_trigger": false},
+  {"query": "Set up rsync to back up my Documents folder to an external drive nightly", "should_trigger": false},
+  {"query": "Deploy these static files to my S3 bucket and set up CloudFront", "should_trigger": false},
+  {"query": "Read this CSV file and tell me what the data looks like", "should_trigger": false},
+  {"query": "Help me restructure my monorepo - move packages into a proper workspace layout", "should_trigger": false},
+  {"query": "Set up a cron job to automatically move old log files to cold storage", "should_trigger": false},
+  {"query": "Compare the contents of these two folders and show me what's different", "should_trigger": false},
+  {"query": "Compress all the images in this folder to reduce file size", "should_trigger": false},
+  {"query": "Help me set up Google Drive sync so my files stay in sync across machines", "should_trigger": false}
+]

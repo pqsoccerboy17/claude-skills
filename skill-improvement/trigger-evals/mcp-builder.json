@@ -1,0 +1,22 @@
+[
+  {"query": "I want to build an MCP server that connects Claude to my Airtable base", "should_trigger": true},
+  {"query": "Help me create a custom MCP tool that reads from my company's internal API", "should_trigger": true},
+  {"query": "Can you scaffold a new TypeScript MCP server project with the standard template?", "should_trigger": true},
+  {"query": "My MCP server keeps returning timeout errors - help me debug the connection", "should_trigger": true},
+  {"query": "Build an MCP integration so Claude can query my PostgreSQL database directly", "should_trigger": true},
+  {"query": "I want to make a Python MCP server that wraps our invoice processing system", "should_trigger": true},
+  {"query": "How do I add a new tool to my existing MCP server? I want to add a search endpoint", "should_trigger": true},
+  {"query": "Create an MCP server that lets Claude read and write to Google Sheets", "should_trigger": true},
+  {"query": "Help me write the tool definitions and handler functions for a new MCP server that manages calendar events", "should_trigger": true},
+  {"query": "I need to publish my MCP server as an npm package - walk me through the setup", "should_trigger": true},
+  {"query": "Search my Notion database using the Notion MCP tool for recent meeting notes", "should_trigger": false},
+  {"query": "Build a REST API in Express.js for my task management app", "should_trigger": false},
+  {"query": "How do I call the Claude API from my Python script using the Anthropic SDK?", "should_trigger": false},
+  {"query": "Help me configure my claude_desktop_config.json to add the GitHub MCP server", "should_trigger": false},
+  {"query": "Use the Brave Search MCP to look up recent news about AI startups", "should_trigger": false},
+  {"query": "Build a Chrome extension that integrates with Claude for summarizing web pages", "should_trigger": false},
+  {"query": "Help me set up a webhook endpoint that receives Slack events", "should_trigger": false},
+  {"query": "What MCP servers are available for connecting Claude to email?", "should_trigger": false},
+  {"query": "Write a GitHub Action that runs on every pull request to lint my code", "should_trigger": false},
+  {"query": "Help me troubleshoot why my Playwright MCP tool isn't clicking the right element", "should_trigger": false}
+]

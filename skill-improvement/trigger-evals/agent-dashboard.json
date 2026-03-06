@@ -1,0 +1,22 @@
+[
+  {"query": "Launch the agent surveillance dashboard so I can watch what my teammates are doing.", "should_trigger": true},
+  {"query": "Surveil my agents - I want to see their progress in real time.", "should_trigger": true},
+  {"query": "Open the dashboard to monitor my agent team activity.", "should_trigger": true},
+  {"query": "Show me what my agents are working on right now. Pull up the monitoring UI.", "should_trigger": true},
+  {"query": "Start the agent watcher - I need to keep an eye on the cowork tasks.", "should_trigger": true},
+  {"query": "Can you fire up that localhost dashboard that tracks agent teams?", "should_trigger": true},
+  {"query": "I kicked off three agents and want to watch their logs. Launch the surveillance view.", "should_trigger": true},
+  {"query": "Pull up the real-time agent monitor on port 3847.", "should_trigger": true},
+  {"query": "I need visibility into my running agents. Start the dashboard.", "should_trigger": true},
+  {"query": "Watch agents - show me the live feed of what each teammate is doing.", "should_trigger": true},
+  {"query": "Create an agent team with three teammates to refactor the auth module.", "should_trigger": false},
+  {"query": "Check if my servers are healthy and all services are running.", "should_trigger": false},
+  {"query": "Build a web dashboard that displays analytics for our SaaS product.", "should_trigger": false},
+  {"query": "Set up monitoring and alerting for our production infrastructure.", "should_trigger": false},
+  {"query": "How do I configure Agent Teams in Claude Code?", "should_trigger": false},
+  {"query": "Run the ecosystem status check to see what's up and what's down.", "should_trigger": false},
+  {"query": "Create a React dashboard component with charts and real-time data.", "should_trigger": false},
+  {"query": "Spin up a new agent to handle the database migration task.", "should_trigger": false},
+  {"query": "Set up Grafana dashboards for our API latency metrics.", "should_trigger": false},
+  {"query": "What tools are available for monitoring microservices in production?", "should_trigger": false}
+]

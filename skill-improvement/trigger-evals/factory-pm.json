@@ -1,0 +1,22 @@
+[
+  {"query": "I want to build a notification system for our app. Let's spec it out before writing any code.", "should_trigger": true},
+  {"query": "Write a PRD for a user onboarding flow that includes email verification and a welcome wizard.", "should_trigger": true},
+  {"query": "I have an idea for a new feature - a client portal where customers can see their project status. Plan it out.", "should_trigger": true},
+  {"query": "Before we start coding, I need a full spec for the admin dashboard including roles and permissions.", "should_trigger": true},
+  {"query": "Let's do spec-before-code on this: I want to add Stripe billing integration to the SaaS app.", "should_trigger": true},
+  {"query": "Build me a search feature for the knowledge base. I want to think through the requirements first.", "should_trigger": true},
+  {"query": "I need a product requirements document for a mobile-responsive calendar booking widget.", "should_trigger": true},
+  {"query": "Help me plan a new API endpoint system for third-party integrations - full spec with edge cases.", "should_trigger": true},
+  {"query": "I want to add multi-tenant support to our app. This is a big change so let's plan carefully before touching code.", "should_trigger": true},
+  {"query": "Spec out a file upload feature with drag-and-drop, progress bars, and virus scanning. Don't code yet.", "should_trigger": true},
+  {"query": "There's a bug where the login page crashes on Safari. Can you fix it?", "should_trigger": false},
+  {"query": "Review this pull request and tell me if the code looks good.", "should_trigger": false},
+  {"query": "Write documentation for our existing authentication module.", "should_trigger": false},
+  {"query": "Refactor this component to use React hooks instead of class components.", "should_trigger": false},
+  {"query": "What's the best project management tool for a small dev team?", "should_trigger": false},
+  {"query": "Add unit tests for the payment processing service.", "should_trigger": false},
+  {"query": "Update the README with the new environment variables we added last sprint.", "should_trigger": false},
+  {"query": "Our API is returning 500 errors intermittently. Help me debug it.", "should_trigger": false},
+  {"query": "Optimize this database query - it's taking 30 seconds to run.", "should_trigger": false},
+  {"query": "How should I structure my project folders for a Next.js app?", "should_trigger": false}
+]
